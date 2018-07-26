@@ -1,2 +1,4 @@
 # rogue-two
-# test change
+# Require 
+# laravel 5.x
+# MySQL
