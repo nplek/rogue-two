@@ -32,6 +32,11 @@ class CreateUsersTable extends Migration
             $table->string('phone',30)->nullable();
             $table->string('photo')->nullable();
             
+            $table->unsignedInteger('manager_id')->nullable();
+            $table->foreign('manager_id')
+                ->references('id')
+                ->on('users');
+                
             $table->timestamps();
         });
     }

@@ -14,12 +14,19 @@ class TeamController extends Controller
     }
 
     public function index() {
-        return new TeamCollection(Team::all());
+        return new TeamCollection(Team::paginate(20));
+    }
+
+    public function list()
+    {
+        return TeamResource::collection(Team::all());
     }
 
     public function store(Request $request) {
         $this->validate($request, [
             'name'=>'required|max:50|unique:teams',
+            'display_name' => 'max:100',
+            'description' => 'max:100',
             ]
         );
 
@@ -37,14 +44,15 @@ class TeamController extends Controller
     }
 
     public function show($id) {
-        return new TeamResource(Role::findOrFail($id));
+        return new TeamResource(Team::findOrFail($id));
     }
 
     public function update(Request $request, $id) {
         $this->validate($request, [
             'name'=>'required|max:50,'.$id,
-            ]
-        );
+            'display_name' => 'max:100',
+            'description' => 'max:100',
+        ]);
         $team = Team::findOrFail($id);
         $name = $request['name'];
         $display_name = $request['display_name'];
@@ -55,14 +63,13 @@ class TeamController extends Controller
         $team->description = $description;
         $team->save();
 
-        return new TeamResource($role);
+        return new TeamResource($team);
     }
 
     public function destroy($id)
     {
         $team = Team::findOrFail($id);
         $team->delete();
-        //\LogActivity::addToLog('Delete role success.');
-        return new TeamResource($role);
+        return new TeamResource($team);
     }
 }

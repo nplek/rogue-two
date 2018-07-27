@@ -22,7 +22,7 @@ class CreatePositionsTable extends Migration
             $table->foreign('parent_id')
                 ->references('id')
                 ->on('positions');
-
+            $table->string('active',1)->default('A');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -12,6 +12,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Short name</th>
+                        <th>Active</th>
                         <th width="200">&nbsp;</th>
                     </tr>
                     </thead>
@@ -19,6 +20,8 @@
                     <tr v-for="(location, index) in locations" v-bind:key="location.id">
                         <td>{{ location.name }}</td>
                         <td>{{ location.short_name }}</td>
+                        <td v-if="location.active == 'A'"> <i class="fa fa-eye text-green"></i></td>
+                        <td v-else><i class="fa fa-eye-slash text-red"></i></td>
                         <td>
                             <div v-if="location.deleted_at === null">
                             <router-link :to="{name: 'editLocation', params: {id: location.id}}" class="btn btn-sm btn-info">
@@ -81,7 +84,7 @@ import VuejsPaginate from 'vuejs-paginate'
                     }
                 }).then(function (resp) {
                     app.locations = resp.data.data;
-                    app.pageCount = resp.data.last_page;
+                    app.pageCount = resp.data.meta.last_page;
                 })
                 .catch(function (resp) {
                     console.log(resp);
@@ -93,7 +96,8 @@ import VuejsPaginate from 'vuejs-paginate'
                     var app = this;
                     axios.delete('/api/locations/' + id)
                         .then(function (resp) {
-                            app.locations.splice(index,1);
+                            //app.locations.splice(index,1);
+                            app.fetchPaginate(app.current_page);
                         })
                         .catch(function (resp) {
                             alert("Could not delete location" );
@@ -103,17 +107,12 @@ import VuejsPaginate from 'vuejs-paginate'
             restoreEntry(id,index) {
                 if (confirm("Do you really want to restore it?")) {
                     var app = this;
-                    axios.post('/api/locations/restore/' + id)
-                        .catch(function (resp) {
-                            alert("Could not restore location");
-                        });
-                    axios.get('/api/locations')
+                    axios.post('/api/locations/' + id + '/restore')
                         .then(function (resp) {
-                            app.locations = resp.data;
+                            app.fetchPaginate(app.current_page);
                         })
                         .catch(function (resp) {
-                            console.log(resp);
-                            alert("Could not load locations");
+                            alert("Could not restore location");
                         });
                 }
             }

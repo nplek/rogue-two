@@ -8,6 +8,8 @@ use Laratrust\Traits\LaratrustUserTrait;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
+use App\Location;
+use App\Position;
 
 class User extends Authenticatable
 {
@@ -40,7 +42,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','first_name','last_name','employee_id','location_id','active'
     ];
 
     /**
@@ -66,5 +68,16 @@ class User extends Authenticatable
 
     public function getEmployeeDetailAttribute(){
         return "{$this->employee_id} {$this->first_name} {$this->last_name}";
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
+
+    public function positions()
+    {
+        return $this->belongsToMany(Position::class,'user_has_positions',
+        'user_id','position_id')->withTimestamps();
     }
 }

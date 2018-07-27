@@ -11,13 +11,13 @@ class Project extends Model
     use LogsActivity;
     protected static $logName = 'system';
     protected static $logOnlyDirty = true;
-    protected static $logAttributes = ['name', 'short_name','project_code','budget'];
+    protected static $logAttributes = ['name', 'short_name','project_code','budget','active'];
 
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'name', 'short_name','project_code'
+        'name', 'short_name','project_code','active'
     ];
     
     protected $full_name=null;

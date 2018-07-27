@@ -15,7 +15,12 @@ class RoleController extends Controller
     }
 
     public function index() {
-        return new RoleCollection(Role::all());
+        return new RoleCollection(Role::paginate(20));
+    }
+
+    public function list()
+    {
+        return RoleResource::collection(Role::all());
     }
 
     public function store(Request $request) {
@@ -25,22 +30,14 @@ class RoleController extends Controller
             ]
         );
 
-        $name = $request['name'];
-        $display_name = $request['display_name'];
-        $description = $request['description'];
-
         $role = new Role();
-        $role->name = $name;
-        $role->display_name = $display_name;
-        $role->description = $description;
+        $role->name = $request['name'];
+        $role->display_name = $request['display_name'];
         $role->save();
         $permissions = $request['permissions'];
+        
         $role->attachPermissions($permissions);
-
-        /*foreach($permissions as $permission) {
-            $p = Permission::where('id', '=', $permission)->firstOrFail();
-            $role->attachPermission($p);
-        }*/
+        
         return $role;
     }
 
@@ -64,18 +61,8 @@ class RoleController extends Controller
         $role->description = $description;
         $role->save();
 
-        $p_all = Permission::all();//Get all permissions
-
         $permissions = $request['permissions'];
         $role->syncPermissions($permissions);
-        /*foreach ($p_all as $p) {
-            $role->detachPermission($p); //Remove all permissions associated with role
-        }
-
-        foreach ($permissions as $permission) {
-            $p = Permission::where('id', '=', $permission)->firstOrFail(); //Get corresponding form //permission in db
-            $role->attachPermission($p);  //Assign permission to role
-        }*/
 
         return new RoleResource($role);
     }
@@ -84,7 +71,6 @@ class RoleController extends Controller
     {
         $role = Role::findOrFail($id);
         $role->delete();
-        //\LogActivity::addToLog('Delete role success.');
         return new RoleResource($role);
     }
 }

@@ -13,9 +13,11 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Full name</th>
+                        <th>User Roles</th>
                         <th>Last login</th>
                         <th>Last login ip</th>
                         <th>Last logout</th>
+                        <th>Active</th>
                         <th width="200">&nbsp;</th>
                     </tr>
                     </thead>
@@ -24,9 +26,28 @@
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.employee_id }} {{ user.first_name }} {{ user.last_name }}</td>
+                        <td>
+                            <span  v-for="(role) in user.roles" v-bind:key="role.id" class="badge bg-green" > {{ role.display_name }} </span>
+                        </td>
                         <td>{{ user.last_login_at }}</td>
                         <td>{{ user.last_login_ip }}</td>
                         <td>{{ user.last_logout_at }}</td>
+                        <td v-if="user.active == 'A'">
+                            <a href="#" >
+                                <span class="fa-stack">
+                                <i class="fa fa-circle fa-stack-2x text-success"></i>
+                                <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </td>
+                        <td v-else>
+                            <a href="#">
+                            <span class="fa-stack">
+                            <i class="fa fa-user fa-stack-1x"></i>
+                            <i class="fa fa-ban fa-stack-2x text-danger"></i>
+                            </span>
+                            </a>
+                        </td>
                         <td>
                             <div v-if="user.deleted_at === null">
                             <router-link :to="{name: 'editUser', params: {id: user.id}}" class="btn btn-sm btn-info">
@@ -78,7 +99,6 @@ import VuejsPaginate from 'vuejs-paginate'
         },
         mounted() {
             this.fetchPaginate();
-            
         },
         methods: {
             fetchPaginate(page){
@@ -89,7 +109,8 @@ import VuejsPaginate from 'vuejs-paginate'
                     }
                 }).then(function (resp) {
                     app.users = resp.data.data;
-                    app.pageCount = resp.data.last_page;
+                    //app.pageCount = resp.data.last_page;
+                    app.pageCount = resp.data.meta.last_page;
                 })
                 .catch(function (resp) {
                     console.log(resp);
@@ -101,7 +122,8 @@ import VuejsPaginate from 'vuejs-paginate'
                     var app = this;
                     axios.delete('/api/users/' + id)
                         .then(function (resp) {
-                            app.users.splice(index,1);
+                            //app.users.splice(index,1);
+                            app.fetchPaginate(app.current_page);
                         })
                         .catch(function (resp) {
                             alert("Could not delete user" );
@@ -111,17 +133,12 @@ import VuejsPaginate from 'vuejs-paginate'
             restoreEntry(id,index) {
                 if (confirm("Do you really want to restore it?")) {
                     var app = this;
-                    axios.post('/api/users/restore/' + id)
-                        .catch(function (resp) {
-                            alert("Could not restore user");
-                        });
-                    axios.get('/api/users')
+                    axios.post('/api/users/' + id + '/restore')
                         .then(function (resp) {
-                            app.users = resp.data;
+                            app.fetchPaginate(app.current_page);
                         })
                         .catch(function (resp) {
-                            console.log(resp);
-                            alert("Could not load user");
+                            alert("Could not restore user");
                         });
                 }
             }

@@ -24,6 +24,7 @@ class CreateProjectsTable extends Migration
             $table->double('used_budget',16,2)->default(0);
             $table->date('start_date');
             $table->date('end_date');
+            $table->string('active',1)->default('A');
             $table->softDeletes();
             $table->timestamps();
         });

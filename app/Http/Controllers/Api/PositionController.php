@@ -15,7 +15,12 @@ class PositionController extends Controller
 
     public function index()
     {
-        return Position::withTrashed()->with('parent')->paginate(20);
+        return new PositionCollection(Position::withTrashed()->paginate(50));
+    }
+
+    public function list()
+    {
+        return PositionResource::collection(Position::active()->get());
     }
 
     public function store(Request $request)
@@ -26,9 +31,10 @@ class PositionController extends Controller
         ]);
 
         $position = Position::create([
-            "name" => $request['name'],
-            "short_name" => $request['short_name'],
+            'name' => $request['name'],
+            'short_name' => $request['short_name'],
             'parent_id' => $request['parent_id'],
+            'active' => $request['active'],
         ]);
 
         return new PositionResource($position);
@@ -49,9 +55,8 @@ class PositionController extends Controller
         $position->name = $request['name'];
         $position->short_name = $request['short_name'];
         $position->parent_id = $request['parent_id'];
+        $position->active = $request['active'];
         $position->save();
-
-        //\LogActivity::addToLog('update Position success.');
 
         return new PositionResource($position);
     }

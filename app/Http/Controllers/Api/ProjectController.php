@@ -15,7 +15,12 @@ class ProjectController extends Controller
 
     public function index()
     {
-        return Project::withTrashed()->paginate(10);
+        return new ProjectCollection(Project::withTrashed()->paginate(10));
+    }
+
+    public function list()
+    {
+        return ProjectResource::collection(Project::active()->get());
     }
 
     public function store(Request $request)
@@ -42,6 +47,7 @@ class ProjectController extends Controller
         $end_date = $request['end_date'];
         $project->start_date = substr($start_date,0,10);
         $project->end_date = substr($end_date,0,10);
+        $project->active = $request['active'];
         $project->save();
 
 
@@ -49,7 +55,6 @@ class ProjectController extends Controller
     }
 
     public function show($id){
-        //return Project::findOrFail($id);
         return new ProjectResource(Project::findOrFail($id));
     }
 
@@ -72,8 +77,9 @@ class ProjectController extends Controller
         $project->budget = $request['budget'];
         $start_date = $request['start_date'];
         $end_date = $request['end_date'];
-        $project->start_date = substr($start_date,0,10);  //date('Y-m-d H:i:s');
-        $project->end_date = substr($end_date,0,10);    //date('Y-m-d H:i:s', strtotime("+60 days"));
+        $project->start_date = substr($start_date,0,10);
+        $project->end_date = substr($end_date,0,10);
+        $project->active = $request['active'];
         $project->save();
 
         return new ProjectResource($project);

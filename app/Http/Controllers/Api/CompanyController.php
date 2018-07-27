@@ -15,8 +15,12 @@ class CompanyController extends Controller
 
     public function index()
     {
-        //authen check
-        return Company::withTrashed()->paginate(10);
+        return new CompanyCollection(Company::withTrashed()->paginate(50));
+    }
+
+    public function list()
+    {
+        return CompanyResource::collection(Company::active()->get());
     }
 
     public function store(Request $request)
@@ -29,6 +33,7 @@ class CompanyController extends Controller
         $company = Company::create([
             "name" => $request['name'],
             "short_name" => $request['short_name'],
+            'active' => $request['active'],
         ]);
 
         return new CompanyResource($company);
@@ -50,19 +55,8 @@ class CompanyController extends Controller
         $company = Company::findOrFail($id);
         $company->name = $request['name'];
         $company->short_name = $request['short_name'];
-        //$company->activity()->causedBy(auth()->user());
+        $company->active = $request['active'];
         $company->save();
-        /*activity('myapp')
-        ->withProperties([
-            'ip' => $request->ip(), 
-            'method' => $request->method(),
-            'agent'  => $request->header('user-agent'),
-            'user_id' => auth()->check() ? auth()->user()->id : 1,
-            'url' => $request->fullUrl()
-        ])
-        ->log('update success');*/
-
-        
         
         return new CompanyResource($company);
     }

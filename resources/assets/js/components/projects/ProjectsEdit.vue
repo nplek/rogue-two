@@ -59,6 +59,14 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
+                            <input type="radio" id="active" value="A" v-model="project.active">
+                            <label for="active">Active</label>
+                            <input type="radio" id="inactive" value="I" v-model="project.active">
+                            <label for="inactive">Inactive</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
                             <button class="btn btn-success">Update</button>
                         </div>
                     </div>

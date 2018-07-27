@@ -22,6 +22,7 @@ class CreateDepartmentsTable extends Migration
             $table->foreign('company_id')
                 ->references('id')
                 ->on('companies');
+            $table->string('active',1)->default('A');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -15,10 +15,12 @@ class DepartmentController extends Controller
 
     public function index()
     {
-        //return Department::withTrashed()->get();
-        //return new DepartmentCollection(Department::with('company')->get());
-        //return Department::with('company')->get();
-        return Department::with('company')->paginate(10);
+        return new DepartmentCollection(Department::withTrashed()->paginate(50));
+    }
+
+    public function list()
+    {
+        return DepartmentResource::collection(Department::active()->get());
     }
 
     public function store(Request $request)
@@ -32,7 +34,8 @@ class DepartmentController extends Controller
         $department = Department::create([
             "name" => $request['name'],
             "short_name" => $request['short_name'],
-            "company_id" => $request['company_id']
+            "company_id" => $request['company_id'],
+            "active" => $request['active'],
         ]);
 
         return new DepartmentResource($department);
@@ -56,6 +59,7 @@ class DepartmentController extends Controller
         $department->name = $request['name'];
         $department->short_name = $request['short_name'];
         $department->company_id = $request['company_id'];
+        $department->active = $request['active'];
         $department->save();
 
         return new DepartmentResource($department);

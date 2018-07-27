@@ -33,6 +33,14 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
+                            <input type="radio" id="active" value="A" v-model="department.active">
+                            <label for="active">Active</label>
+                            <input type="radio" id="inactive" value="I" v-model="department.active">
+                            <label for="inactive">Inactive</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
                             <button class="btn btn-success">Create</button>
                         </div>
                     </div>
@@ -54,7 +62,7 @@
             let app = this;
             let id = app.$route.params.id;
             app.departmentId = id;
-            axios.get('/api/companies')
+            axios.post('/api/companies/list')
                 .then(function (resp) {
                     app.companies = resp.data.data;
                 })

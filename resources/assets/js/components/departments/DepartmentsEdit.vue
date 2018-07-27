@@ -33,7 +33,15 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <button class="btn btn-success">Create</button>
+                            <input type="radio" id="active" value="A" v-model="department.active">
+                            <label for="active">Active</label>
+                            <input type="radio" id="inactive" value="I" v-model="department.active">
+                            <label for="inactive">Inactive</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <button class="btn btn-success">Update</button>
                         </div>
                     </div>
                 </form>
@@ -54,7 +62,7 @@
             let app = this;
             let id = app.$route.params.id;
             app.departmentId = id;
-            axios.get('/api/companies')
+            axios.post('/api/companies/list')
                 .then(function (resp) {
                     app.companies = resp.data.data;
                 })
@@ -64,7 +72,6 @@
             axios.get('/api/departments/' + id)
                 .then(function (resp) {
                     app.department = resp.data.data;
-                    //comapany_id = app.department.company_id;
                 })
                 .catch(function () {
                     alert("Could not load your department")

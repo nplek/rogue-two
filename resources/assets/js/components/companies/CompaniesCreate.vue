@@ -22,6 +22,14 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
+                            <input type="radio" id="active" value="A" v-model="company.active">
+                            <label for="active">Active</label>
+                            <input type="radio" id="inactive" value="I" v-model="company.active">
+                            <label for="inactive">Inactive</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
                             <button class="btn btn-success">Create</button>
                         </div>
                     </div>

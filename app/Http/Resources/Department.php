@@ -15,13 +15,15 @@ class Department extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
-        /*return [
+        //return parent::toArray($request);
+        return [
             'id' => $this->id,
             'name' => $this->name,
             'short_name' => $this->short_name,
+            'deleted_at' => $this->deleted_at,
             'company_id' => $this->company_id,
-            'company'  => CompanyResource::collection($this->company)
-        ];*/
+            'active' => $this->active,
+            'company'  => new CompanyResource($this->company)
+        ];
     }
 }

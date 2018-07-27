@@ -5,56 +5,69 @@
         </div>
 
         <div class="panel panel-default">
-            <div class="panel-heading">Edit Project</div>
+            <div class="panel-heading">Edit User</div>
             <div class="panel-body">
                 <form v-on:submit="saveForm()">
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Project code</label>
-                            <input type="text" v-model="project.project_code" class="form-control">
+                            <label class="control-label">User name</label>
+                            <input type="text" v-model="user.name" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Name</label>
-                            <input type="text" v-model="project.name" class="form-control">
+                            <label class="control-label">Email</label>
+                            <input type="text" v-model="user.email" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Short name</label>
-                            <input type="text" v-model="project.short_name" class="form-control">
+                            <label class="control-label">First name</label>
+                            <input type="text" v-model="user.first_name" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Budget</label>
-                            <input type="number" v-model="project.budget" class="form-control">
+                            <label class="control-label">Last name</label>
+                            <input type="text" v-model="user.last_name" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Start date</label>
-                            <date-picker type="date" 
-                                
-                                v-model="project.start_date" 
-                                lang="en"
-                                :first-day-of-week="7" 
-                                :confirm="true"
-                                >
-                            </date-picker>
+                            <label class="control-label">Location</label>
+                            <select v-model='user.location_id' class="form-control">
+                                <option disabled value="">Please select ...</option>
+                                <option v-for="location in locations" v-bind:key="location.id" v-bind:value="location.id">
+                                    {{ location.name }}
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">End date</label>
-                            <date-picker type="date" 
-                                v-model="project.end_date" 
-                                lang="en" 
-                                :first-day-of-week="1"
-                                :confirm="true"
-                                >
-                            </date-picker>
+                            <label class="control-label">Positions</label>
+                            <div v-for="(position) in positions" v-bind:key="position.id"> 
+                                <input type="checkbox" v-model="user.positions" :value="position.id">
+                                {{ position.name }} 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-grop" >
+                            <label class="control-label">Roles</label>
+                                <div v-for="(role) in roles" v-bind:key="role.id"> 
+                                    <input type="checkbox" v-model="user.roles" :value="role.id">
+                                    {{ role.display_name }} 
+                                </div>
+                            <br/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <input type="radio" id="active" value="A" v-model="user.active">
+                            <label for="active">Active</label>
+                            <input type="radio" id="inactive" value="I" v-model="user.active">
+                            <label for="inactive">Inactive</label>
                         </div>
                     </div>
                     <div class="row">
@@ -83,35 +96,85 @@ import DatePicker from 'vue2-datepicker'
         mounted() {
             let app = this;
             let id = app.$route.params.id;
-            app.projectId = id;
-            axios.get('/api/projects/' + id)
+            app.userId = id;
+            axios.get('/api/users/' + id)
                 .then(function (resp) {
-                    app.project = resp.data.data;
+                    app.user = resp.data.data;
+                    app.userRoles = [];
+                    for (var index in resp.data.data.roles){
+                        app.userRoles.push(resp.data.data.roles[index]['id']);
+                    }
+                    app.user.roles = app.userRoles;
+                    app.userPositions = [];
+                    for (var index in resp.data.data.positions){
+                        app.userPositions.push(resp.data.data.positions[index]['id']);
+                    }
+                    app.user.positions = app.userPositions;
                 })
                 .catch(function () {
-                    alert("Could not load your project")
+                    alert("Could not load your user")
                 });
+            this.getLocationsList();
+            this.getRolesList();
+            this.getPositionsList();
         },
         data: function () {
             return {
                 errors: [],
-                projectId: null,
-                project: {
-                    project_code: '',
+                userId: null,
+                userRoles:[],
+                userPositions:[],
+                user: {
                     name: '',
-                    short_name: '',
-                    budget: '',
-                    start_date: '',
-                    end_date: ''
-                }
+                    first_name: '',
+                    last_name: '',
+                    email: '',
+                    location_id: '',
+                    active:'',
+                    roles:[],
+                    positions:[]
+                },
+                locations:[],
+                roles: [],
+                positions:[]
             }
         },
         methods: {
+            getLocationsList(){
+                let app = this;
+                axios.post('/api/locations/list')
+                    .then(function (resp) {
+                        app.locations = resp.data.data;
+                    })
+                    .catch(function () {
+                        alert("Could not load your location")
+                    });
+            },
+            getRolesList(){
+                let app = this;
+                axios.post('/api/roles/list')
+                    .then(function (resp) {
+                        app.roles = resp.data.data;
+                    })
+                    .catch(function () {
+                        alert("Could not load your roles")
+                    });
+            },
+            getPositionsList(){
+                let app = this;
+                axios.post('/api/positions/list')
+                    .then(function (resp) {
+                        app.positions = resp.data.data;
+                    })
+                    .catch(function () {
+                        alert("Could not load your roles")
+                    });
+            },
             saveForm() {
                 event.preventDefault();
                 var app = this;
-                var newProject = app.project;
-                axios.patch('/api/projects/' + app.projectId, newProject)
+                var newUser = app.user;
+                axios.patch('/api/users/' + app.userId, newUser)
                     .then(function (resp) {
                         app.$router.replace('/');
                     })
@@ -120,7 +183,7 @@ import DatePicker from 'vue2-datepicker'
                         for (var err in resp.response.data.errors){
                             app.errors.push( resp.response.data.errors[err].toString() );
                         }
-                        alert("Could not update your project");
+                        alert("Could not update your user");
                     });
             }
         }

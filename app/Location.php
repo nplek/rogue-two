@@ -13,12 +13,17 @@ class Location extends Model
     protected $dates = ['deleted_at'];
     protected static $logName = 'system';
     protected static $logOnlyDirty = true;
-    protected static $logAttributes = ['name', 'short_name'];
+    protected static $logAttributes = ['name', 'short_name','active'];
 
     protected $fillable = [
-        'name', 'short_name'
+        'name', 'short_name','active'
     ];
 
+    public function scopeActive($query)
+    {
+        return $query->where('active', 'A');
+    }
+    
     public function users()
     {
         return $this->hasMany(User::class);

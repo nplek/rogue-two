@@ -13,6 +13,7 @@
                         <th>Name</th>
                         <th>Short name</th>
                         <th>Company</th>
+                        <th>Active</th>
                         <th width="200">&nbsp;</th>
                     </tr>
                     </thead>
@@ -21,6 +22,8 @@
                         <td>{{ department.name }}</td>
                         <td>{{ department.short_name }}</td>
                         <td>{{ department.company.name }}</td>
+                        <td v-if="department.active == 'A'"> <i class="fa fa-eye text-green"></i></td>
+                        <td v-else><i class="fa fa-eye-slash text-red"></i></td>
                         <td>
                             <div v-if="department.deleted_at === null">
                             <router-link :to="{name: 'editDepartment', params: {id: department.id}}" class="btn btn-sm btn-info">
@@ -75,7 +78,6 @@ import VuejsPaginate from 'vuejs-paginate'
         },
         methods: {
             fetchPaginate(page = 1){
-                //console.log("url: " + url);
                 var app = this;
                 axios.get('/api/departments/', {
                     params: {
@@ -83,7 +85,7 @@ import VuejsPaginate from 'vuejs-paginate'
                     }
                 }).then((resp) => {
                     app.departments = resp.data.data;
-                    app.pageCount = resp.data.last_page;
+                    app.pageCount = resp.data.meta.last_page;
                 });
             },
             deleteEntry(id, index) {
@@ -91,9 +93,8 @@ import VuejsPaginate from 'vuejs-paginate'
                     var app = this;
                     axios.delete('/api/departments/' + id)
                         .then(function (resp) {
-                            //app.companies.splice(index, 1);
-                            //var result = resp;
-                            app.departments.splice(index,1);
+                            //app.departments.splice(index,1);
+                            app.fetchPaginate(app.current_page)
                         })
                         .catch(function (resp) {
                             alert("Could not delete department");
@@ -103,17 +104,12 @@ import VuejsPaginate from 'vuejs-paginate'
             restoreEntry(id,index) {
                 if (confirm("Do you really want to restore it?")) {
                     var app = this;
-                    axios.post('/api/departments/restore/' + id)
-                        .catch(function (resp) {
-                            alert("Could not restore department");
-                        });
-                    axios.get('/api/departments')
+                    axios.post('/api/departments/' + id + '/restore')
                         .then(function (resp) {
-                            app.departments = resp.data;
+                            app.fetchPaginate(app.current_page)
                         })
                         .catch(function (resp) {
-                            console.log(resp);
-                            alert("Could not load departments");
+                            alert("Could not restore department");
                         });
                 }
             }

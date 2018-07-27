@@ -13,6 +13,7 @@
                         <th>Name</th>
                         <th>Short name</th>
                         <th>Parent</th>
+                        <th>Active</th>
                         <th width="200">&nbsp;</th>
                     </tr>
                     </thead>
@@ -20,8 +21,10 @@
                     <tr v-for="(position, index) in positions" v-bind:key="position.id">
                         <td>{{ position.name }}</td>
                         <td>{{ position.short_name }}</td>
-                        <td v-if="position.parent === null"></td>
+                        <td v-if="position.parent === null">-</td>
                         <td v-else>{{ position.parent.name }}</td>
+                        <td v-if="position.active == 'A'"> <i class="fa fa-eye text-green"></i></td>
+                        <td v-else><i class="fa fa-eye-slash text-red"></i></td>
                         <td>
                             <div v-if="position.deleted_at === null">
                             <router-link :to="{name: 'editPosition', params: {id: position.id}}" class="btn btn-sm btn-info">
@@ -84,7 +87,7 @@ import VuejsPaginate from 'vuejs-paginate'
                     }
                 }).then(function (resp) {
                     app.positions = resp.data.data;
-                    app.pageCount = resp.data.last_page;
+                    app.pageCount = resp.data.meta.last_page;
                 })
                 .catch(function (resp) {
                     console.log(resp);
@@ -96,7 +99,7 @@ import VuejsPaginate from 'vuejs-paginate'
                     var app = this;
                     axios.delete('/api/positions/' + id)
                         .then(function (resp) {
-                            app.positions.splice(index,1);
+                            app.fetchPaginate(app.current_page);
                         })
                         .catch(function (resp) {
                             alert("Could not delete position" );
@@ -106,17 +109,12 @@ import VuejsPaginate from 'vuejs-paginate'
             restoreEntry(id,index) {
                 if (confirm("Do you really want to restore it?")) {
                     var app = this;
-                    axios.post('/api/positions/restore/' + id)
-                        .catch(function (resp) {
-                            alert("Could not restore position");
-                        });
-                    axios.get('/api/positions')
+                    axios.post('/api/positions/' + id + '/restore')
                         .then(function (resp) {
-                            app.positions = resp.data;
+                            app.fetchPaginate(app.current_page);
                         })
                         .catch(function (resp) {
-                            console.log(resp);
-                            alert("Could not load positions");
+                            alert("Could not restore position");
                         });
                 }
             }

@@ -15,9 +15,12 @@ class UserController extends Controller
 
     public function index()
     {
-        //return new UserCollection(User::get());
-        //return User::withTrashed()->paginate(10);
-        return User::paginate(10);
+        return new UserCollection(User::withTrashed()->paginate(50));
+    }
+
+    public function list()
+    {
+        return UserResource::collection(User::active()->get());
     }
 
     public function store(Request $request)
@@ -25,14 +28,36 @@ class UserController extends Controller
         $this->validate($request, [
             'name'=>'required|alpha_dash|max:120',
             'email'=>'required|email|unique:users',
-            'password'=>'required|min:6|confirmed'
+            'password'=>'min:6|confirmed',
+            'first_name' => 'required|max:100',
+            'last_name' => 'required|max:100',
         ]);
 
-        $user = User::create($request->only('email', 'name', 'password'));
+        $user = new User();
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->first_name = $request['first_name'];
+        $user->last_name = $request['last_name'];
+        if ($request['password']) {
+            $user->password = $request['password'];
+        } else {
+            $user->password = str_random(10);
+        }
+        $user->location_id = $request['location_id'];
+        $user->active = $request['active'];
+        $user->save();
 
         $roles = $request['roles'];
         if (isset($roles)) {
             $user->attachRoles($roles);
+        }
+        $positions = $request['positions'];
+
+        if (isset($positions)) {
+            $user->positions()->sync($positions);
+        }        
+        else {
+            $user->positions()->detach();
         }
 
         return new UserResource($user);
@@ -47,16 +72,32 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name'=>'required|alpha_dash|max:120',
-            'email'=>'required|email|unique:users,email,'.$id
+            'email'=>'required|email|unique:users,email,'.$id,
+            'first_name' => 'required|max:100',
+            'last_name' => 'required|max:100',
         ]);
 
         $user = User::findOrFail($id);
-        $input = $request->only(['name', 'email']);
-        $user->fill($input)->save();
+        //$input = $request->only(['name', 'email']);
+        //$user->fill($input)->save();
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->first_name = $request['first_name'];
+        $user->last_name = $request['last_name'];
+        $user->location_id = $request['location_id'];
+        $user->active = $request['active'];
+        $user->save();
 
         $roles = $request['roles'];
-
         $user->syncRoles($roles);
+        $positions = $request['positions'];
+
+        if (isset($positions)) {
+            $user->positions()->sync($positions);
+        }        
+        else {
+            $user->positions()->detach();
+        }
 
         return new UserResource($user);
     }

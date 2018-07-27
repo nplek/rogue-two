@@ -14,13 +14,18 @@ class Company extends Model
     use HasActivity;
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-    protected static $logAttributes = ['name', 'short_name'];
+    protected static $logAttributes = ['name', 'short_name','active'];
     protected static $logName = 'system';
 
     protected $fillable = [
-        'name', 'short_name'
+        'name', 'short_name','active'
     ];
 
+    public function scopeActive($query)
+    {
+        return $query->where('active', 'A');
+    }
+    
     public function departments(){
         return $this->hasMany(Department::class);
     }

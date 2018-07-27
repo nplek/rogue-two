@@ -15,7 +15,8 @@
                         <th>Short name</th>
                         <th>Budget</th>
                         <th>Booked</th>
-                        <th width="200">&nbsp;</th>
+                        <th>Active</th>
+                        <th width="230">&nbsp;</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -25,8 +26,13 @@
                         <td>{{ project.short_name }}</td>
                         <td>{{ project.budget }}</td>
                         <td>{{ project.book_budget }}</td>
+                        <td v-if="project.active == 'A'"> <i class="fa fa-eye text-green"></i></td>
+                        <td v-else><i class="fa fa-eye-slash text-red"></i></td>
                         <td>
                             <div v-if="project.deleted_at === null">
+                            <router-link :to="{name: 'editProject', params: {id: project.id}}" class="btn btn-sm btn-primary">
+                                View
+                            </router-link>
                             <router-link :to="{name: 'editProject', params: {id: project.id}}" class="btn btn-sm btn-info">
                                 Edit
                             </router-link>
@@ -76,7 +82,6 @@ import VuejsPaginate from 'vuejs-paginate'
         },
         mounted() {
             this.fetchPaginate();
-            
         },
         methods: {
             fetchPaginate(page){
@@ -99,7 +104,8 @@ import VuejsPaginate from 'vuejs-paginate'
                     var app = this;
                     axios.delete('/api/projects/' + id)
                         .then(function (resp) {
-                            app.projects.splice(index,1);
+                            //app.projects.splice(index,1);
+                            app.fetchPaginate(app.current_page);
                         })
                         .catch(function (resp) {
                             alert("Could not delete project" );
@@ -109,17 +115,12 @@ import VuejsPaginate from 'vuejs-paginate'
             restoreEntry(id,index) {
                 if (confirm("Do you really want to restore it?")) {
                     var app = this;
-                    axios.post('/api/projects/restore/' + id)
-                        .catch(function (resp) {
-                            alert("Could not restore project");
-                        });
-                    axios.get('/api/projects')
+                    axios.post('/api/projects/' + id + '/restore')
                         .then(function (resp) {
-                            app.projects = resp.data;
+                            app.fetchPaginate(app.current_page);
                         })
                         .catch(function (resp) {
-                            console.log(resp);
-                            alert("Could not load projects");
+                            alert("Could not restore project");
                         });
                 }
             }

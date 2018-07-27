@@ -16,6 +16,15 @@ import DashboardsIndex from './components/dashboards/DashboardsIndex.vue';
 import UsersIndex from './components/users/UsersIndex.vue';
 import UsersCreate from './components/users/UsersCreate.vue';
 import UsersEdit from './components/users/UsersEdit.vue';
+import RolesIndex from './components/roles/RolesIndex.vue';
+import RolesCreate from './components/roles/RolesCreate.vue';
+import RolesEdit from './components/roles/RolesEdit.vue';
+import PermissionsIndex from './components/permissions/PermissionsIndex.vue';
+import PermissionsCreate from './components/permissions/PermissionsCreate.vue';
+import PermissionsEdit from './components/permissions/PermissionsEdit.vue';
+import TeamsIndex from './components/teams/TeamsIndex.vue';
+import TeamsCreate from './components/teams/TeamsCreate.vue';
+import TeamsEdit from './components/teams/TeamsEdit.vue';
 import CompaniesIndex from './components/companies/CompaniesIndex.vue';
 import CompaniesCreate from './components/companies/CompaniesCreate.vue';
 import CompaniesEdit from './components/companies/CompaniesEdit.vue';
@@ -31,21 +40,34 @@ import ProjectsEdit from './components/projects/ProjectsEdit.vue';
 import PositionsIndex from './components/positions/PositionsIndex.vue';
 import PositionsCreate from './components/positions/PositionsCreate.vue';
 import PositionsEdit from './components/positions/PositionsEdit.vue';
+import EmployeesIndex from './components/employees/EmployeesIndex.vue';
+import EmployeesEdit from './components/employees/EmployeesEdit.vue';
+import EmployeesShow from './components/employees/EmployeesShow.vue';
 const routes = [
     {
         path: '/',
         components: {
             dashboardsIndex: DashboardsIndex,
             usersIndex: UsersIndex,
+            rolesIndex: RolesIndex,
+            permissionsIndex: PermissionsIndex,
+            teamsIndex: TeamsIndex,
             companiesIndex: CompaniesIndex,
             departmentsIndex: DepartmentsIndex,
             locationsIndex: LocationsIndex,
             projectsIndex: ProjectsIndex,
             positionsIndex: PositionsIndex,
+            employeesIndex: EmployeesIndex,
         }
     },
     {path: '/admin/users/create', component: UsersCreate, name: 'createUser'},
     {path: '/admin/users/edit/:id', component: UsersEdit, name: 'editUser'},
+    {path: '/admin/roles/create', component: RolesCreate, name: 'createRole'},
+    {path: '/admin/roles/edit/:id', component: RolesEdit, name: 'editRole'},
+    {path: '/admin/permissions/create', component: PermissionsCreate, name: 'createPermission'},
+    {path: '/admin/permissions/edit/:id', component: PermissionsEdit, name: 'editPermission'},
+    {path: '/admin/teams/create', component: TeamsCreate, name: 'createTeam'},
+    {path: '/admin/teams/edit/:id', component: TeamsEdit, name: 'editTeam'},
     {path: '/admin/companies/create', component: CompaniesCreate, name: 'createCompany'},
     {path: '/admin/companies/edit/:id', component: CompaniesEdit, name: 'editCompany'},
     {path: '/admin/departments/create', component: DepartmentsCreate, name: 'createDepartment'},
@@ -56,6 +78,8 @@ const routes = [
     {path: '/admin/projects/edit/:id', component: ProjectsEdit, name: 'editProject'},
     {path: '/admin/positions/create', component: PositionsCreate, name: 'createPosition'},
     {path: '/admin/positions/edit/:id', component: PositionsEdit, name: 'editPosition'},
+    {path: '/admin/employees/edit/:id', component: EmployeesEdit, name: 'editEmployee'},
+    {path: '/admin/employees/show/:id', component: EmployeesShow, name: 'showEmployee'},
 ]
 
 const router = new VueRouter({ routes })

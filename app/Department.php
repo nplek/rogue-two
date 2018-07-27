@@ -13,11 +13,16 @@ class Department extends Model
     protected $dates = ['deleted_at'];
     protected static $logName = 'system';
     protected static $logOnlyDirty = true;
-    protected static $logAttributes = ['name', 'short_name','company_id'];
+    protected static $logAttributes = ['name', 'short_name','company_id','active'];
 
     protected $fillable = [
-        'name', 'short_name','company_id'
+        'name', 'short_name','company_id','active'
     ];
+    
+    public function scopeActive($query)
+    {
+        return $query->where('active', 'A');
+    }
 
     public function company(){
         return $this->belongsTo(Company::class);

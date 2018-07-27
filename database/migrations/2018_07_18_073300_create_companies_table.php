@@ -17,6 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->increments('id');
             $table->string('name',120);
             $table->string('short_name',10)->unique();
+            $table->string('active',1)->default('A');
             $table->softDeletes();
             $table->timestamps();
         });

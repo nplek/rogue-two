@@ -12,6 +12,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Short name</th>
+                        <th>Active</th>
                         <th width="200">&nbsp;</th>
                     </tr>
                     </thead>
@@ -19,8 +20,13 @@
                     <tr v-for="(company, index) in companies" v-bind:key="company.id" >
                         <td>{{ company.name }}</td>
                         <td>{{ company.short_name }}</td>
+                        <td v-if="company.active == 'A'"> <i class="fa fa-eye text-green"></i></td>
+                        <td v-else><i class="fa fa-eye-slash text-red"></i></td>
                         <td>
                             <div v-if="company.deleted_at === null">
+                            <router-link :to="{name: 'editCompany', params: {id: company.id}}" class="btn btn-sm btn-info">
+                                View
+                            </router-link>
                             <router-link :to="{name: 'editCompany', params: {id: company.id}}" class="btn btn-sm btn-info">
                                 Edit
                             </router-link>
@@ -81,7 +87,7 @@ import VuejsPaginate from 'vuejs-paginate'
                 })
                     .then(function (resp) {
                         app.companies = resp.data.data;
-                        app.pageCount = resp.data.last_page;
+                        app.pageCount = resp.data.meta.last_page;
                     })
                     .catch(function (resp) {
                         console.log(resp);
@@ -93,7 +99,8 @@ import VuejsPaginate from 'vuejs-paginate'
                     var app = this;
                     axios.delete('/api/companies/' + id)
                         .then(function (resp) {
-                            app.companies.splice(index,1);
+                            //app.companies.splice(index,1);
+                            app.fetchPaginate(app.current_page);
                         })
                         .catch(function (resp) {
                             alert("Could not delete company");
@@ -103,18 +110,14 @@ import VuejsPaginate from 'vuejs-paginate'
             restoreEntry(id,index) {
                 if (confirm("Do you really want to restore it?")) {
                     var app = this;
-                    axios.post('/api/companies/restore/' + id)
+                    axios.post('/api/companies/' + id + '/restore')
+                        .then(function (resp){
+                            app.fetchPaginate(app.current_page);
+                        })
                         .catch(function (resp) {
                             alert("Could not restore company");
                         });
-                    axios.get('/api/companies')
-                        .then(function (resp) {
-                            app.companies = resp.data;
-                        })
-                        .catch(function (resp) {
-                            console.log(resp);
-                            alert("Could not load companies");
-                        });
+                    
                 }
             }
         }

@@ -15,8 +15,12 @@ class LocationController extends Controller
 
     public function index()
     {
-        return Location::withTrashed()->paginate(10);
-        //return new LocationCollection(Location::withTrashed()->get());
+        return new LocationCollection(Location::withTrashed()->paginate(50));
+    }
+
+    public function list()
+    {
+        return LocationResource::collection(Location::active()->get());
     }
 
     public function store(Request $request)
@@ -28,7 +32,8 @@ class LocationController extends Controller
 
         $location = Location::create([
             "name" => $request['name'],
-            "short_name" => $request['short_name']
+            "short_name" => $request['short_name'],
+            "active" => $request['active'],
         ]);
 
         return new LocationResource($location);
@@ -48,9 +53,8 @@ class LocationController extends Controller
         $location = Location::findOrFail($id);
         $location->name = $request['name'];
         $location->short_name = $request['short_name'];
+        $location->active = $request['active'];
         $location->save();
-
-        //\LogActivity::addToLog('update location success.');
 
         return new LocationResource($location);
     }
@@ -59,9 +63,6 @@ class LocationController extends Controller
     {
         $location = Location::findOrFail($id);
         $location->delete();
-
-        //\LogActivity::addToLog('delete location success.');
-
         return new LocationResource($location);
     }
 
@@ -69,8 +70,6 @@ class LocationController extends Controller
     {
         $location = Location::onlyTrashed()->findOrFail($id);
         $location->restore();
-
-        //\LogActivity::addToLog('restore location success.');
 
         return new LocationResource($location);
     }

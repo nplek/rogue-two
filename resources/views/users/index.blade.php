@@ -34,5 +34,4 @@
 <meta name="dp-time" content="{{ config('app.time_format_moment') }}">
 <meta name="dp-datetime" content="{{ config('app.datetime_format_moment') }}">
 <meta name="app-locale" content="{{ App::getLocale() }}">
-
 @stop
