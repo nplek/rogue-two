@@ -26,6 +26,8 @@ return [
     'role'                        => 'Role',
     'permission'                  => 'Permission',
     'team'                        => 'Team',
+    'activitylog'                 => 'Activity Log',
+    'accesslog'                   => 'Access Log',
     'home'                        => 'Home',
     'company'                     => 'Company',
     'department'                  => 'Department',

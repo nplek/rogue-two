@@ -13988,7 +13988,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(112);
+module.exports = __webpack_require__(140);
 
 
 /***/ }),
@@ -14010,56 +14010,62 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_roles_RolesIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_roles_RolesIndex_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_roles_RolesCreate_vue__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_roles_RolesCreate_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_roles_RolesCreate_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_roles_RolesEdit_vue__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_roles_RolesEdit_vue__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_roles_RolesEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_roles_RolesEdit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_permissions_PermissionsIndex_vue__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_permissions_PermissionsIndex_vue__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_permissions_PermissionsIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_permissions_PermissionsIndex_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_permissions_PermissionsCreate_vue__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_permissions_PermissionsCreate_vue__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_permissions_PermissionsCreate_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_permissions_PermissionsCreate_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_permissions_PermissionsEdit_vue__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_permissions_PermissionsEdit_vue__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_permissions_PermissionsEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_permissions_PermissionsEdit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_teams_TeamsIndex_vue__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_teams_TeamsIndex_vue__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_teams_TeamsIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_teams_TeamsIndex_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_teams_TeamsCreate_vue__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_teams_TeamsCreate_vue__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_teams_TeamsCreate_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_teams_TeamsCreate_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_teams_TeamsEdit_vue__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_teams_TeamsEdit_vue__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_teams_TeamsEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_teams_TeamsEdit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_companies_CompaniesIndex_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_companies_CompaniesIndex_vue__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_companies_CompaniesIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_companies_CompaniesIndex_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_companies_CompaniesCreate_vue__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_companies_CompaniesCreate_vue__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_companies_CompaniesCreate_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_companies_CompaniesCreate_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_companies_CompaniesEdit_vue__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_companies_CompaniesEdit_vue__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_companies_CompaniesEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_companies_CompaniesEdit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_departments_DepartmentsIndex_vue__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_departments_DepartmentsIndex_vue__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_departments_DepartmentsIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_departments_DepartmentsIndex_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_departments_DepartmentsCreate_vue__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_departments_DepartmentsCreate_vue__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_departments_DepartmentsCreate_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_departments_DepartmentsCreate_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_departments_DepartmentsEdit_vue__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_departments_DepartmentsEdit_vue__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_departments_DepartmentsEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_departments_DepartmentsEdit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_locations_LocationsIndex_vue__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_locations_LocationsIndex_vue__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_locations_LocationsIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_locations_LocationsIndex_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_locations_LocationsCreate_vue__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_locations_LocationsCreate_vue__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_locations_LocationsCreate_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_locations_LocationsCreate_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_locations_LocationsEdit_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_locations_LocationsEdit_vue__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_locations_LocationsEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_locations_LocationsEdit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_projects_ProjectsIndex_vue__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_projects_ProjectsIndex_vue__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_projects_ProjectsIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_projects_ProjectsIndex_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_projects_ProjectsCreate_vue__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_projects_ProjectsCreate_vue__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_projects_ProjectsCreate_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_projects_ProjectsCreate_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_projects_ProjectsEdit_vue__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_projects_ProjectsEdit_vue__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_projects_ProjectsEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_projects_ProjectsEdit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_positions_PositionsIndex_vue__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_positions_PositionsIndex_vue__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_positions_PositionsIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_positions_PositionsIndex_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_positions_PositionsCreate_vue__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_positions_PositionsCreate_vue__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_positions_PositionsCreate_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__components_positions_PositionsCreate_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_positions_PositionsEdit_vue__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_positions_PositionsEdit_vue__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_positions_PositionsEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__components_positions_PositionsEdit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_employees_EmployeesIndex_vue__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_employees_EmployeesIndex_vue__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_employees_EmployeesIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29__components_employees_EmployeesIndex_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_employees_EmployeesEdit_vue__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_employees_EmployeesEdit_vue__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_employees_EmployeesEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30__components_employees_EmployeesEdit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_employees_EmployeesShow_vue__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_employees_EmployeesShow_vue__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_employees_EmployeesShow_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31__components_employees_EmployeesShow_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_logs_ActivityLogsIndex_vue__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_logs_ActivityLogsIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_logs_ActivityLogsIndex_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_logs_AccessLogsIndex_vue__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_logs_AccessLogsIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_logs_AccessLogsIndex_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_logs_SecurityLogsIndex_vue__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_logs_SecurityLogsIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_logs_SecurityLogsIndex_vue__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -14105,6 +14111,10 @@ window.Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 
 
 
+
+
+
+
 var routes = [{
     path: '/',
     components: {
@@ -14113,6 +14123,9 @@ var routes = [{
         rolesIndex: __WEBPACK_IMPORTED_MODULE_5__components_roles_RolesIndex_vue___default.a,
         permissionsIndex: __WEBPACK_IMPORTED_MODULE_8__components_permissions_PermissionsIndex_vue___default.a,
         teamsIndex: __WEBPACK_IMPORTED_MODULE_11__components_teams_TeamsIndex_vue___default.a,
+        activityLogsIndex: __WEBPACK_IMPORTED_MODULE_32__components_logs_ActivityLogsIndex_vue___default.a,
+        accessLogsIndex: __WEBPACK_IMPORTED_MODULE_33__components_logs_AccessLogsIndex_vue___default.a,
+        securityLogsIndex: __WEBPACK_IMPORTED_MODULE_34__components_logs_SecurityLogsIndex_vue___default.a,
         companiesIndex: __WEBPACK_IMPORTED_MODULE_14__components_companies_CompaniesIndex_vue___default.a,
         departmentsIndex: __WEBPACK_IMPORTED_MODULE_17__components_departments_DepartmentsIndex_vue___default.a,
         locationsIndex: __WEBPACK_IMPORTED_MODULE_20__components_locations_LocationsIndex_vue___default.a,
@@ -52261,9 +52274,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(123)
+var __vue_script__ = __webpack_require__(59)
 /* template */
-var __vue_template__ = __webpack_require__(124)
+var __vue_template__ = __webpack_require__(60)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52303,14 +52316,315 @@ module.exports = Component.exports
 
 /***/ }),
 /* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        this.getPermissionsList();
+    },
+
+    data: function data() {
+        return {
+            errors: [],
+            role: {
+                name: '',
+                display_name: '',
+                description: '',
+                permissions: []
+            },
+            permissions: []
+        };
+    },
+    methods: {
+        getPermissionsList: function getPermissionsList() {
+            var app = this;
+            axios.post('/api/permissions/list').then(function (resp) {
+                app.permissions = resp.data.data;
+            }).catch(function () {
+                alert("Could not load your permissions");
+            });
+        },
+        saveForm: function saveForm() {
+            event.preventDefault();
+            var app = this;
+            var newRole = app.role;
+            axios.post('/api/roles', newRole).then(function (resp) {
+                app.$router.push({ path: '/' });
+            }).catch(function (resp) {
+                app.errors = [];
+                for (var err in resp.response.data.errors) {
+                    app.errors.push(resp.response.data.errors[err].toString());
+                }
+                alert("Could not create your role");
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "btn btn-default", attrs: { to: "/" } },
+          [_vm._v("Back")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [_vm._v("Create new Role")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                _vm.saveForm()
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.role.name,
+                      expression: "role.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.role.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.role, "name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Display name")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.role.display_name,
+                      expression: "role.display_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.role.display_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.role, "display_name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col-xs-12 form-group" },
+                [
+                  _c("label", { staticClass: "control-label" }, [
+                    _vm._v("Permissions")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.permissions, function(permission) {
+                    return _c("div", { key: permission.id }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.role.permissions,
+                            expression: "role.permissions"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          value: permission.id,
+                          checked: Array.isArray(_vm.role.permissions)
+                            ? _vm._i(_vm.role.permissions, permission.id) > -1
+                            : _vm.role.permissions
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.role.permissions,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = permission.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  _vm.$set(
+                                    _vm.role,
+                                    "permissions",
+                                    $$a.concat([$$v])
+                                  )
+                              } else {
+                                $$i > -1 &&
+                                  _vm.$set(
+                                    _vm.role,
+                                    "permissions",
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
+                              }
+                            } else {
+                              _vm.$set(_vm.role, "permissions", $$c)
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(permission.name) +
+                          " \n                        "
+                      )
+                    ])
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        ),
+        _vm._v(" "),
+        _vm.errors.length
+          ? _c("p", { staticClass: "text-red" }, [
+              _c("b", [_vm._v("Please correct the following error(s):")]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                _vm._l(_vm.errors, function(error, index) {
+                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
+                })
+              )
+            ])
+          : _vm._e()
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xs-12 form-group" }, [
+        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Create")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5cac6813", module.exports)
+  }
+}
+
+/***/ }),
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(125)
+var __vue_script__ = __webpack_require__(62)
 /* template */
-var __vue_template__ = __webpack_require__(126)
+var __vue_template__ = __webpack_require__(63)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52349,15 +52663,2144 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 60 */
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        var app = this;
+        var id = app.$route.params.id;
+        app.roleId = id;
+        axios.get('/api/roles/' + id).then(function (resp) {
+            app.role = resp.data.data;
+            app.rolePermissions = [];
+            for (var index in resp.data.data.permissions) {
+                app.rolePermissions.push(resp.data.data.permissions[index]['id']);
+            }
+            app.role.permissions = app.rolePermissions;
+        }).catch(function () {
+            alert("Could not load your role");
+        });
+        this.getPermissionsList();
+    },
+
+    data: function data() {
+        return {
+            errors: [],
+            roleId: null,
+            rolePermissions: [],
+            role: {
+                name: '',
+                display_name: '',
+                description: '',
+                permissions: []
+            },
+            permissions: []
+        };
+    },
+    methods: {
+        getPermissionsList: function getPermissionsList() {
+            var app = this;
+            axios.post('/api/permissions/list').then(function (resp) {
+                app.permissions = resp.data.data;
+            }).catch(function () {
+                alert("Could not load your permissions");
+            });
+        },
+        saveForm: function saveForm() {
+            event.preventDefault();
+            var app = this;
+            var newRole = app.role;
+            axios.patch('/api/roles/' + app.roleId, newRole).then(function (resp) {
+                app.$router.replace('/');
+            }).catch(function (resp) {
+                app.errors = [];
+                for (var err in resp.response.data.errors) {
+                    app.errors.push(resp.response.data.errors[err].toString());
+                }
+                alert("Could not update your role");
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "btn btn-default", attrs: { to: "/" } },
+          [_vm._v("Back")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [_vm._v("Edit Role")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                _vm.saveForm()
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.role.name,
+                      expression: "role.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.role.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.role, "name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Display name")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.role.display_name,
+                      expression: "role.display_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.role.display_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.role, "display_name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col-xs-12 form-group" },
+                [
+                  _c("label", { staticClass: "control-label" }, [
+                    _vm._v("Permissions")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.permissions, function(permission) {
+                    return _c("div", { key: permission.id }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.role.permissions,
+                            expression: "role.permissions"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          value: permission.id,
+                          checked: Array.isArray(_vm.role.permissions)
+                            ? _vm._i(_vm.role.permissions, permission.id) > -1
+                            : _vm.role.permissions
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.role.permissions,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = permission.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  _vm.$set(
+                                    _vm.role,
+                                    "permissions",
+                                    $$a.concat([$$v])
+                                  )
+                              } else {
+                                $$i > -1 &&
+                                  _vm.$set(
+                                    _vm.role,
+                                    "permissions",
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
+                              }
+                            } else {
+                              _vm.$set(_vm.role, "permissions", $$c)
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(permission.name) +
+                          " \n                        "
+                      )
+                    ])
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        ),
+        _vm._v(" "),
+        _vm.errors.length
+          ? _c("p", { staticClass: "text-red" }, [
+              _c("b", [_vm._v("Please correct the following error(s):")]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                _vm._l(_vm.errors, function(error, index) {
+                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
+                })
+              )
+            ])
+          : _vm._e()
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xs-12 form-group" }, [
+        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Update")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-c254dc3e", module.exports)
+  }
+}
+
+/***/ }),
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(61)
+var __vue_script__ = __webpack_require__(65)
 /* template */
-var __vue_template__ = __webpack_require__(62)
+var __vue_template__ = __webpack_require__(66)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\permissions\\PermissionsIndex.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-62a420fd", Component.options)
+  } else {
+    hotAPI.reload("data-v-62a420fd", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vuejs_paginate__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        'paginate': __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate___default.a
+    },
+    data: function data() {
+        return {
+            permissions: [],
+            current_page: 1,
+            pageCount: 0
+        };
+    },
+    mounted: function mounted() {
+        this.fetchPaginate();
+    },
+
+    methods: {
+        fetchPaginate: function fetchPaginate(page) {
+            var app = this;
+            axios.get('/api/permissions', {
+                params: {
+                    page: page
+                }
+            }).then(function (resp) {
+                app.permissions = resp.data.data;
+                app.pageCount = resp.data.meta.last_page;
+            }).catch(function (resp) {
+                console.log(resp);
+                alert("Could not load permissions");
+            });
+        },
+        deleteEntry: function deleteEntry(id, index) {
+            if (confirm("Do you really want to delete it?")) {
+                var app = this;
+                axios.delete('/api/permissions/' + id).then(function (resp) {
+                    app.permissions.splice(index, 1);
+                }).catch(function (resp) {
+                    alert("Could not delete permission");
+                });
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass: "btn btn-success",
+            attrs: { to: { name: "createPermission" } }
+          },
+          [_vm._v("New")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [_vm._v("Permission list")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "panel-body" },
+        [
+          _c("table", { staticClass: "table table-bordered table-striped" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.permissions, function(permission, index) {
+                return _c("tr", { key: permission.id }, [
+                  _c("td", [_vm._v(_vm._s(permission.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(permission.display_name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(permission.description))]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "btn btn-sm btn-info",
+                          attrs: {
+                            to: {
+                              name: "editPermission",
+                              params: { id: permission.id }
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Edit\n                        "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-sm btn-danger",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              _vm.deleteEntry(permission.id, index)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Delete\n                        "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              })
+            )
+          ]),
+          _vm._v(" "),
+          _c("paginate", {
+            attrs: {
+              "click-handler": _vm.fetchPaginate,
+              pageCount: _vm.pageCount,
+              "prev-text": "Prev",
+              "next-text": "Next",
+              "container-class": "pagination",
+              "page-class": "page-item"
+            },
+            model: {
+              value: _vm.current_page,
+              callback: function($$v) {
+                _vm.current_page = $$v
+              },
+              expression: "current_page"
+            }
+          })
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Display name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Description")]),
+        _vm._v(" "),
+        _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-62a420fd", module.exports)
+  }
+}
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(68)
+/* template */
+var __vue_template__ = __webpack_require__(69)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\permissions\\PermissionsCreate.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-19944961", Component.options)
+  } else {
+    hotAPI.reload("data-v-19944961", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {},
+
+    data: function data() {
+        return {
+            errors: [],
+            permission: {
+                name: '',
+                display_name: '',
+                description: ''
+            }
+        };
+    },
+    methods: {
+        saveForm: function saveForm() {
+            event.preventDefault();
+            var app = this;
+            var newPermission = app.permission;
+            axios.post('/api/permissions', newPermission).then(function (resp) {
+                app.$router.push({ path: '/' });
+            }).catch(function (resp) {
+                app.errors = [];
+                for (var err in resp.response.data.errors) {
+                    app.errors.push(resp.response.data.errors[err].toString());
+                }
+                alert("Could not create your permission");
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "btn btn-default", attrs: { to: "/" } },
+          [_vm._v("Back")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [
+        _vm._v("Create new Permission")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                _vm.saveForm()
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.permission.name,
+                      expression: "permission.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.permission.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.permission, "name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Display name")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.permission.display_name,
+                      expression: "permission.display_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.permission.display_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.permission,
+                        "display_name",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Description")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.permission.description,
+                      expression: "permission.description"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.permission.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.permission,
+                        "description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        ),
+        _vm._v(" "),
+        _vm.errors.length
+          ? _c("p", { staticClass: "text-red" }, [
+              _c("b", [_vm._v("Please correct the following error(s):")]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                _vm._l(_vm.errors, function(error, index) {
+                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
+                })
+              )
+            ])
+          : _vm._e()
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xs-12 form-group" }, [
+        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Create")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-19944961", module.exports)
+  }
+}
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(71)
+/* template */
+var __vue_template__ = __webpack_require__(72)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\permissions\\PermissionsEdit.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-717d22a2", Component.options)
+  } else {
+    hotAPI.reload("data-v-717d22a2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        var app = this;
+        var id = app.$route.params.id;
+        app.permissionId = id;
+        axios.get('/api/permissions/' + id).then(function (resp) {
+            app.permission = resp.data.data;
+        }).catch(function () {
+            alert("Could not load your permission");
+        });
+    },
+
+    data: function data() {
+        return {
+            errors: [],
+            permissionId: null,
+            permission: {
+                name: '',
+                display_name: '',
+                description: ''
+            }
+        };
+    },
+    methods: {
+        getPermissionsList: function getPermissionsList() {
+            var app = this;
+            axios.post('/api/permissions/list').then(function (resp) {
+                app.permissions = resp.data.data;
+            }).catch(function () {
+                alert("Could not load your permissions");
+            });
+        },
+        saveForm: function saveForm() {
+            event.preventDefault();
+            var app = this;
+            var newPermission = app.permission;
+            axios.patch('/api/permissions/' + app.permissionId, newPermission).then(function (resp) {
+                app.$router.replace('/');
+            }).catch(function (resp) {
+                app.errors = [];
+                for (var err in resp.response.data.errors) {
+                    app.errors.push(resp.response.data.errors[err].toString());
+                }
+                alert("Could not update your permission");
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "btn btn-default", attrs: { to: "/" } },
+          [_vm._v("Back")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [_vm._v("Edit Permission")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                _vm.saveForm()
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.permission.name,
+                      expression: "permission.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.permission.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.permission, "name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Display name")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.permission.display_name,
+                      expression: "permission.display_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.permission.display_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.permission,
+                        "display_name",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Description")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.permission.description,
+                      expression: "permission.description"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.permission.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.permission,
+                        "description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        ),
+        _vm._v(" "),
+        _vm.errors.length
+          ? _c("p", { staticClass: "text-red" }, [
+              _c("b", [_vm._v("Please correct the following error(s):")]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                _vm._l(_vm.errors, function(error, index) {
+                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
+                })
+              )
+            ])
+          : _vm._e()
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xs-12 form-group" }, [
+        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Update")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-717d22a2", module.exports)
+  }
+}
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(74)
+/* template */
+var __vue_template__ = __webpack_require__(75)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\teams\\TeamsIndex.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1c5b4519", Component.options)
+  } else {
+    hotAPI.reload("data-v-1c5b4519", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vuejs_paginate__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        'paginate': __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate___default.a
+    },
+    data: function data() {
+        return {
+            teams: [],
+            current_page: 1,
+            pageCount: 0
+        };
+    },
+    mounted: function mounted() {
+        this.fetchPaginate();
+    },
+
+    methods: {
+        fetchPaginate: function fetchPaginate(page) {
+            var app = this;
+            axios.get('/api/teams', {
+                params: {
+                    page: page
+                }
+            }).then(function (resp) {
+                app.teams = resp.data.data;
+                app.pageCount = resp.data.meta.last_page;
+            }).catch(function (resp) {
+                console.log(resp);
+                alert("Could not load teams");
+            });
+        },
+        deleteEntry: function deleteEntry(id, index) {
+            if (confirm("Do you really want to delete it?")) {
+                var app = this;
+                axios.delete('/api/teams/' + id).then(function (resp) {
+                    app.teams.splice(index, 1);
+                }).catch(function (resp) {
+                    alert("Could not delete team");
+                });
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass: "btn btn-success",
+            attrs: { to: { name: "createTeam" } }
+          },
+          [_vm._v("New")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [_vm._v("Team list")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "panel-body" },
+        [
+          _c("table", { staticClass: "table table-bordered table-striped" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.teams, function(team, index) {
+                return _c("tr", { key: team.id }, [
+                  _c("td", [_vm._v(_vm._s(team.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(team.display_name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(team.description))]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "btn btn-sm btn-info",
+                          attrs: {
+                            to: { name: "editTeam", params: { id: team.id } }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Edit\n                        "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-sm btn-danger",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              _vm.deleteEntry(team.id, index)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Delete\n                        "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              })
+            )
+          ]),
+          _vm._v(" "),
+          _c("paginate", {
+            attrs: {
+              "click-handler": _vm.fetchPaginate,
+              pageCount: _vm.pageCount,
+              "prev-text": "Prev",
+              "next-text": "Next",
+              "container-class": "pagination",
+              "page-class": "page-item"
+            },
+            model: {
+              value: _vm.current_page,
+              callback: function($$v) {
+                _vm.current_page = $$v
+              },
+              expression: "current_page"
+            }
+          })
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Display name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Description")]),
+        _vm._v(" "),
+        _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1c5b4519", module.exports)
+  }
+}
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(77)
+/* template */
+var __vue_template__ = __webpack_require__(78)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\teams\\TeamsCreate.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d27cae76", Component.options)
+  } else {
+    hotAPI.reload("data-v-d27cae76", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {},
+
+    data: function data() {
+        return {
+            errors: [],
+            team: {
+                name: '',
+                display_name: '',
+                description: ''
+            }
+        };
+    },
+    methods: {
+        saveForm: function saveForm() {
+            event.preventDefault();
+            var app = this;
+            var newTeam = app.team;
+            axios.post('/api/teams', newTeam).then(function (resp) {
+                app.$router.push({ path: '/' });
+            }).catch(function (resp) {
+                app.errors = [];
+                for (var err in resp.response.data.errors) {
+                    app.errors.push(resp.response.data.errors[err].toString());
+                }
+                alert("Could not create your team");
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "btn btn-default", attrs: { to: "/" } },
+          [_vm._v("Back")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [_vm._v("Create new Team")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                _vm.saveForm()
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.team.name,
+                      expression: "team.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.team.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.team, "name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Display name")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.team.display_name,
+                      expression: "team.display_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.team.display_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.team, "display_name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Description")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.team.description,
+                      expression: "team.description"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.team.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.team, "description", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        ),
+        _vm._v(" "),
+        _vm.errors.length
+          ? _c("p", { staticClass: "text-red" }, [
+              _c("b", [_vm._v("Please correct the following error(s):")]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                _vm._l(_vm.errors, function(error, index) {
+                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
+                })
+              )
+            ])
+          : _vm._e()
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xs-12 form-group" }, [
+        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Create")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d27cae76", module.exports)
+  }
+}
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(80)
+/* template */
+var __vue_template__ = __webpack_require__(81)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\teams\\TeamsEdit.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-237151da", Component.options)
+  } else {
+    hotAPI.reload("data-v-237151da", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        var app = this;
+        var id = app.$route.params.id;
+        app.teamId = id;
+        axios.get('/api/teams/' + id).then(function (resp) {
+            app.team = resp.data.data;
+        }).catch(function () {
+            alert("Could not load your team");
+        });
+    },
+
+    data: function data() {
+        return {
+            errors: [],
+            teamId: null,
+            team: {
+                name: '',
+                display_name: '',
+                description: ''
+            }
+        };
+    },
+    methods: {
+        getteamsList: function getteamsList() {
+            var app = this;
+            axios.post('/api/teams/list').then(function (resp) {
+                app.teams = resp.data.data;
+            }).catch(function () {
+                alert("Could not load your teams");
+            });
+        },
+        saveForm: function saveForm() {
+            event.preventDefault();
+            var app = this;
+            var newTeam = app.team;
+            axios.patch('/api/teams/' + app.teamId, newTeam).then(function (resp) {
+                app.$router.replace('/');
+            }).catch(function (resp) {
+                app.errors = [];
+                for (var err in resp.response.data.errors) {
+                    app.errors.push(resp.response.data.errors[err].toString());
+                }
+                alert("Could not update your team");
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "btn btn-default", attrs: { to: "/" } },
+          [_vm._v("Back")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [_vm._v("Edit Team")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                _vm.saveForm()
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.team.name,
+                      expression: "team.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.team.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.team, "name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Display name")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.team.display_name,
+                      expression: "team.display_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.team.display_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.team, "display_name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Description")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.team.description,
+                      expression: "team.description"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.team.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.team, "description", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        ),
+        _vm._v(" "),
+        _vm.errors.length
+          ? _c("p", { staticClass: "text-red" }, [
+              _c("b", [_vm._v("Please correct the following error(s):")]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                _vm._l(_vm.errors, function(error, index) {
+                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
+                })
+              )
+            ])
+          : _vm._e()
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xs-12 form-group" }, [
+        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Update")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-237151da", module.exports)
+  }
+}
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(83)
+/* template */
+var __vue_template__ = __webpack_require__(84)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52396,7 +54839,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 61 */
+/* 83 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52525,7 +54968,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 62 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52712,15 +55155,15 @@ if (false) {
 }
 
 /***/ }),
-/* 63 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(64)
+var __vue_script__ = __webpack_require__(86)
 /* template */
-var __vue_template__ = __webpack_require__(65)
+var __vue_template__ = __webpack_require__(87)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52759,7 +55202,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 64 */
+/* 86 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52841,7 +55284,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 65 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -53026,15 +55469,15 @@ if (false) {
 }
 
 /***/ }),
-/* 66 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(67)
+var __vue_script__ = __webpack_require__(89)
 /* template */
-var __vue_template__ = __webpack_require__(68)
+var __vue_template__ = __webpack_require__(90)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -53073,7 +55516,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 67 */
+/* 89 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53167,7 +55610,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 68 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -53350,15 +55793,15 @@ if (false) {
 }
 
 /***/ }),
-/* 69 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(70)
+var __vue_script__ = __webpack_require__(92)
 /* template */
-var __vue_template__ = __webpack_require__(71)
+var __vue_template__ = __webpack_require__(93)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -53397,7 +55840,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 70 */
+/* 92 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53522,7 +55965,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 71 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -53695,15 +56138,15 @@ if (false) {
 }
 
 /***/ }),
-/* 72 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(73)
+var __vue_script__ = __webpack_require__(95)
 /* template */
-var __vue_template__ = __webpack_require__(74)
+var __vue_template__ = __webpack_require__(96)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -53742,7 +56185,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 73 */
+/* 95 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53851,7 +56294,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 74 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -54102,15 +56545,15 @@ if (false) {
 }
 
 /***/ }),
-/* 75 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(76)
+var __vue_script__ = __webpack_require__(98)
 /* template */
-var __vue_template__ = __webpack_require__(77)
+var __vue_template__ = __webpack_require__(99)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -54149,7 +56592,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 76 */
+/* 98 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54265,7 +56708,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 77 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -54514,15 +56957,15 @@ if (false) {
 }
 
 /***/ }),
-/* 78 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(79)
+var __vue_script__ = __webpack_require__(101)
 /* template */
-var __vue_template__ = __webpack_require__(80)
+var __vue_template__ = __webpack_require__(102)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -54561,7 +57004,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 79 */
+/* 101 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54685,7 +57128,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 80 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -54854,15 +57297,15 @@ if (false) {
 }
 
 /***/ }),
-/* 81 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(82)
+var __vue_script__ = __webpack_require__(104)
 /* template */
-var __vue_template__ = __webpack_require__(83)
+var __vue_template__ = __webpack_require__(105)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -54901,7 +57344,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 82 */
+/* 104 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54984,7 +57427,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 83 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -55169,15 +57612,15 @@ if (false) {
 }
 
 /***/ }),
-/* 84 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(85)
+var __vue_script__ = __webpack_require__(107)
 /* template */
-var __vue_template__ = __webpack_require__(86)
+var __vue_template__ = __webpack_require__(108)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -55216,7 +57659,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 85 */
+/* 107 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55310,7 +57753,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 86 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -55493,15 +57936,15 @@ if (false) {
 }
 
 /***/ }),
-/* 87 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(88)
+var __vue_script__ = __webpack_require__(110)
 /* template */
-var __vue_template__ = __webpack_require__(89)
+var __vue_template__ = __webpack_require__(111)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -55540,7 +57983,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 88 */
+/* 110 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55673,7 +58116,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 89 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -55872,15 +58315,15 @@ if (false) {
 }
 
 /***/ }),
-/* 90 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(91)
+var __vue_script__ = __webpack_require__(113)
 /* template */
-var __vue_template__ = __webpack_require__(92)
+var __vue_template__ = __webpack_require__(114)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -55919,7 +58362,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 91 */
+/* 113 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56077,7 +58520,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 92 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -56378,15 +58821,15 @@ if (false) {
 }
 
 /***/ }),
-/* 93 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(94)
+var __vue_script__ = __webpack_require__(116)
 /* template */
-var __vue_template__ = __webpack_require__(95)
+var __vue_template__ = __webpack_require__(117)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -56425,7 +58868,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 94 */
+/* 116 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56566,7 +59009,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 95 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -56865,15 +59308,15 @@ if (false) {
 }
 
 /***/ }),
-/* 96 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(97)
+var __vue_script__ = __webpack_require__(119)
 /* template */
-var __vue_template__ = __webpack_require__(98)
+var __vue_template__ = __webpack_require__(120)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -56912,7 +59355,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 97 */
+/* 119 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57038,7 +59481,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 98 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -57213,15 +59656,15 @@ if (false) {
 }
 
 /***/ }),
-/* 99 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(100)
+var __vue_script__ = __webpack_require__(122)
 /* template */
-var __vue_template__ = __webpack_require__(101)
+var __vue_template__ = __webpack_require__(123)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57260,7 +59703,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 100 */
+/* 122 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57368,7 +59811,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 101 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -57615,15 +60058,15 @@ if (false) {
 }
 
 /***/ }),
-/* 102 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(103)
+var __vue_script__ = __webpack_require__(125)
 /* template */
-var __vue_template__ = __webpack_require__(104)
+var __vue_template__ = __webpack_require__(126)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57662,7 +60105,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 103 */
+/* 125 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57777,7 +60220,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 104 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58022,15 +60465,15 @@ if (false) {
 }
 
 /***/ }),
-/* 105 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(106)
+var __vue_script__ = __webpack_require__(128)
 /* template */
-var __vue_template__ = __webpack_require__(107)
+var __vue_template__ = __webpack_require__(129)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58069,7 +60512,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 106 */
+/* 128 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58163,7 +60606,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 107 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58302,15 +60745,15 @@ if (false) {
 }
 
 /***/ }),
-/* 108 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(109)
+var __vue_script__ = __webpack_require__(131)
 /* template */
-var __vue_template__ = __webpack_require__(110)
+var __vue_template__ = __webpack_require__(132)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58349,7 +60792,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 109 */
+/* 131 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58456,7 +60899,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 110 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58683,7 +61126,7 @@ if (false) {
 }
 
 /***/ }),
-/* 111 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var normalizeComponent = __webpack_require__(0)
@@ -58713,648 +61156,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 112 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        this.getPermissionsList();
-    },
-
-    data: function data() {
-        return {
-            errors: [],
-            role: {
-                name: '',
-                display_name: '',
-                description: '',
-                permissions: []
-            },
-            permissions: []
-        };
-    },
-    methods: {
-        getPermissionsList: function getPermissionsList() {
-            var app = this;
-            axios.post('/api/permissions/list').then(function (resp) {
-                app.permissions = resp.data.data;
-            }).catch(function () {
-                alert("Could not load your permissions");
-            });
-        },
-        saveForm: function saveForm() {
-            event.preventDefault();
-            var app = this;
-            var newRole = app.role;
-            axios.post('/api/roles', newRole).then(function (resp) {
-                app.$router.push({ path: '/' });
-            }).catch(function (resp) {
-                app.errors = [];
-                for (var err in resp.response.data.errors) {
-                    app.errors.push(resp.response.data.errors[err].toString());
-                }
-                alert("Could not create your role");
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 124 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "btn btn-default", attrs: { to: "/" } },
-          [_vm._v("Back")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [_vm._v("Create new Role")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                _vm.saveForm()
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.role.name,
-                      expression: "role.name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.role.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.role, "name", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v("Display name")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.role.display_name,
-                      expression: "role.display_name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.role.display_name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.role, "display_name", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "col-xs-12 form-group" },
-                [
-                  _c("label", { staticClass: "control-label" }, [
-                    _vm._v("Permissions")
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(_vm.permissions, function(permission) {
-                    return _c("div", { key: permission.id }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.role.permissions,
-                            expression: "role.permissions"
-                          }
-                        ],
-                        attrs: { type: "checkbox" },
-                        domProps: {
-                          value: permission.id,
-                          checked: Array.isArray(_vm.role.permissions)
-                            ? _vm._i(_vm.role.permissions, permission.id) > -1
-                            : _vm.role.permissions
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.role.permissions,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = permission.id,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.role,
-                                    "permissions",
-                                    $$a.concat([$$v])
-                                  )
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.role,
-                                    "permissions",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
-                              }
-                            } else {
-                              _vm.$set(_vm.role, "permissions", $$c)
-                            }
-                          }
-                        }
-                      }),
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(permission.name) +
-                          " \n                        "
-                      )
-                    ])
-                  })
-                ],
-                2
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ]
-        ),
-        _vm._v(" "),
-        _vm.errors.length
-          ? _c("p", { staticClass: "text-red" }, [
-              _c("b", [_vm._v("Please correct the following error(s):")]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                _vm._l(_vm.errors, function(error, index) {
-                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
-                })
-              )
-            ])
-          : _vm._e()
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Create")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5cac6813", module.exports)
-  }
-}
-
-/***/ }),
-/* 125 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        var app = this;
-        var id = app.$route.params.id;
-        app.roleId = id;
-        axios.get('/api/roles/' + id).then(function (resp) {
-            app.role = resp.data.data;
-            app.rolePermissions = [];
-            for (var index in resp.data.data.permissions) {
-                app.rolePermissions.push(resp.data.data.permissions[index]['id']);
-            }
-            app.role.permissions = app.rolePermissions;
-        }).catch(function () {
-            alert("Could not load your role");
-        });
-        this.getPermissionsList();
-    },
-
-    data: function data() {
-        return {
-            errors: [],
-            roleId: null,
-            rolePermissions: [],
-            role: {
-                name: '',
-                display_name: '',
-                description: '',
-                permissions: []
-            },
-            permissions: []
-        };
-    },
-    methods: {
-        getPermissionsList: function getPermissionsList() {
-            var app = this;
-            axios.post('/api/permissions/list').then(function (resp) {
-                app.permissions = resp.data.data;
-            }).catch(function () {
-                alert("Could not load your permissions");
-            });
-        },
-        saveForm: function saveForm() {
-            event.preventDefault();
-            var app = this;
-            var newRole = app.role;
-            axios.patch('/api/roles/' + app.roleId, newRole).then(function (resp) {
-                app.$router.replace('/');
-            }).catch(function (resp) {
-                app.errors = [];
-                for (var err in resp.response.data.errors) {
-                    app.errors.push(resp.response.data.errors[err].toString());
-                }
-                alert("Could not update your role");
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 126 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "btn btn-default", attrs: { to: "/" } },
-          [_vm._v("Back")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [_vm._v("Edit Role")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                _vm.saveForm()
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.role.name,
-                      expression: "role.name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.role.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.role, "name", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v("Display name")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.role.display_name,
-                      expression: "role.display_name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.role.display_name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.role, "display_name", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "col-xs-12 form-group" },
-                [
-                  _c("label", { staticClass: "control-label" }, [
-                    _vm._v("Permissions")
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(_vm.permissions, function(permission) {
-                    return _c("div", { key: permission.id }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.role.permissions,
-                            expression: "role.permissions"
-                          }
-                        ],
-                        attrs: { type: "checkbox" },
-                        domProps: {
-                          value: permission.id,
-                          checked: Array.isArray(_vm.role.permissions)
-                            ? _vm._i(_vm.role.permissions, permission.id) > -1
-                            : _vm.role.permissions
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.role.permissions,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = permission.id,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.role,
-                                    "permissions",
-                                    $$a.concat([$$v])
-                                  )
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.role,
-                                    "permissions",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
-                              }
-                            } else {
-                              _vm.$set(_vm.role, "permissions", $$c)
-                            }
-                          }
-                        }
-                      }),
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(permission.name) +
-                          " \n                        "
-                      )
-                    ])
-                  })
-                ],
-                2
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ]
-        ),
-        _vm._v(" "),
-        _vm.errors.length
-          ? _c("p", { staticClass: "text-red" }, [
-              _c("b", [_vm._v("Please correct the following error(s):")]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                _vm._l(_vm.errors, function(error, index) {
-                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
-                })
-              )
-            ])
-          : _vm._e()
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Update")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-c254dc3e", module.exports)
-  }
-}
-
-/***/ }),
-/* 127 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(128)
+var __vue_script__ = __webpack_require__(135)
 /* template */
-var __vue_template__ = __webpack_require__(129)
+var __vue_template__ = __webpack_require__(136)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -59371,7 +61181,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\permissions\\PermissionsIndex.vue"
+Component.options.__file = "resources\\assets\\js\\components\\logs\\ActivityLogsIndex.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -59380,9 +61190,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-62a420fd", Component.options)
+    hotAPI.createRecord("data-v-64c6a4c4", Component.options)
   } else {
-    hotAPI.reload("data-v-62a420fd", Component.options)
+    hotAPI.reload("data-v-64c6a4c4", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -59393,7 +61203,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 128 */
+/* 135 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59458,7 +61268,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            permissions: [],
+            logs: [],
             current_page: 1,
             pageCount: 0
         };
@@ -59470,808 +61280,158 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         fetchPaginate: function fetchPaginate(page) {
             var app = this;
-            axios.get('/api/permissions', {
+            axios.get('/api/logs/activitylogs', {
                 params: {
                     page: page
                 }
             }).then(function (resp) {
-                app.permissions = resp.data.data;
+                app.logs = resp.data.data;
                 app.pageCount = resp.data.meta.last_page;
             }).catch(function (resp) {
                 console.log(resp);
-                alert("Could not load permissions");
+                alert("Could not load logs");
             });
         },
         deleteEntry: function deleteEntry(id, index) {
             if (confirm("Do you really want to delete it?")) {
                 var app = this;
-                axios.delete('/api/permissions/' + id).then(function (resp) {
-                    app.permissions.splice(index, 1);
+                axios.delete('/api/logs/activitylogs/' + id).then(function (resp) {
+                    app.fetchPaginate(app.current_page);
                 }).catch(function (resp) {
-                    alert("Could not delete permission");
+                    alert("Could not delete log");
                 });
             }
         }
     }
 });
-
-/***/ }),
-/* 129 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-success",
-            attrs: { to: { name: "createPermission" } }
-          },
-          [_vm._v("New")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [_vm._v("Permission list")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "panel-body" },
-        [
-          _c("table", { staticClass: "table table-bordered table-striped" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.permissions, function(permission, index) {
-                return _c("tr", { key: permission.id }, [
-                  _c("td", [_vm._v(_vm._s(permission.name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(permission.display_name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(permission.description))]),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "btn btn-sm btn-info",
-                          attrs: {
-                            to: {
-                              name: "editPermission",
-                              params: { id: permission.id }
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Edit\n                        "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-sm btn-danger",
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              _vm.deleteEntry(permission.id, index)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Delete\n                        "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  )
-                ])
-              })
-            )
-          ]),
-          _vm._v(" "),
-          _c("paginate", {
-            attrs: {
-              "click-handler": _vm.fetchPaginate,
-              pageCount: _vm.pageCount,
-              "prev-text": "Prev",
-              "next-text": "Next",
-              "container-class": "pagination",
-              "page-class": "page-item"
-            },
-            model: {
-              value: _vm.current_page,
-              callback: function($$v) {
-                _vm.current_page = $$v
-              },
-              expression: "current_page"
-            }
-          })
-        ],
-        1
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Display name")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Description")]),
-        _vm._v(" "),
-        _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-62a420fd", module.exports)
-  }
-}
-
-/***/ }),
-/* 130 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(131)
-/* template */
-var __vue_template__ = __webpack_require__(132)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\permissions\\PermissionsCreate.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-19944961", Component.options)
-  } else {
-    hotAPI.reload("data-v-19944961", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 131 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {},
-
-    data: function data() {
-        return {
-            errors: [],
-            permission: {
-                name: '',
-                display_name: '',
-                description: ''
-            }
-        };
-    },
-    methods: {
-        saveForm: function saveForm() {
-            event.preventDefault();
-            var app = this;
-            var newPermission = app.permission;
-            axios.post('/api/permissions', newPermission).then(function (resp) {
-                app.$router.push({ path: '/' });
-            }).catch(function (resp) {
-                app.errors = [];
-                for (var err in resp.response.data.errors) {
-                    app.errors.push(resp.response.data.errors[err].toString());
-                }
-                alert("Could not create your permission");
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 132 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "btn btn-default", attrs: { to: "/" } },
-          [_vm._v("Back")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [
-        _vm._v("Create new Permission")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                _vm.saveForm()
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.permission.name,
-                      expression: "permission.name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.permission.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.permission, "name", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v("Display name")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.permission.display_name,
-                      expression: "permission.display_name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.permission.display_name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.permission,
-                        "display_name",
-                        $event.target.value
-                      )
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v("Description")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.permission.description,
-                      expression: "permission.description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.permission.description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.permission,
-                        "description",
-                        $event.target.value
-                      )
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ]
-        ),
-        _vm._v(" "),
-        _vm.errors.length
-          ? _c("p", { staticClass: "text-red" }, [
-              _c("b", [_vm._v("Please correct the following error(s):")]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                _vm._l(_vm.errors, function(error, index) {
-                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
-                })
-              )
-            ])
-          : _vm._e()
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Create")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-19944961", module.exports)
-  }
-}
-
-/***/ }),
-/* 133 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(134)
-/* template */
-var __vue_template__ = __webpack_require__(135)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\permissions\\PermissionsEdit.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-717d22a2", Component.options)
-  } else {
-    hotAPI.reload("data-v-717d22a2", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 134 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        var app = this;
-        var id = app.$route.params.id;
-        app.permissionId = id;
-        axios.get('/api/permissions/' + id).then(function (resp) {
-            app.permission = resp.data.data;
-        }).catch(function () {
-            alert("Could not load your permission");
-        });
-    },
-
-    data: function data() {
-        return {
-            errors: [],
-            permissionId: null,
-            permission: {
-                name: '',
-                display_name: '',
-                description: ''
-            }
-        };
-    },
-    methods: {
-        getPermissionsList: function getPermissionsList() {
-            var app = this;
-            axios.post('/api/permissions/list').then(function (resp) {
-                app.permissions = resp.data.data;
-            }).catch(function () {
-                alert("Could not load your permissions");
-            });
-        },
-        saveForm: function saveForm() {
-            event.preventDefault();
-            var app = this;
-            var newPermission = app.permission;
-            axios.patch('/api/permissions/' + app.permissionId, newPermission).then(function (resp) {
-                app.$router.replace('/');
-            }).catch(function (resp) {
-                app.errors = [];
-                for (var err in resp.response.data.errors) {
-                    app.errors.push(resp.response.data.errors[err].toString());
-                }
-                alert("Could not update your permission");
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 135 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "btn btn-default", attrs: { to: "/" } },
-          [_vm._v("Back")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [_vm._v("Edit Permission")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                _vm.saveForm()
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.permission.name,
-                      expression: "permission.name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.permission.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.permission, "name", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v("Display name")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.permission.display_name,
-                      expression: "permission.display_name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.permission.display_name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.permission,
-                        "display_name",
-                        $event.target.value
-                      )
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v("Description")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.permission.description,
-                      expression: "permission.description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.permission.description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.permission,
-                        "description",
-                        $event.target.value
-                      )
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ]
-        ),
-        _vm._v(" "),
-        _vm.errors.length
-          ? _c("p", { staticClass: "text-red" }, [
-              _c("b", [_vm._v("Please correct the following error(s):")]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                _vm._l(_vm.errors, function(error, index) {
-                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
-                })
-              )
-            ])
-          : _vm._e()
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Update")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-717d22a2", module.exports)
-  }
-}
 
 /***/ }),
 /* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [
+        _vm._v("Activity logs list")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "panel-body" },
+        [
+          _c("table", { staticClass: "table table-bordered table-striped" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.logs, function(log, index) {
+                return _c("tr", { key: log.id }, [
+                  _c("td", [_vm._v(_vm._s(log.created_at))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.log_name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.subject_type))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.description))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.causer_id))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.properties))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-sm btn-danger",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            _vm.deleteEntry(log.id, index)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Delete\n                        "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              })
+            )
+          ]),
+          _vm._v(" "),
+          _c("paginate", {
+            attrs: {
+              "click-handler": _vm.fetchPaginate,
+              pageCount: _vm.pageCount,
+              "prev-text": "Prev",
+              "next-text": "Next",
+              "container-class": "pagination",
+              "page-class": "page-item"
+            },
+            model: {
+              value: _vm.current_page,
+              callback: function($$v) {
+                _vm.current_page = $$v
+              },
+              expression: "current_page"
+            }
+          })
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { width: "150" } }, [_vm._v("Created date")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Subject")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Description")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("User")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Properties")]),
+        _vm._v(" "),
+        _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-64c6a4c4", module.exports)
+  }
+}
+
+/***/ }),
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(137)
+var __vue_script__ = __webpack_require__(138)
 /* template */
-var __vue_template__ = __webpack_require__(138)
+var __vue_template__ = __webpack_require__(139)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -60288,7 +61448,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\teams\\TeamsIndex.vue"
+Component.options.__file = "resources\\assets\\js\\components\\logs\\AccessLogsIndex.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -60297,9 +61457,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1c5b4519", Component.options)
+    hotAPI.createRecord("data-v-c6c99c2e", Component.options)
   } else {
-    hotAPI.reload("data-v-1c5b4519", Component.options)
+    hotAPI.reload("data-v-c6c99c2e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -60310,7 +61470,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60375,7 +61535,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            teams: [],
+            logs: [],
             current_page: 1,
             pageCount: 0
         };
@@ -60387,25 +61547,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         fetchPaginate: function fetchPaginate(page) {
             var app = this;
-            axios.get('/api/teams', {
+            axios.get('/api/logs/accesslogs', {
                 params: {
                     page: page
                 }
             }).then(function (resp) {
-                app.teams = resp.data.data;
+                app.logs = resp.data.data;
                 app.pageCount = resp.data.meta.last_page;
             }).catch(function (resp) {
                 console.log(resp);
-                alert("Could not load teams");
+                alert("Could not load logs");
             });
         },
         deleteEntry: function deleteEntry(id, index) {
             if (confirm("Do you really want to delete it?")) {
                 var app = this;
-                axios.delete('/api/teams/' + id).then(function (resp) {
-                    app.teams.splice(index, 1);
+                axios.delete('/api/logs/accesslogs/' + id).then(function (resp) {
+                    app.fetchPaginate(app.current_page);
                 }).catch(function (resp) {
-                    alert("Could not delete team");
+                    alert("Could not delete log");
                 });
             }
         }
@@ -60413,7 +61573,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -60421,24 +61581,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-success",
-            attrs: { to: { name: "createTeam" } }
-          },
-          [_vm._v("New")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
     _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [_vm._v("Team list")]),
+      _c("div", { staticClass: "panel-heading" }, [
+        _vm._v("Activity logs list")
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -60449,52 +61595,39 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
-              _vm._l(_vm.teams, function(team, index) {
-                return _c("tr", { key: team.id }, [
-                  _c("td", [_vm._v(_vm._s(team.name))]),
+              _vm._l(_vm.logs, function(log, index) {
+                return _c("tr", { key: log.id }, [
+                  _c("td", [_vm._v(_vm._s(log.created_at))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(team.display_name))]),
+                  _c("td", [_vm._v(_vm._s(log.log_name))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(team.description))]),
+                  _c("td", [_vm._v(_vm._s(log.subject_type))]),
                   _vm._v(" "),
-                  _c(
-                    "td",
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "btn btn-sm btn-info",
-                          attrs: {
-                            to: { name: "editTeam", params: { id: team.id } }
+                  _c("td", [_vm._v(_vm._s(log.description))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.causer_id))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.properties))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-sm btn-danger",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            _vm.deleteEntry(log.id, index)
                           }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Edit\n                        "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-sm btn-danger",
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              _vm.deleteEntry(team.id, index)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Delete\n                        "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  )
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Delete\n                        "
+                        )
+                      ]
+                    )
+                  ])
                 ])
               })
             )
@@ -60530,11 +61663,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
+        _c("th", { attrs: { width: "150" } }, [_vm._v("Created date")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Display name")]),
+        _c("th", [_vm._v("Subject")]),
         _vm._v(" "),
         _c("th", [_vm._v("Description")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("User")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Properties")]),
         _vm._v(" "),
         _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
       ])
@@ -60546,315 +61685,36 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1c5b4519", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-c6c99c2e", module.exports)
   }
 }
-
-/***/ }),
-/* 139 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(140)
-/* template */
-var __vue_template__ = __webpack_require__(141)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\teams\\TeamsCreate.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d27cae76", Component.options)
-  } else {
-    hotAPI.reload("data-v-d27cae76", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
 
 /***/ }),
 /* 140 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {},
-
-    data: function data() {
-        return {
-            errors: [],
-            team: {
-                name: '',
-                display_name: '',
-                description: ''
-            }
-        };
-    },
-    methods: {
-        saveForm: function saveForm() {
-            event.preventDefault();
-            var app = this;
-            var newTeam = app.team;
-            axios.post('/api/teams', newTeam).then(function (resp) {
-                app.$router.push({ path: '/' });
-            }).catch(function (resp) {
-                app.errors = [];
-                for (var err in resp.response.data.errors) {
-                    app.errors.push(resp.response.data.errors[err].toString());
-                }
-                alert("Could not create your team");
-            });
-        }
-    }
-});
+// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 141 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "btn btn-default", attrs: { to: "/" } },
-          [_vm._v("Back")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [_vm._v("Create new Team")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                _vm.saveForm()
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.team.name,
-                      expression: "team.name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.team.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.team, "name", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v("Display name")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.team.display_name,
-                      expression: "team.display_name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.team.display_name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.team, "display_name", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v("Description")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.team.description,
-                      expression: "team.description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.team.description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.team, "description", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ]
-        ),
-        _vm._v(" "),
-        _vm.errors.length
-          ? _c("p", { staticClass: "text-red" }, [
-              _c("b", [_vm._v("Please correct the following error(s):")]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                _vm._l(_vm.errors, function(error, index) {
-                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
-                })
-              )
-            ])
-          : _vm._e()
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Create")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-d27cae76", module.exports)
-  }
-}
-
-/***/ }),
-/* 142 */
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(143)
+var __vue_script__ = __webpack_require__(152)
 /* template */
-var __vue_template__ = __webpack_require__(144)
+var __vue_template__ = __webpack_require__(153)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -60871,7 +61731,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\teams\\TeamsEdit.vue"
+Component.options.__file = "resources\\assets\\js\\components\\logs\\SecurityLogsIndex.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -60880,9 +61740,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-237151da", Component.options)
+    hotAPI.createRecord("data-v-68ff7de6", Component.options)
   } else {
-    hotAPI.reload("data-v-237151da", Component.options)
+    hotAPI.reload("data-v-68ff7de6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -60893,11 +61753,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 143 */
+/* 152 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vuejs_paginate__);
 //
 //
 //
@@ -60943,197 +61805,137 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        var app = this;
-        var id = app.$route.params.id;
-        app.teamId = id;
-        axios.get('/api/teams/' + id).then(function (resp) {
-            app.team = resp.data.data;
-        }).catch(function () {
-            alert("Could not load your team");
-        });
+    components: {
+        'paginate': __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate___default.a
     },
-
     data: function data() {
         return {
-            errors: [],
-            teamId: null,
-            team: {
-                name: '',
-                display_name: '',
-                description: ''
-            }
+            logs: [],
+            current_page: 1,
+            pageCount: 0
         };
     },
+    mounted: function mounted() {
+        this.fetchPaginate();
+    },
+
     methods: {
-        getteamsList: function getteamsList() {
+        fetchPaginate: function fetchPaginate(page) {
             var app = this;
-            axios.post('/api/teams/list').then(function (resp) {
-                app.teams = resp.data.data;
-            }).catch(function () {
-                alert("Could not load your teams");
+            axios.get('/api/logs/securitylogs', {
+                params: {
+                    page: page
+                }
+            }).then(function (resp) {
+                app.logs = resp.data.data;
+                app.pageCount = resp.data.meta.last_page;
+            }).catch(function (resp) {
+                console.log(resp);
+                alert("Could not load logs");
             });
         },
-        saveForm: function saveForm() {
-            event.preventDefault();
-            var app = this;
-            var newTeam = app.team;
-            axios.patch('/api/teams/' + app.teamId, newTeam).then(function (resp) {
-                app.$router.replace('/');
-            }).catch(function (resp) {
-                app.errors = [];
-                for (var err in resp.response.data.errors) {
-                    app.errors.push(resp.response.data.errors[err].toString());
-                }
-                alert("Could not update your team");
-            });
+        deleteEntry: function deleteEntry(id, index) {
+            if (confirm("Do you really want to delete it?")) {
+                var app = this;
+                axios.delete('/api/logs/securitylogs/' + id).then(function (resp) {
+                    app.fetchPaginate(app.current_page);
+                }).catch(function (resp) {
+                    alert("Could not delete log");
+                });
+            }
         }
     }
 });
 
 /***/ }),
-/* 144 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-8 col-lg-6" }, [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "btn btn-default", attrs: { to: "/" } },
-          [_vm._v("Back")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
+  return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [_vm._v("Edit Team")]),
+      _c("div", { staticClass: "panel-heading" }, [
+        _vm._v("Activity logs list")
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                _vm.saveForm()
-              }
+      _c(
+        "div",
+        { staticClass: "panel-body" },
+        [
+          _c("table", { staticClass: "table table-bordered table-striped" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.logs, function(log, index) {
+                return _c("tr", { key: log.id }, [
+                  _c("td", [_vm._v(_vm._s(log.created_at))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.log_name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.subject_type))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.description))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.causer_id))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(log.properties))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-sm btn-danger",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            _vm.deleteEntry(log.id, index)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Delete\n                        "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              })
+            )
+          ]),
+          _vm._v(" "),
+          _c("paginate", {
+            attrs: {
+              "click-handler": _vm.fetchPaginate,
+              pageCount: _vm.pageCount,
+              "prev-text": "Prev",
+              "next-text": "Next",
+              "container-class": "pagination",
+              "page-class": "page-item"
+            },
+            model: {
+              value: _vm.current_page,
+              callback: function($$v) {
+                _vm.current_page = $$v
+              },
+              expression: "current_page"
             }
-          },
-          [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [_vm._v("Name")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.team.name,
-                      expression: "team.name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.team.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.team, "name", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v("Display name")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.team.display_name,
-                      expression: "team.display_name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.team.display_name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.team, "display_name", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-xs-12 form-group" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v("Description")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.team.description,
-                      expression: "team.description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.team.description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.team, "description", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ]
-        ),
-        _vm._v(" "),
-        _vm.errors.length
-          ? _c("p", { staticClass: "text-red" }, [
-              _c("b", [_vm._v("Please correct the following error(s):")]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                _vm._l(_vm.errors, function(error, index) {
-                  return _c("li", { key: index }, [_vm._v(_vm._s(error))])
-                })
-              )
-            ])
-          : _vm._e()
-      ])
+          })
+        ],
+        1
+      )
     ])
   ])
 }
@@ -61142,9 +61944,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Update")])
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { width: "150" } }, [_vm._v("Created date")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Subject")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Description")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("User")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Properties")]),
+        _vm._v(" "),
+        _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
       ])
     ])
   }
@@ -61154,7 +61968,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-237151da", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-68ff7de6", module.exports)
   }
 }
 

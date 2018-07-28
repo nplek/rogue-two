@@ -15,7 +15,7 @@ Route::get('/welcome', function () {
 })->name('welcome');
 
 Auth::routes();
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['role:super|admin|user']], function () {
     
     Route::get('/', 'HomeController@index')->name('index');
     Route::get('/home', 'HomeController@index')->name('home');
@@ -24,10 +24,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/roles', 'RoleController@index')->name('roles.index');
     Route::get('/permissions', 'PermissionController@index')->name('permissions.index');
     Route::get('/teams', 'TeamController@index')->name('teams.index');
+    Route::get('/activitylogs', 'LogController@activityLogIndex')->name('logs.activity.index');
+    Route::get('/accesslogs', 'LogController@accessLogIndex')->name('logs.access.index');
+    Route::get('/securitylogs', 'LogController@securityLogIndex')->name('logs.security.index');
     Route::get('/companies', 'CompanyController@index')->name('companies.index');
     Route::get('/departments', 'DepartmentController@index')->name('departments.index');
     Route::get('/locations', 'LocationController@index')->name('locations.index');
     Route::get('/employees', 'UserController@employee')->name('employees.index');
     Route::get('/positions', 'PositionController@index')->name('positions.index');
     Route::get('/projects', 'ProjectController@index')->name('projects.index');
+
+    Route::get('/errors/400', 'ErrorController@page400')->name('errors.400');
+    Route::get('/errors/403', 'ErrorController@page403')->name('errors.403');
 });

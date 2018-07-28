@@ -3,23 +3,65 @@
 return [
     'role_structure' => [
         'super' => [
-            'users' => 'c,r,u,d,s,r,a',
-            'acl' => 'c,r,u,d',
-            'profile' => 'r,u',
-            'company' => 'c,r,u,d,s,r,a'
+            'dashboard' => 'v',
+            'map' => 'v',
+            'chart' => 'v',
+            'admin' => 'v',
+            'user' => 'c,r,u,d,s,v',
+            'role' => 'c,r,u,d,s,v',
+            'permission' => 'c,r,u,d,s,v',
+            'team' => 'c,r,u,d,s,v',
+            'activitylog' => 'r,d,v',
+            'accesslog' => 'r,d,v',
+            'securitylog' => 'r,d,v',
+            'organization' => 'v',
+            'company' => 'c,r,u,d,s,v',
+            'department' => 'c,r,u,d,s,v',
+            'location' => 'c,r,u,d,s,v',
+            'employee' => 'c,r,u,d,s,v',
+            'position' => 'c,r,u,d,s,v',
+            'project' => 'c,r,u,d,s,v',
+            'costcenter' => 'c,r,u,d,s,v',
+            'accountcode' => 'c,r,u,d,s,v',
+            'itemgroup' => 'c,r,u,d,s,v',
+            'item' => 'c,r,u,d,s,v',
+            'pr' => 'c,r,u,d,s,v,r,a,can,rej',
+            'inventory' => 'c,r,u,d,s,v,adj',
         ],
         'admin' => [
-            'users' => 'c,r,u,d',
-            'profile' => 'r,u',
-            'company' => 'c,r,u,d,s,r,a'
+            'dashboard' => 'v',
+            'map' => 'v',
+            'chart' => 'v',
+            'admin' => 'v',
+            'user' => 'c,r,u,d,s,v',
+            'role' => 'c,r,u,d,s,v',
+            'permission' => 'c,r,u,d,s,v',
+            'team' => 'c,r,u,d,s,v',
+            'activitylog' => 'r,d,v',
+            'accesslog' => 'r,d,v',
+            'securitylog' => 'r,d,v',
+            'organization' => 'v',
+            'company' => 'c,r,u,d,s,v',
+            'department' => 'c,r,u,d,s,v',
+            'location' => 'c,r,u,d,s,v',
+            'employee' => 'c,r,u,d,s,v',
+            'position' => 'c,r,u,d,s,v',
+            'project' => 'c,r,u,d,s,v',
+            'costcenter' => 'c,r,u,d,s,v',
+            'accountcode' => 'c,r,u,d,s,v',
+            'itemgroup' => 'c,r,u,d,s,v',
+            'item' => 'c,r,u,d,s,v',
+            'pr' => 'c,r,u,d,s,v,r,a,can,rej',
+            'inventory' => 'c,r,u,d,s,v,adj',
         ],
         'user' => [
-            'profile' => 'r,u'
+            'pr' => 'c,r,u,s,v,r,a',
+            'inventory' => 'c,r,u,s,v',
         ],
     ],
     'permission_structure' => [
         'cru_user' => [
-            'profile' => 'c,r,u'
+            'pr' => 'c,r,u'
         ],
     ],
     'permissions_map' => [
@@ -28,7 +70,11 @@ return [
         'u' => 'update',
         'd' => 'delete',
         's' => 'restore',
+        'v' => 'view',
         'r' => 'review',
-        'a' => 'approval'
+        'a' => 'approval',
+        'can' => 'cancel',
+        'rej' => 'reject',
+        'adj' => 'adjust',
     ]
 ];

@@ -4,9 +4,7 @@ namespace App\Listeners;
 
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-
 use Illuminate\Http\Request;
-use App\LogActivity;
 
 class LogSuccessfullLogin
 {
@@ -35,14 +33,6 @@ class LogSuccessfullLogin
         $user->disableLogging();
         $user->save();
 
-        /*$log = new LogActivity();
-        $log->subject = 'Login Successfully';
-        $log->is_success = true;
-        $log->method = $this->request->method();
-        $log->ip = $this->request->ip();
-        $log->agent = $this->request->header('user-agent');
-        $log->user_id = auth()->check() ? auth()->user()->id : 1;
-        $log->save();*/
         activity('auth')
         ->causedBy($user)
         ->withProperties([

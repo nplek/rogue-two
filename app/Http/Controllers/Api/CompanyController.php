@@ -11,6 +11,7 @@ use App\Http\Resources\Company as CompanyResource;
 class CompanyController extends Controller
 {
     public function __construct() {
+        //$this->middleware('role:super|admin',['only' => 'index','show']);
     }
 
     public function index()

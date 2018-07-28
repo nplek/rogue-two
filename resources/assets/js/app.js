@@ -43,6 +43,10 @@ import PositionsEdit from './components/positions/PositionsEdit.vue';
 import EmployeesIndex from './components/employees/EmployeesIndex.vue';
 import EmployeesEdit from './components/employees/EmployeesEdit.vue';
 import EmployeesShow from './components/employees/EmployeesShow.vue';
+import ActivityLogsIndex from './components/logs/ActivityLogsIndex.vue';
+import AccessLogsIndex from './components/logs/AccessLogsIndex.vue';
+import SecurityLogsIndex from './components/logs/SecurityLogsIndex.vue';
+
 const routes = [
     {
         path: '/',
@@ -52,6 +56,9 @@ const routes = [
             rolesIndex: RolesIndex,
             permissionsIndex: PermissionsIndex,
             teamsIndex: TeamsIndex,
+            activityLogsIndex: ActivityLogsIndex,
+            accessLogsIndex: AccessLogsIndex,
+            securityLogsIndex: SecurityLogsIndex,
             companiesIndex: CompaniesIndex,
             departmentsIndex: DepartmentsIndex,
             locationsIndex: LocationsIndex,

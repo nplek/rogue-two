@@ -113,33 +113,37 @@ return [
         [
             'text' => 'Dashboard',
             'icon' => 'tachometer',
-            'label'       => 4,
             'label_color' => 'danger',
             'icon_color'  => 'red',
+            'permission' => 'view-dashboard',
             'submenu'   => [
                 [
                     'text'  => 'Chart',
                     'url'   => 'dashboards',
                     'icon'  => 'pie-chart',
                     'icon_color' => 'red',
+                    'permission' => 'view-chart',
                 ],
                 [
                     'text'  => 'Map',
                     'url'   => '#',
                     'icon'  => 'map',
                     'icon_color' => 'red',
+                    'permission' => 'view-map',
                 ],
                 [
                     'text'  => 'Dashboard Purchase',
                     'url'   => '#',
                     'icon'  => 'bell',
                     'icon_color' => 'red',
+                    'permission' => 'view-dashboard',
                 ],
                 [
                     'text'  => 'Dashboard Store',
                     'url'   => '#',
                     'icon'  => 'calculator',
                     'icon_color' => 'red',
+                    'permission' => 'view-dashboard',
                 ]
                 
             ]
@@ -149,44 +153,57 @@ return [
             'text'        => 'Authentications',
             'url'         => '#',
             'icon'        => 'key',
-            'label'       => 6,
             'label_color' => 'success',
             'icon_color'  => 'green',
+            'permission' => 'view-admin',
             'submenu'   => [
                 [
                     'text'  => 'Users',
                     'url'   => 'users',
                     'icon'  => 'user',
                     'icon_color'  => 'green',
+                    'permission' => 'view-user',
                 ],
                 [
                     'text'  => 'Roles',
                     'url'   => 'roles',
                     'icon_color'  => 'green',
+                    'permission' => 'view-role',
                 ],
                 [
                     'text'  => 'Permissions',
                     'url'   => 'permissions',
                     'icon'  => 'handshake-o',
                     'icon_color'  => 'green',
+                    'permission' => 'view-permission',
                 ],
                 [
                     'text'  => 'Teams',
                     'url'   => 'teams',
                     'icon'  => 'users',
                     'icon_color'  => 'green',
+                    'permission' => 'view-team',
                 ],
                 [
-                    'text'  => 'Log Activity',
-                    'url'   => 'log_activity',
+                    'text'  => 'Activity Logs',
+                    'url'   => 'activitylogs',
                     'icon_color'  => 'green',
                     'icon'  => 'font',
+                    'permission' => 'view-activitylog',
                 ],
                 [
-                    'text'  => 'Log Access',
-                    'url'   => 'log_access',
+                    'text'  => 'Access Logs',
+                    'url'   => 'accesslogs',
                     'icon_color'  => 'green',
                     'icon' => 'universal-access',
+                    'permission' => 'view-accesslog',
+                ],
+                [
+                    'text'  => 'Security Logs',
+                    'url'   => 'securitylogs',
+                    'icon_color'  => 'green',
+                    'icon' => 'lock',
+                    'permission' => 'view-securitylog',
                 ],
             ]
         ],
@@ -194,40 +211,47 @@ return [
             'text' => 'Organizations',
             'icon'        => 'sitemap',
             'icon_color'  => 'orange',
+            'permission' => 'view-organization',
             'submenu'     => [
                 [
                     'text'  => 'Companies',
                     'url'   => 'companies',
                     'icon_color'  => 'orange',
-                    'icon' => 'university '
+                    'icon' => 'university ',
+                    'permission' => 'view-company',
                 ],
                 [
                     'text'  => 'Departments',
                     'url'   => 'departments',
                     'icon_color'  => 'orange',
+                    'permission' => 'view-department',
                 ],
                 [
                     'text'  => 'Locations',
                     'url'   => 'locations',
                     'icon_color'  => 'orange',
                     'icon' => 'map-marker',
+                    'permission' => 'view-location',
                 ],
                 [
                     'text'  => 'Employees',
                     'url'   => 'employees',
                     'icon_color'  => 'orange',
                     'icon' => 'male',
+                    'permission' => 'view-employee',
                 ],
                 [
                     'text'  => 'Positions',
                     'url'   => 'positions',
                     'icon_color' => 'orange',
                     'icon'  => 'bullseye',
+                    'permission' => 'view-position',
                 ],
                 [
                     'text'  => 'Projects',
                     'url'   => 'projects',
                     'icon_color'  => 'orange',
+                    'permission' => 'view-project',
                 ],
                 [
                     'text'  => 'Cost center',
@@ -257,6 +281,7 @@ return [
             'url'  => '#',
             'icon' => 'shopping-cart',
             'icon_color'  => 'purple',
+            'permission' => 'view-pr',
             'submenu'   => [
                 [
                     'text'  => 'draft',
@@ -289,10 +314,7 @@ return [
         [
             'text'       => 'Change Password',
             'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Log out',
-            'icon_color' => 'yellow',
+            'url'        => 'changepassword',
         ]
     ],
 

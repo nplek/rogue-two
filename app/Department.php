@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Laratrust\Traits\LaratrustUserTrait;
 
 class Department extends Model
 {
+    use LaratrustUserTrait;
+
     use LogsActivity;
     use SoftDeletes;
     protected $dates = ['deleted_at'];
