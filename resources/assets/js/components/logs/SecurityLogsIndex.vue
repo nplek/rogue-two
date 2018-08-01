@@ -29,6 +29,7 @@
                         <td>
                             <a href="#"
                                class="btn btn-sm btn-danger"
+                               v-if="auth.can.delete"
                                v-on:click="deleteEntry(log.id, index)">
                                 Delete
                             </a>
@@ -95,16 +96,16 @@ import VuejsPaginate from 'vuejs-paginate'
                 for (var index in objs){
                     var permission = objs[index].name;
                     switch(permission) {
-                        case 'create-log':
+                        case 'create-securitylog':
                             app.auth.can.create = true;
                             break;
-                        case 'update-log':
+                        case 'update-securitylog':
                             app.auth.can.update = true;
                             break;
-                        case 'delete-log':
+                        case 'delete-securitylog':
                             app.auth.can.delete = true;
                             break;
-                        case 'restore-log':
+                        case 'restore-securitylog':
                             app.auth.can.restore = true;
                             break;
                         default:

@@ -28,7 +28,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <button class="btn btn-success">Update</button>
+                            <button v-if="auth.can.update" class="btn btn-success">Update</button>
                         </div>
                     </div>
                 </form>

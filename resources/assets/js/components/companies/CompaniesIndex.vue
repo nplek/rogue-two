@@ -72,19 +72,67 @@ import VuejsPaginate from 'vuejs-paginate'
                 companies: [],
                 current_page: 1,
                 pageCount: 0,
+                token:null,
+                auth: {
+                    name: '',
+                    isAdmin: false,
+                    can: {
+                        view: false,
+                        create: false,
+                        update: false,
+                        delete: false,
+                        restore: false,
+                    },
+                },
             }
         },
         mounted() {
+            this.getAuthen();
             this.fetchPaginate();
         },
         methods: {
+            getAuthen(){
+                var app = this;
+                let token = document.head.querySelector('meta[name="token"]'); 
+                let user = document.head.querySelector('meta[name="user"]');
+                let isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+                let permissions = document.head.querySelector('meta[name="permissions"]');
+                app.token = token.content;
+                app.auth.name = user.content;
+                app.auth.isAdmin = isAdmin.content;
+                let content = permissions.content;
+                var objs = JSON.parse(content);
+                for (var index in objs){
+                    var permission = objs[index].name;
+                    switch(permission) {
+                        case 'create-company':
+                            app.auth.can.create = true;
+                            break;
+                        case 'update-company':
+                            app.auth.can.update = true;
+                            break;
+                        case 'delete-company':
+                            app.auth.can.delete = true;
+                            break;
+                        case 'restore-company':
+                            app.auth.can.restore = true;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            },
             fetchPaginate(page = 1){
                 var app = this;
                 axios.get('/api/companies',{
-                    params: {
-                        page
-                    }
-                })
+                        params: {
+                            page
+                        },
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.companies = resp.data.data;
                         app.pageCount = resp.data.meta.last_page;
@@ -97,10 +145,15 @@ import VuejsPaginate from 'vuejs-paginate'
             deleteEntry(id, index) {
                 if (confirm("Do you really want to delete it?")) {
                     var app = this;
-                    axios.delete('/api/companies/' + id)
+                    axios.delete('/api/companies/' + id,{
+                            headers: {
+                                'Accept': 'application/json',
+                                'Authorization': 'Bearer '+ app.token
+                            }
+                        })
                         .then(function (resp) {
-                            //app.companies.splice(index,1);
-                            app.fetchPaginate(app.current_page);
+                            app.companies.splice(index,1);
+                            //app.fetchPaginate(app.current_page);
                         })
                         .catch(function (resp) {
                             alert("Could not delete company");
@@ -110,7 +163,12 @@ import VuejsPaginate from 'vuejs-paginate'
             restoreEntry(id,index) {
                 if (confirm("Do you really want to restore it?")) {
                     var app = this;
-                    axios.post('/api/companies/' + id + '/restore')
+                    axios.post('/api/companies/' + id + '/restore',null,{
+                            headers: {
+                                'Accept': 'application/json',
+                                'Authorization': 'Bearer '+ app.token
+                            }
+                        })
                         .then(function (resp){
                             app.fetchPaginate(app.current_page);
                         })

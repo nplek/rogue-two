@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="form-group">
-            <router-link :to="{name: 'createPermission'}" class="btn btn-success">New</router-link>
+            <router-link v-if="auth.can.create" :to="{name: 'createPermission'}" class="btn btn-success">New</router-link>
         </div>
 
         <div class="panel panel-default">
@@ -22,11 +22,12 @@
                         <td>{{ permission.display_name }}</td>
                         <td>{{ permission.description }}</td>
                         <td>
-                            <router-link :to="{name: 'editPermission', params: {id: permission.id}}" class="btn btn-sm btn-info">
+                            <router-link v-if="auth.can.update" :to="{name: 'editPermission', params: {id: permission.id}}" class="btn btn-sm btn-info">
                                 Edit
                             </router-link>
                             <a href="#"
                                class="btn btn-sm btn-danger"
+                               v-if="auth.can.delete"
                                v-on:click="deleteEntry(permission.id, index)">
                                 Delete
                             </a>

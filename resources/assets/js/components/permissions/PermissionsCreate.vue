@@ -28,7 +28,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <button class="btn btn-success">Create</button>
+                            <button v-if="auth.can.create" class="btn btn-success">Create</button>
                         </div>
                     </div>
                 </form>
