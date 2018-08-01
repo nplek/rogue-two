@@ -55918,7 +55918,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 app.companies = resp.data.data;
                 app.pageCount = resp.data.meta.last_page;
             }).catch(function (resp) {
-                console.log(resp);
                 alert("Could not load companies");
             });
         },
@@ -56998,6 +56997,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -57008,14 +57009,58 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             departments: [],
             current_page: 1,
-            pageCount: 0
+            pageCount: 0,
+            token: null,
+            auth: {
+                name: '',
+                isAdmin: false,
+                can: {
+                    view: false,
+                    create: false,
+                    update: false,
+                    delete: false,
+                    restore: false
+                }
+            }
         };
     },
     mounted: function mounted() {
+        this.getAuthen();
         this.fetchPaginate();
     },
 
     methods: {
+        getAuthen: function getAuthen() {
+            var app = this;
+            var token = document.head.querySelector('meta[name="token"]');
+            var user = document.head.querySelector('meta[name="user"]');
+            var isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+            var permissions = document.head.querySelector('meta[name="permissions"]');
+            app.token = token.content;
+            app.auth.name = user.content;
+            app.auth.isAdmin = isAdmin.content;
+            var content = permissions.content;
+            var objs = JSON.parse(content);
+            for (var index in objs) {
+                var permission = objs[index].name;
+                switch (permission) {
+                    case 'create-department':
+                        app.auth.can.create = true;
+                        break;
+                    case 'update-department':
+                        app.auth.can.update = true;
+                        break;
+                    case 'delete-department':
+                        app.auth.can.delete = true;
+                        break;
+                    case 'restore-department':
+                        app.auth.can.restore = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        },
         fetchPaginate: function fetchPaginate() {
             var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
@@ -57023,6 +57068,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get('/api/departments/', {
                 params: {
                     page: page
+                },
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + app.token
                 }
             }).then(function (resp) {
                 app.departments = resp.data.data;
@@ -57032,9 +57081,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         deleteEntry: function deleteEntry(id, index) {
             if (confirm("Do you really want to delete it?")) {
                 var app = this;
-                axios.delete('/api/departments/' + id).then(function (resp) {
-                    //app.departments.splice(index,1);
-                    app.fetchPaginate(app.current_page);
+                axios.delete('/api/departments/' + id, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer ' + app.token
+                    }
+                }).then(function (resp) {
+                    app.departments.splice(index, 1);
+                    //app.fetchPaginate(app.current_page)
                 }).catch(function (resp) {
                     alert("Could not delete department");
                 });
@@ -57043,7 +57097,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         restoreEntry: function restoreEntry(id, index) {
             if (confirm("Do you really want to restore it?")) {
                 var app = this;
-                axios.post('/api/departments/' + id + '/restore').then(function (resp) {
+                axios.post('/api/departments/' + id + '/restore', null, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer ' + app.token
+                    }
+                }).then(function (resp) {
                     app.fetchPaginate(app.current_page);
                 }).catch(function (resp) {
                     alert("Could not restore department");
@@ -57066,14 +57125,16 @@ var render = function() {
       "div",
       { staticClass: "form-group" },
       [
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-success",
-            attrs: { to: { name: "createDepartment" } }
-          },
-          [_vm._v("New")]
-        )
+        _vm.auth.can.create
+          ? _c(
+              "router-link",
+              {
+                staticClass: "btn btn-success",
+                attrs: { to: { name: "createDepartment" } }
+              },
+              [_vm._v("New")]
+            )
+          : _vm._e()
       ],
       1
     ),
@@ -57111,62 +57172,68 @@ var render = function() {
                       ? _c(
                           "div",
                           [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-sm btn-info",
-                                attrs: {
-                                  to: {
-                                    name: "editDepartment",
-                                    params: { id: department.id }
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Edit\n                        "
+                            _vm.auth.can.update
+                              ? _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "btn btn-sm btn-info",
+                                    attrs: {
+                                      to: {
+                                        name: "editDepartment",
+                                        params: { id: department.id }
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                            Edit\n                        "
+                                    )
+                                  ]
                                 )
-                              ]
-                            ),
+                              : _vm._e(),
                             _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                attrs: { href: "#" },
-                                on: {
-                                  click: function($event) {
-                                    _vm.deleteEntry(department.id, index)
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Delete\n                        "
+                            _vm.auth.can.delete
+                              ? _c(
+                                  "a",
+                                  {
+                                    staticClass: "btn btn-sm btn-danger",
+                                    attrs: { href: "#" },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.deleteEntry(department.id, index)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                            Delete\n                        "
+                                    )
+                                  ]
                                 )
-                              ]
-                            )
+                              : _vm._e()
                           ],
                           1
                         )
                       : _c("div", [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-sm btn-warning",
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  _vm.restoreEntry(department.id, index)
-                                }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                            Restore\n                        "
+                          _vm.auth.can.restore
+                            ? _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-sm btn-warning",
+                                  attrs: { href: "#" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.restoreEntry(department.id, index)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            Restore\n                        "
+                                  )
+                                ]
                               )
-                            ]
-                          )
+                            : _vm._e()
                         ])
                   ])
                 ])
@@ -57340,10 +57407,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
+        this.getAuthen();
         var app = this;
         var id = app.$route.params.id;
         app.departmentId = id;
-        axios.post('/api/companies/list').then(function (resp) {
+        axios.post('/api/companies/list', null, {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + app.token
+            }
+        }).then(function (resp) {
             app.companies = resp.data.data;
         }).catch(function () {
             alert("Could not load your companies");
@@ -57361,15 +57434,63 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             companies: {
                 name: '',
                 short_name: ''
+            },
+            token: null,
+            auth: {
+                name: '',
+                isAdmin: false,
+                can: {
+                    view: false,
+                    create: false,
+                    update: false,
+                    delete: false,
+                    restore: false
+                }
             }
         };
     },
     methods: {
+        getAuthen: function getAuthen() {
+            var app = this;
+            var token = document.head.querySelector('meta[name="token"]');
+            var user = document.head.querySelector('meta[name="user"]');
+            var isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+            var permissions = document.head.querySelector('meta[name="permissions"]');
+            app.token = token.content;
+            app.auth.name = user.content;
+            app.auth.isAdmin = isAdmin.content;
+            var content = permissions.content;
+            var objs = JSON.parse(content);
+            for (var index in objs) {
+                var permission = objs[index].name;
+                switch (permission) {
+                    case 'create-department':
+                        app.auth.can.create = true;
+                        break;
+                    case 'update-department':
+                        app.auth.can.update = true;
+                        break;
+                    case 'delete-department':
+                        app.auth.can.delete = true;
+                        break;
+                    case 'restore-department':
+                        app.auth.can.restore = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        },
         saveForm: function saveForm() {
             event.preventDefault();
             var app = this;
             var newDepartment = app.department;
-            axios.post('/api/departments', newDepartment).then(function (resp) {
+            axios.post('/api/departments', newDepartment, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + app.token
+                }
+            }).then(function (resp) {
                 app.$router.push({ path: '/' });
             }).catch(function (resp) {
                 app.errors = [];
@@ -57592,7 +57713,15 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _vm.auth.can.create
+                  ? _c("button", { staticClass: "btn btn-success" }, [
+                      _vm._v("Create")
+                    ])
+                  : _vm._e()
+              ])
+            ])
           ]
         ),
         _vm._v(" "),
@@ -57612,18 +57741,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Create")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -57747,15 +57865,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
+        this.getAuthen();
         var app = this;
         var id = app.$route.params.id;
         app.departmentId = id;
-        axios.post('/api/companies/list').then(function (resp) {
+        axios.post('/api/companies/list', null, {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + app.token
+            }
+        }).then(function (resp) {
             app.companies = resp.data.data;
         }).catch(function () {
             alert("Could not load your companies");
         });
-        axios.get('/api/departments/' + id).then(function (resp) {
+        axios.get('/api/departments/' + id, {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + app.token
+            }
+        }).then(function (resp) {
             app.department = resp.data.data;
         }).catch(function () {
             alert("Could not load your department");
@@ -57774,16 +57903,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             companies: {
                 name: '',
                 short_name: ''
+            },
+            token: null,
+            auth: {
+                name: '',
+                isAdmin: false,
+                can: {
+                    view: false,
+                    create: false,
+                    update: false,
+                    delete: false,
+                    restore: false
+                }
             }
         };
     },
     methods: {
+        getAuthen: function getAuthen() {
+            var app = this;
+            var token = document.head.querySelector('meta[name="token"]');
+            var user = document.head.querySelector('meta[name="user"]');
+            var isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+            var permissions = document.head.querySelector('meta[name="permissions"]');
+            app.token = token.content;
+            app.auth.name = user.content;
+            app.auth.isAdmin = isAdmin.content;
+            var content = permissions.content;
+            var objs = JSON.parse(content);
+            for (var index in objs) {
+                var permission = objs[index].name;
+                switch (permission) {
+                    case 'create-department':
+                        app.auth.can.create = true;
+                        break;
+                    case 'update-department':
+                        app.auth.can.update = true;
+                        break;
+                    case 'delete-department':
+                        app.auth.can.delete = true;
+                        break;
+                    case 'restore-department':
+                        app.auth.can.restore = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        },
         saveForm: function saveForm() {
             event.preventDefault();
             var app = this;
             var newDepartment = app.department;
             console.log(newDepartment);
-            axios.patch('/api/departments/' + app.departmentId, newDepartment).then(function (resp) {
+            axios.patch('/api/departments/' + app.departmentId, newDepartment, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + app.token
+                }
+            }).then(function (resp) {
                 app.$router.replace('/');
             }).catch(function (resp) {
                 app.errors = [];
@@ -58004,7 +58181,15 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _vm.auth.can.update
+                  ? _c("button", { staticClass: "btn btn-success" }, [
+                      _vm._v("Update")
+                    ])
+                  : _vm._e()
+              ])
+            ])
           ]
         ),
         _vm._v(" "),
@@ -58024,18 +58209,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Update")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -58160,6 +58334,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -58170,19 +58346,67 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             locations: [],
             current_page: 1,
-            pageCount: 0
+            pageCount: 0,
+            token: null,
+            auth: {
+                name: '',
+                isAdmin: false,
+                can: {
+                    view: false,
+                    create: false,
+                    update: false,
+                    delete: false,
+                    restore: false
+                }
+            }
         };
     },
     mounted: function mounted() {
+        this.getAuthen();
         this.fetchPaginate();
     },
 
     methods: {
+        getAuthen: function getAuthen() {
+            var app = this;
+            var token = document.head.querySelector('meta[name="token"]');
+            var user = document.head.querySelector('meta[name="user"]');
+            var isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+            var permissions = document.head.querySelector('meta[name="permissions"]');
+            app.token = token.content;
+            app.auth.name = user.content;
+            app.auth.isAdmin = isAdmin.content;
+            var content = permissions.content;
+            var objs = JSON.parse(content);
+            for (var index in objs) {
+                var permission = objs[index].name;
+                switch (permission) {
+                    case 'create-location':
+                        app.auth.can.create = true;
+                        break;
+                    case 'update-location':
+                        app.auth.can.update = true;
+                        break;
+                    case 'delete-location':
+                        app.auth.can.delete = true;
+                        break;
+                    case 'restore-location':
+                        app.auth.can.restore = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        },
         fetchPaginate: function fetchPaginate(page) {
             var app = this;
             axios.get('/api/locations', {
                 params: {
                     page: page
+                },
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + app.token
                 }
             }).then(function (resp) {
                 app.locations = resp.data.data;
@@ -58195,9 +58419,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         deleteEntry: function deleteEntry(id, index) {
             if (confirm("Do you really want to delete it?")) {
                 var app = this;
-                axios.delete('/api/locations/' + id).then(function (resp) {
-                    //app.locations.splice(index,1);
-                    app.fetchPaginate(app.current_page);
+                axios.delete('/api/locations/' + id, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer ' + app.token
+                    }
+                }).then(function (resp) {
+                    app.locations.splice(index, 1);
+                    //app.fetchPaginate(app.current_page);
                 }).catch(function (resp) {
                     alert("Could not delete location");
                 });
@@ -58206,7 +58435,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         restoreEntry: function restoreEntry(id, index) {
             if (confirm("Do you really want to restore it?")) {
                 var app = this;
-                axios.post('/api/locations/' + id + '/restore').then(function (resp) {
+                axios.post('/api/locations/' + id + '/restore', null, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer ' + app.token
+                    }
+                }).then(function (resp) {
                     app.fetchPaginate(app.current_page);
                 }).catch(function (resp) {
                     alert("Could not restore location");
@@ -58229,14 +58463,16 @@ var render = function() {
       "div",
       { staticClass: "form-group" },
       [
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-success",
-            attrs: { to: { name: "createLocation" } }
-          },
-          [_vm._v("New")]
-        )
+        _vm.auth.can.create
+          ? _c(
+              "router-link",
+              {
+                staticClass: "btn btn-success",
+                attrs: { to: { name: "createLocation" } }
+              },
+              [_vm._v("New")]
+            )
+          : _vm._e()
       ],
       1
     ),
@@ -58272,62 +58508,68 @@ var render = function() {
                       ? _c(
                           "div",
                           [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-sm btn-info",
-                                attrs: {
-                                  to: {
-                                    name: "editLocation",
-                                    params: { id: location.id }
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Edit\n                        "
+                            _vm.auth.can.update
+                              ? _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "btn btn-sm btn-info",
+                                    attrs: {
+                                      to: {
+                                        name: "editLocation",
+                                        params: { id: location.id }
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                            Edit\n                        "
+                                    )
+                                  ]
                                 )
-                              ]
-                            ),
+                              : _vm._e(),
                             _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                attrs: { href: "#" },
-                                on: {
-                                  click: function($event) {
-                                    _vm.deleteEntry(location.id, index)
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Delete\n                        "
+                            _vm.auth.can.delete
+                              ? _c(
+                                  "a",
+                                  {
+                                    staticClass: "btn btn-sm btn-danger",
+                                    attrs: { href: "#" },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.deleteEntry(location.id, index)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                            Delete\n                        "
+                                    )
+                                  ]
                                 )
-                              ]
-                            )
+                              : _vm._e()
                           ],
                           1
                         )
                       : _c("div", [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-sm btn-warning",
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  _vm.restoreEntry(location.id, index)
-                                }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                            Restore\n                        "
+                          _vm.auth.can.restore
+                            ? _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-sm btn-warning",
+                                  attrs: { href: "#" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.restoreEntry(location.id, index)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            Restore\n                        "
+                                  )
+                                ]
                               )
-                            ]
-                          )
+                            : _vm._e()
                         ])
                   ])
                 ])
@@ -58493,16 +58735,68 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             location: {
                 name: '',
                 short_name: ''
+            },
+            token: null,
+            auth: {
+                name: '',
+                isAdmin: false,
+                can: {
+                    view: false,
+                    create: false,
+                    update: false,
+                    delete: false,
+                    restore: false
+                }
             }
         };
     },
+    mounted: function mounted() {
+        this.getAuthen();
+    },
+
     methods: {
+        getAuthen: function getAuthen() {
+            var app = this;
+            var token = document.head.querySelector('meta[name="token"]');
+            var user = document.head.querySelector('meta[name="user"]');
+            var isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+            var permissions = document.head.querySelector('meta[name="permissions"]');
+            app.token = token.content;
+            app.auth.name = user.content;
+            app.auth.isAdmin = isAdmin.content;
+            var content = permissions.content;
+            var objs = JSON.parse(content);
+            for (var index in objs) {
+                var permission = objs[index].name;
+                switch (permission) {
+                    case 'create-location':
+                        app.auth.can.create = true;
+                        break;
+                    case 'update-location':
+                        app.auth.can.update = true;
+                        break;
+                    case 'delete-location':
+                        app.auth.can.delete = true;
+                        break;
+                    case 'restore-location':
+                        app.auth.can.restore = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        },
         saveForm: function saveForm() {
             event.preventDefault();
             this.errors = [];
             var app = this;
             var newLocation = app.location;
-            axios.post('/api/locations', newLocation).then(function (resp) {
+            axios.post('/api/locations', newLocation, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + app.token
+                }
+            }).then(function (resp) {
                 app.$router.push({ path: '/' });
             }).catch(function (resp) {
                 app.errors = [];
@@ -58659,7 +58953,15 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _vm.auth.can.create
+                  ? _c("button", { staticClass: "btn btn-success" }, [
+                      _vm._v("Create")
+                    ])
+                  : _vm._e()
+              ])
+            ])
           ]
         ),
         _vm._v(" "),
@@ -58679,18 +58981,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Create")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -58803,10 +59094,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
+        this.getAuthen();
         var app = this;
         var id = app.$route.params.id;
         app.locationId = id;
-        axios.get('/api/locations/' + id).then(function (resp) {
+        axios.get('/api/locations/' + id, {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + app.token
+            }
+        }).then(function (resp) {
             app.location = resp.data.data;
         }).catch(function () {
             alert("Could not load your location");
@@ -58820,15 +59117,63 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             location: {
                 name: '',
                 short_name: ''
+            },
+            token: null,
+            auth: {
+                name: '',
+                isAdmin: false,
+                can: {
+                    view: false,
+                    create: false,
+                    update: false,
+                    delete: false,
+                    restore: false
+                }
             }
         };
     },
     methods: {
+        getAuthen: function getAuthen() {
+            var app = this;
+            var token = document.head.querySelector('meta[name="token"]');
+            var user = document.head.querySelector('meta[name="user"]');
+            var isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+            var permissions = document.head.querySelector('meta[name="permissions"]');
+            app.token = token.content;
+            app.auth.name = user.content;
+            app.auth.isAdmin = isAdmin.content;
+            var content = permissions.content;
+            var objs = JSON.parse(content);
+            for (var index in objs) {
+                var permission = objs[index].name;
+                switch (permission) {
+                    case 'create-location':
+                        app.auth.can.create = true;
+                        break;
+                    case 'update-location':
+                        app.auth.can.update = true;
+                        break;
+                    case 'delete-location':
+                        app.auth.can.delete = true;
+                        break;
+                    case 'restore-location':
+                        app.auth.can.restore = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        },
         saveForm: function saveForm() {
             event.preventDefault();
             var app = this;
             var newLocation = app.location;
-            axios.patch('/api/locations/' + app.locationId, newLocation).then(function (resp) {
+            axios.patch('/api/locations/' + app.locationId, newLocation, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + app.token
+                }
+            }).then(function (resp) {
                 app.$router.replace('/');
             }).catch(function (resp) {
                 app.errors = [];
@@ -58983,7 +59328,15 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _vm.auth.can.update
+                  ? _c("button", { staticClass: "btn btn-success" }, [
+                      _vm._v("Update")
+                    ])
+                  : _vm._e()
+              ])
+            ])
           ]
         ),
         _vm._v(" "),
@@ -59003,18 +59356,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Update")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

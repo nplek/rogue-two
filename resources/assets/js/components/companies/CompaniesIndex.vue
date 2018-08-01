@@ -138,7 +138,6 @@ import VuejsPaginate from 'vuejs-paginate'
                         app.pageCount = resp.data.meta.last_page;
                     })
                     .catch(function (resp) {
-                        console.log(resp);
                         alert("Could not load companies");
                     });
             },

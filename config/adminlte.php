@@ -167,6 +167,7 @@ return [
                 [
                     'text'  => 'Roles',
                     'url'   => 'roles',
+                    'icon'  => 'user-circle-o',
                     'icon_color'  => 'green',
                     'permission' => 'view-role',
                 ],
@@ -223,6 +224,7 @@ return [
                 [
                     'text'  => 'Departments',
                     'url'   => 'departments',
+                    'icon'  => 'tags',
                     'icon_color'  => 'orange',
                     'permission' => 'view-department',
                 ],

@@ -56,7 +56,6 @@ class DepartmentController extends Controller
         ]);
 
         $department = Department::findOrFail($id);
-        $department->causedBy(Auth::user());
         $department->name = $request['name'];
         $department->short_name = $request['short_name'];
         $department->company_id = $request['company_id'];
