@@ -259,21 +259,25 @@ return [
                     'text'  => 'Cost center',
                     'url'   => '#',
                     'icon_color'  => 'orange',
+                    'permission' => 'view-costcenter',
                 ],
                 [
                     'text'  => 'Account code',
                     'url'   => '#',
                     'icon_color'  => 'orange',
+                    'permission' => 'view-accountcode',
                 ],
                 [
                     'text'  => 'Item groups',
                     'url'   => '#',
                     'icon_color'  => 'orange',
+                    'permission' => 'view-itemgroup',
                 ],
                 [
                     'text'  => 'Item code',
                     'url'   => '#',
                     'icon_color'  => 'orange',
+                    'permission' => 'view-item',
                 ]
             ]
         ],
@@ -305,6 +309,7 @@ return [
             'url'  => '#',
             'icon_color'  => 'yellow',
             'icon' => 'calculator',
+            'permission' => 'view-inventory',
             'submenu'   => [
                 [
                     'text'  => 'Items',
