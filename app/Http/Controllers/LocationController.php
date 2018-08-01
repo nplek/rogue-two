@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
-    public function index(){
-        return view('locations.index');
+    public function index(Request $requst){
+        $token = $request->session()->get('tokens');
+        return view('locations.index',compact('token'));
     }
 }

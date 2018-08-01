@@ -21,6 +21,9 @@
 @endsection
 
 @section('js')
+<script>
+    document.ready(window.setTimeout(location.href = "/login",5000));
+</script>
 @stop
 
 @section('css')

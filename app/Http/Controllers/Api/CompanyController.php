@@ -12,6 +12,7 @@ class CompanyController extends Controller
 {
     public function __construct() {
         //$this->middleware('role:super|admin',['only' => 'index','show']);
+        //$this->middleware('scopes:super-web,admin-web',['only' => ['show']]);
     }
 
     public function index()

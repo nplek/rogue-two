@@ -46,10 +46,16 @@
 <script>
     export default {
         mounted() {
+            this.getAuthen();
             let app = this;
             let id = app.$route.params.id;
             app.teamId = id;
-            axios.get('/api/teams/' + id)
+            axios.get('/api/teams/' + id,{
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer '+ app.token
+                    }
+                })
                 .then(function (resp) {
                     app.team = resp.data.data;
                 })
@@ -66,12 +72,60 @@
                     display_name:'',
                     description: '',
                 },
+                token:null,
+                auth: {
+                    name: '',
+                    isAdmin: false,
+                    can: {
+                        view: false,
+                        create: false,
+                        update: false,
+                        delete: false,
+                        restore: false,
+                    },
+                },
             }
         },
         methods: {
+            getAuthen(){
+                var app = this;
+                let token = document.head.querySelector('meta[name="token"]'); 
+                let user = document.head.querySelector('meta[name="user"]');
+                let isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+                let permissions = document.head.querySelector('meta[name="permissions"]');
+                app.token = token.content;
+                app.auth.name = user.content;
+                app.auth.isAdmin = isAdmin.content;
+                let content = permissions.content;
+                var objs = JSON.parse(content);
+                for (var index in objs){
+                    var permission = objs[index].name;
+                    switch(permission) {
+                        case 'create-team':
+                            app.auth.can.create = true;
+                            break;
+                        case 'update-team':
+                            app.auth.can.update = true;
+                            break;
+                        case 'delete-team':
+                            app.auth.can.delete = true;
+                            break;
+                        case 'restore-team':
+                            app.auth.can.restore = true;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            },
             getteamsList(){
                 let app = this;
-                axios.post('/api/teams/list')
+                axios.post('/api/teams/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.teams = resp.data.data;
                     })
@@ -83,7 +137,12 @@
                 event.preventDefault();
                 var app = this;
                 var newTeam = app.team;
-                axios.patch('/api/teams/' + app.teamId, newTeam)
+                axios.patch('/api/teams/' + app.teamId, newTeam,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.$router.replace('/');
                     })

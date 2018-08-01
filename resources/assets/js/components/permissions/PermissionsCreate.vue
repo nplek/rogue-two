@@ -46,6 +46,7 @@
 <script>
     export default {
         mounted() {
+            this.getAuthen();
         },
         data: function () {
             return {
@@ -55,14 +56,62 @@
                     display_name:'',
                     description: '',
                 },
+                token:null,
+                auth: {
+                    name: '',
+                    isAdmin: false,
+                    can: {
+                        view: false,
+                        create: false,
+                        update: false,
+                        delete: false,
+                        restore: false,
+                    },
+                },
             }
         },
         methods: {
+            getAuthen(){
+                var app = this;
+                let token = document.head.querySelector('meta[name="token"]'); 
+                let user = document.head.querySelector('meta[name="user"]');
+                let isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+                let permissions = document.head.querySelector('meta[name="permissions"]');
+                app.token = token.content;
+                app.auth.name = user.content;
+                app.auth.isAdmin = isAdmin.content;
+                let content = permissions.content;
+                var objs = JSON.parse(content);
+                for (var index in objs){
+                    var permission = objs[index].name;
+                    switch(permission) {
+                        case 'create-permission':
+                            app.auth.can.create = true;
+                            break;
+                        case 'update-permission':
+                            app.auth.can.update = true;
+                            break;
+                        case 'delete-permission':
+                            app.auth.can.delete = true;
+                            break;
+                        case 'restore-permission':
+                            app.auth.can.restore = true;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            },
             saveForm() {
                 event.preventDefault();
                 var app = this;
                 var newPermission = app.permission;
-                axios.post('/api/permissions', newPermission)
+                axios.post('/api/permissions', newPermission,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.$router.push({path: '/'});
                     })

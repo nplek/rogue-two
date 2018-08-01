@@ -5,7 +5,6 @@ namespace App\Listeners;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Request;
-use App\LogActivity;
 
 class LogLastLogout
 {
@@ -27,20 +26,14 @@ class LogLastLogout
      */
     public function handle($event)
     {
+        $this->request->session()->flush();
+        
         $user = $event->user;
         $user->last_logout_at = date('Y-m-d H:i:s');
         $user->disableLogging();
         $user->save();
+        //$user->token()->revoked();
 
-        /*$log = new LogActivity();
-        $log->subject = 'Logout Successfully';
-        $log->is_success = true;
-        $log->method = $this->request->method();
-        $log->ip = $this->request->ip();
-        $log->agent = $this->request->header('user-agent');
-        $log->user_id = auth()->check() ? auth()->user()->id : 1;
-        $log->url = $this->request->fullUrl();
-        $log->save();*/
         activity('auth')
         ->causedBy($user)
         ->withProperties([

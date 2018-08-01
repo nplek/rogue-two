@@ -32,12 +32,13 @@ class TeamController extends Controller
 
         $name = $request['name'];
         $display_name = $request['display_name'];
-        $description = $request['description'];
+        //$description = $request['description'];
 
         $team = new Team();
         $team->name = $name;
         $team->display_name = $display_name;
-        $team->description = $description;
+        //$team->description = $description;
+        $team->description = $request['description'];
         $team->save();
         
         return new TeamResource($team);

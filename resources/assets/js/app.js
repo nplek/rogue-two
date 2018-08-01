@@ -10,8 +10,10 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
-
+import VueSession from 'vue-session'
 window.Vue.use(VueRouter);
+window.Vue.use(VueSession);
+import HomeIndex from './components/homeIndex.vue';
 import DashboardsIndex from './components/dashboards/DashboardsIndex.vue';
 import UsersIndex from './components/users/UsersIndex.vue';
 import UsersCreate from './components/users/UsersCreate.vue';
@@ -46,11 +48,28 @@ import EmployeesShow from './components/employees/EmployeesShow.vue';
 import ActivityLogsIndex from './components/logs/ActivityLogsIndex.vue';
 import AccessLogsIndex from './components/logs/AccessLogsIndex.vue';
 import SecurityLogsIndex from './components/logs/SecurityLogsIndex.vue';
+import LoginPage from './components/auth/LoginPage.vue';
 
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue')
+);
+
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue')
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue')
+);
 const routes = [
     {
         path: '/',
         components: {
+            homeIndex: HomeIndex,
+            loginPage: LoginPage,
             dashboardsIndex: DashboardsIndex,
             usersIndex: UsersIndex,
             rolesIndex: RolesIndex,
@@ -69,6 +88,7 @@ const routes = [
     },
     {path: '/admin/users/create', component: UsersCreate, name: 'createUser'},
     {path: '/admin/users/edit/:id', component: UsersEdit, name: 'editUser'},
+
     {path: '/admin/roles/create', component: RolesCreate, name: 'createRole'},
     {path: '/admin/roles/edit/:id', component: RolesEdit, name: 'editRole'},
     {path: '/admin/permissions/create', component: PermissionsCreate, name: 'createPermission'},

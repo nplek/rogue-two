@@ -31,7 +31,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <button class="btn btn-success">Create</button>
+                            <button v-if="auth.can.create" class="btn btn-success">Create</button>
                         </div>
                     </div>
                 </form>
@@ -49,6 +49,7 @@
 <script>
     export default {
         mounted() {
+            this.getAuthen();
             this.getPermissionsList();
         },
         data: function () {
@@ -61,12 +62,60 @@
                     permissions:[]
                 },
                 permissions:[],
+                token:null,
+                auth: {
+                    name: '',
+                    isAdmin: false,
+                    can: {
+                        view: false,
+                        create: false,
+                        update: false,
+                        delete: false,
+                        restore: false,
+                    },
+                },
             }
         },
         methods: {
+            getAuthen(){
+                var app = this;
+                let token = document.head.querySelector('meta[name="token"]'); 
+                let user = document.head.querySelector('meta[name="user"]');
+                let isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+                let permissions = document.head.querySelector('meta[name="permissions"]');
+                app.token = token.content;
+                app.auth.name = user.content;
+                app.auth.isAdmin = isAdmin.content;
+                let content = permissions.content;
+                var objs = JSON.parse(content);
+                for (var index in objs){
+                    var permission = objs[index].name;
+                    switch(permission) {
+                        case 'create-user':
+                            app.auth.can.create = true;
+                            break;
+                        case 'update-user':
+                            app.auth.can.update = true;
+                            break;
+                        case 'delete-user':
+                            app.auth.can.delete = true;
+                            break;
+                        case 'restore-user':
+                            app.auth.can.restore = true;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            },
             getPermissionsList(){
                 let app = this;
-                axios.post('/api/permissions/list')
+                axios.post('/api/permissions/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.permissions = resp.data.data;
                     })
@@ -78,7 +127,12 @@
                 event.preventDefault();
                 var app = this;
                 var newRole = app.role;
-                axios.post('/api/roles', newRole)
+                axios.post('/api/roles', newRole,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer ' + app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.$router.push({path: '/'});
                     })

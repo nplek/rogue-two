@@ -5,6 +5,7 @@ namespace App\Listeners;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class LogSuccessfullLogin
 {
@@ -32,6 +33,15 @@ class LogSuccessfullLogin
         $user->last_login_ip = $this->request->ip();
         $user->disableLogging();
         $user->save();
+        /*$scope = 'user-web';
+        if ($user->hasRole('super')){
+            $scope = 'super-web';
+        } else if ($user->hasRole('admin')){
+            $scope = 'admin-web';
+        }*/
+        //$token = $user->createToken('rogue-api',[$scope])->accessToken;
+        $token = $user->createToken('rogue-api')->accessToken;
+        $this->request->session()->put('tokens',$token);
 
         activity('auth')
         ->causedBy($user)

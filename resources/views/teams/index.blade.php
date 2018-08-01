@@ -34,5 +34,8 @@
 <meta name="dp-time" content="{{ config('app.time_format_moment') }}">
 <meta name="dp-datetime" content="{{ config('app.datetime_format_moment') }}">
 <meta name="app-locale" content="{{ App::getLocale() }}">
-
+<meta name="token" content="{{ $token }}">
+<meta name="user" content="{{ Auth::user()->name }}">
+<meta name="isAdmin" content="{{ Auth::user()->hasRole('admin|super') }}">
+<meta name="permissions" content="{{ json_encode(Auth::user()->allPermissions()) }}">
 @stop

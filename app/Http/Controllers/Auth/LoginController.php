@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -60,6 +60,8 @@ class LoginController extends Controller
             // Make sure the user is active
             if ($user->active == 'A' && $this->attemptLogin($request)) {
                 // Send the normal successful login response
+                //$token = $user->createToken('rogue-api')->accessToken;
+                //$request->session()->put('tokens',$token);
                 return $this->sendLoginResponse($request);
             } else {
                 // Increment the failed login attempts and redirect back to the

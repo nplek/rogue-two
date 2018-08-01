@@ -6,18 +6,21 @@ use Illuminate\Http\Request;
 
 class LogController extends Controller
 {
-    public function activityLogIndex()
+    public function activityLogIndex(Request $request)
     {
-        return view('logs.activityLog');
+        $token = $request->session()->get('tokens');
+        return view('logs.activityLog',compact('token'));
     }
 
-    public function accessLogIndex()
+    public function accessLogIndex(Request $request)
     {
-        return view('logs.accessLog');
+        $token = $request->session()->get('tokens');
+        return view('logs.accessLog',compact('token'));
     }
 
-    public function securityLogIndex()
+    public function securityLogIndex(Request $request)
     {
-        return view('logs.securityLog');
+        $token = $request->session()->get('tokens');
+        return view('logs.securityLog',compact('token'));
     }
 }

@@ -12,8 +12,13 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="panel-body table-responsive">
-                <router-view name="usersIndex"></router-view>
-                <router-view></router-view>
+            <router-view name="usersIndex" 
+            token-id="{{ $token }}"
+            is-admin="{{ Auth::user()->hasRole('admin|super') }}"
+            is-create="{{ Auth::user()->can('create-user') }}"
+            is-edit="{{ Auth::user()->can('edit-user') }}"
+            >
+            </router-view>
             </div>
         </div>
     </div>
@@ -34,4 +39,8 @@
 <meta name="dp-time" content="{{ config('app.time_format_moment') }}">
 <meta name="dp-datetime" content="{{ config('app.datetime_format_moment') }}">
 <meta name="app-locale" content="{{ App::getLocale() }}">
+<meta name="token" content="{{ $token }}">
+<meta name="user" content="{{ Auth::user()->name }}">
+<meta name="isAdmin" content="{{ Auth::user()->hasRole('admin|super') }}">
+<meta name="permissions" content="{{ json_encode(Auth::user()->allPermissions()) }}">
 @stop

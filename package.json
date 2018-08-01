@@ -23,6 +23,7 @@
         "ajv": "^6.5.2",
         "font-awesome": "^4.7.0",
         "vue-router": "^3.0.1",
+        "vue-session": "^1.0.0",
         "vue2-datepicker": "^2.1.0",
         "vuejs-paginate": "^2.0.1"
     }

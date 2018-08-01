@@ -98,7 +98,6 @@ class UserController extends Controller
         else {
             $user->positions()->detach();
         }
-
         return new UserResource($user);
     }
 

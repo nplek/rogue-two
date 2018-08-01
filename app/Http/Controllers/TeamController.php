@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('teams.index');
+        $token = $request->session()->get('tokens');
+        return view('teams.index',compact('token'));
     }
 }

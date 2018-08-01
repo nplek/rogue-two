@@ -13,5 +13,6 @@ class Team extends LaratrustTeam
     protected static $logAttributes = [
         'name', 
         'display_name',
+        'description',
     ];
 }

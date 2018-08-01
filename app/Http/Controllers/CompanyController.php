@@ -10,8 +10,9 @@ class CompanyController extends Controller
         //$this->middleware('role:super|admin',['only' => 'index']);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('companies.index');
+        $token = $request->session()->get('tokens');
+        return view('companies.index',compact('token'));
     }
 }

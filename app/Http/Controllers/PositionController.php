@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class PositionController extends Controller
 {
-    public function index(){
-        return view('positions.index');
+    public function index(Request $request){
+        $token = $request->session()->get('tokens');
+        return view('positions.index',compact('token'));
     }
 }

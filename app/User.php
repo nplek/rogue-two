@@ -10,9 +10,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
 use App\Location;
 use App\Position;
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
+    use HasApiTokens;
     use LogsActivity;
     use LaratrustUserTrait;
     use Notifiable;
@@ -64,6 +67,7 @@ class User extends Authenticatable
         return $query->where('active', 'A');
     }
 
+    
     protected $employee_detail = null;
 
     public function getEmployeeDetailAttribute(){
@@ -80,4 +84,30 @@ class User extends Authenticatable
         return $this->belongsToMany(Position::class,'user_has_positions',
         'user_id','position_id')->withTimestamps();
     }
+
+    /*public function getAllPermissionsAttribute()
+    {
+        return $this->getAllPermissions();
+    }*/
+    protected $appends = ['user-can'];
+    //protected $can = null;
+    
+    public function getUserCanAttribute()
+    {
+        $permissions = [];
+        /*foreach (Permission::all() as $permission) {
+            if (Auth::user()->can($permission->name)) {
+                $permissions[$permission->name] = true;
+            } else {
+                $permissions[$permission->name] = false;
+            }
+        }*/
+        $userpermiss = $this->allPermissions();
+        foreach($userpermiss as $permission){
+            $permissions[$permission->name] = true;
+        }
+
+        return $permissions;
+    }
+
 }

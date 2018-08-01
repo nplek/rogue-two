@@ -88,16 +88,20 @@
 </template>
 
 <script>
-import DatePicker from 'vue2-datepicker'
     export default {
         components: {
-            'date-picker': DatePicker ,
         },
         mounted() {
             let app = this;
+            this.getAuthen();
             let id = app.$route.params.id;
             app.userId = id;
-            axios.get('/api/users/' + id)
+            axios.get('/api/users/' + id,{
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer '+ app.token
+                    }
+                })
                 .then(function (resp) {
                     app.user = resp.data.data;
                     app.userRoles = [];
@@ -120,6 +124,18 @@ import DatePicker from 'vue2-datepicker'
         },
         data: function () {
             return {
+                token:null,
+                auth: {
+                    name: '',
+                    isAdmin: false,
+                    can: {
+                        view: false,
+                        create: false,
+                        update: false,
+                        delete: false,
+                        restore: false,
+                    },
+                },
                 errors: [],
                 userId: null,
                 userRoles:[],
@@ -140,9 +156,45 @@ import DatePicker from 'vue2-datepicker'
             }
         },
         methods: {
+            getAuthen(){
+                var app = this;
+                let token = document.head.querySelector('meta[name="token"]'); 
+                let user = document.head.querySelector('meta[name="user"]');
+                let isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+                let permissions = document.head.querySelector('meta[name="permissions"]');
+                app.token = token.content;
+                app.auth.name = user.content;
+                app.auth.isAdmin = isAdmin.content;
+                let content = permissions.content;
+                var objs = JSON.parse(content);
+                for (var index in objs){
+                    var permission = objs[index].name;
+                    switch(permission) {
+                        case 'create-user':
+                            app.auth.can.create = true;
+                            break;
+                        case 'update-user':
+                            app.auth.can.update = true;
+                            break;
+                        case 'delete-user':
+                            app.auth.can.update = true;
+                            break;
+                        case 'restore-user':
+                            app.auth.can.update = true;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            },
             getLocationsList(){
                 let app = this;
-                axios.post('/api/locations/list')
+                axios.post('/api/locations/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.locations = resp.data.data;
                     })
@@ -152,7 +204,12 @@ import DatePicker from 'vue2-datepicker'
             },
             getRolesList(){
                 let app = this;
-                axios.post('/api/roles/list')
+                axios.post('/api/roles/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.roles = resp.data.data;
                     })
@@ -162,7 +219,12 @@ import DatePicker from 'vue2-datepicker'
             },
             getPositionsList(){
                 let app = this;
-                axios.post('/api/positions/list')
+                axios.post('/api/positions/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.positions = resp.data.data;
                     })
@@ -174,7 +236,12 @@ import DatePicker from 'vue2-datepicker'
                 event.preventDefault();
                 var app = this;
                 var newUser = app.user;
-                axios.patch('/api/users/' + app.userId, newUser)
+                axios.patch('/api/users/' + app.userId, newUser,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ token
+                        }
+                    })
                     .then(function (resp) {
                         app.$router.replace('/');
                     })

@@ -14,13 +14,29 @@ use Illuminate\Http\Request;
 */
 Route::post('login', 'API\LoginController@login')->name('api.login');
 
+/*Route::group([
+    'prefix' => 'auth'
+], function () {
+    Route::post('login', 'AuthController@login');
+    Route::post('signup', 'AuthController@signup');
+  
+    Route::group([
+      'middleware' => 'auth:api'
+    ], function() {
+        Route::get('logout', 'AuthController@logout');
+        Route::get('user', 'AuthController@user');
+    });
+});*/
+
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
-//Route::group(['middleware' => 'auth:api'], function(){
+Route::group(['middleware' => 'auth:api'], function(){
     Route::namespace('Api')->group(function(){
         Route::name('api.')->group(function(){
             Route::resource('companies', 'CompanyController',['except' => ['create','edit']]);
+            /*Route::resource('companies', 'CompanyController',['except' => ['create','edit']])
+            ->middleware('scopes:super-web,admin-web');*/
             Route::post('companies/{id}/restore','CompanyController@restore')->name('companies.restore');
             Route::post('companies/list','CompanyController@list')->name('companies.list');
 
@@ -54,10 +70,11 @@ Route::post('login', 'API\LoginController@login')->name('api.login');
             Route::get('logs/activitylogs', 'LogController@activityLogsIndex')->name('logs.activity.index');
             Route::get('logs/accesslogs', 'LogController@accessLogsIndex')->name('logs.access.index');
             Route::get('logs/securitylogs', 'LogController@securityLogsIndex')->name('logs.security.index');
+            Route::delete('logs/{id}', 'LogController@destroyLog')->name('logs.delete');
 
             Route::resource('positions', 'PositionController',['except' => ['create','edit']]);
             Route::post('positions/{id}/restore','PositionController@restore')->name('positions.restore');
             Route::post('positions/list','PositionController@list')->name('positions.list');
         });
     });
-//});
+});

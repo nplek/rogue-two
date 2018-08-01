@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="form-group">
-            <router-link :to="{name: 'createRole'}" class="btn btn-success">New</router-link>
+            <router-link v-if="auth.can.create" :to="{name: 'createRole'}" class="btn btn-success">New</router-link>
         </div>
 
         <div class="panel panel-default">
@@ -24,12 +24,16 @@
                             <span  v-for="(permission) in role.permissions" v-bind:key="permission.id" class="badge bg-green" > {{ permission.display_name }} </span>
                         </td>
                         <td>
-                            <router-link :to="{name: 'editRole', params: {id: role.id}}" class="btn btn-sm btn-info">
+                            <router-link 
+                                v-if="auth.can.update"
+                                :to="{name: 'editRole', params: {id: role.id}}" 
+                                class="btn btn-sm btn-info">
                                 Edit
                             </router-link>
                             <a href="#"
-                               class="btn btn-sm btn-danger"
-                               v-on:click="deleteEntry(role.id, index)">
+                                v-if="auth.can.delete"
+                                class="btn btn-sm btn-danger"
+                                v-on:click="deleteEntry(role.id, index)">
                                 Delete
                             </a>
                         </td>
@@ -61,17 +65,65 @@ import VuejsPaginate from 'vuejs-paginate'
                 roles: [],
                 current_page: 1,
                 pageCount:0,
+                token:null,
+                auth: {
+                    name: '',
+                    isAdmin: false,
+                    can: {
+                        view: false,
+                        create: false,
+                        update: false,
+                        delete: false,
+                        restore: false,
+                    },
+                },
             }
         },
         mounted() {
+            this.getAuthen();
             this.fetchPaginate();
         },
         methods: {
+            getAuthen(){
+                var app = this;
+                let token = document.head.querySelector('meta[name="token"]'); 
+                let user = document.head.querySelector('meta[name="user"]');
+                let isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+                let permissions = document.head.querySelector('meta[name="permissions"]');
+                app.token = token.content;
+                app.auth.name = user.content;
+                app.auth.isAdmin = isAdmin.content;
+                let content = permissions.content;
+                var objs = JSON.parse(content);
+                for (var index in objs){
+                    var permission = objs[index].name;
+                    switch(permission) {
+                        case 'create-role':
+                            app.auth.can.create = true;
+                            break;
+                        case 'update-role':
+                            app.auth.can.update = true;
+                            break;
+                        case 'delete-role':
+                            app.auth.can.delete = true;
+                            break;
+                        case 'restore-role':
+                            app.auth.can.restore = true;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            },
             fetchPaginate(page){
                 var app = this;
                 axios.get('/api/roles',{
                     params: {
                         page
+                    },
+                    headers: {
+                        'Accept': 'application/json',
+		                'Authorization': 'Bearer '+ app.token
                     }
                 }).then(function (resp) {
                     app.roles = resp.data.data;
