@@ -10,68 +10,26 @@
                 <form v-on:submit="saveForm()">
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">User name</label>
+                            <label class="control-label">Name</label>
                             <input type="text" v-model="user.name" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">Email</label>
-                            <input type="text" v-model="user.email" class="form-control">
+                            <input type="email" v-model="user.email" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Password</label>
+                            <label class="control-label">Passowrd</label>
                             <input type="password" v-model="user.password" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Confirm Password</label>
+                            <label class="control-label">Confirm Passowrd</label>
                             <input type="password" v-model="user.password_confirmation" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">First name</label>
-                            <input type="text" v-model="user.first_name" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Last name</label>
-                            <input type="text" v-model="user.last_name" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Location</label>
-                            <select v-model='user.location_id' class="form-control">
-                                <option value="">Please select ...</option>
-                                <option v-for="location in locations" v-bind:key="location.id" v-bind:value="location.id">
-                                    {{ location.name }}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Positions</label>
-                            <div v-for="(position) in positions" v-bind:key="position.id"> 
-                                <input type="checkbox" v-model="user.positions" :value="position.id">
-                                {{ position.name }} 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-grop" >
-                            <label class="control-label">Roles</label>
-                                <div v-for="(role) in roles" v-bind:key="role.id"> 
-                                    <input type="checkbox" v-model="user.roles" :value="role.id">
-                                    {{ role.display_name }} 
-                                </div>
-                            <br/>
                         </div>
                     </div>
                     <div class="row">
@@ -84,7 +42,68 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <button class="btn btn-success">Create</button>
+                            <label class="control-label">Employee ID</label>
+                            <input type="text" v-model="user.employee_id" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label class="control-label">First Name</label>
+                            <input type="text" v-model="user.first_name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label class="control-label">Last Name</label>
+                            <input type="text" v-model="user.last_name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label class="control-label">Mobile</label>
+                            <input type="text" v-model="user.mobile" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label class="control-label">Phone</label>
+                            <input type="text" v-model="user.phone" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label class="control-label">Location</label>
+                            <select v-model='user.location_id' class="form-control">
+                                <option disabled value="">Please select ...</option>
+                                <option v-for="location in locations" v-bind:key="location.id" v-bind:value="location.id">
+                                    {{ location.name }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label class="control-label">Manager</label>
+                            <select v-model='user.manager_id' class="form-control">
+                                <option disabled value="">Please select ...</option>
+                                <option v-for="manager in managers" v-bind:key="manager.id" v-bind:value="manager.id">
+                                    {{ manager.name }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label class="control-label">Role</label>
+                            <div v-for="(role) in roles" v-bind:key="role.id"> 
+                                <input type="checkbox" v-model="user.roles" :value="role.id">
+                                {{ role.name }} 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <button v-if="auth.can.create" class="btn btn-success">Create</button>
                         </div>
                     </div>
                 </form>
@@ -101,15 +120,21 @@
  
 <script>
     export default {
-        mounted() {
-            console.log("User Create");
-            $this.getAuthen();
-            /*this.getLocationsList();
-            this.getRolesList();
-            this.getPositionsList();*/
-        },
         data: function () {
             return {
+                errors: [],
+                user: {
+                    name: '',
+                    email:'',
+                    first_name:'',
+                    last_name:'',
+                    location_id:null,
+                    manager_id:null,
+                    roles:[]
+                },
+                roles:[],
+                locations:[],
+                managers:[],
                 token:null,
                 auth: {
                     name: '',
@@ -122,20 +147,13 @@
                         restore: false,
                     },
                 },
-                errors: [],
-                user: {
-                    name: '',
-                    first_name: '',
-                    last_name: '',
-                    email: '',
-                    location_id: '',
-                    active:'',
-                    roles:[],
-                },
-                locations:[],
-                roles: [],
-                positions: [],
             }
+        },
+        mounted() {
+            this.getAuthen();
+            this.getRolesList();
+            this.getLocationsList();
+            this.getManagerList();
         },
         methods: {
             getAuthen(){
@@ -159,10 +177,10 @@
                             app.auth.can.update = true;
                             break;
                         case 'delete-user':
-                            app.auth.can.update = true;
+                            app.auth.can.delete = true;
                             break;
                         case 'restore-user':
-                            app.auth.can.update = true;
+                            app.auth.can.restore = true;
                             break;
                         default:
                             break;
@@ -171,39 +189,59 @@
             },
             getLocationsList(){
                 let app = this;
-                axios.post('/api/locations/list')
+                axios.post('/api/locations/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.locations = resp.data.data;
                     })
                     .catch(function () {
-                        alert("Could not load your location")
+                        alert("Could not load your locations.")
                     });
             },
             getRolesList(){
                 let app = this;
-                axios.post('/api/roles/list')
+                axios.post('/api/roles/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.roles = resp.data.data;
                     })
                     .catch(function () {
-                        alert("Could not load your roles")
+                        alert("Could not load your roles.")
                     });
             },
-            getPositionsList(){
+            getManagerList(){
                 let app = this;
-                axios.post('/api/positions/list')
+                axios.post('/api/users/manager/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
-                        app.positions = resp.data.data;
+                        app.managers = resp.data.data;
                     })
                     .catch(function () {
-                        alert("Could not load your roles")
+                        alert("Could not load your managers.")
                     });
             },
             saveForm() {
                 event.preventDefault();
                 var app = this;
                 var newUser = app.user;
-                axios.post('/api/users', newUser)
+                axios.post('/api/users', newUser,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer ' + app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.$router.push({path: '/'});
                     })

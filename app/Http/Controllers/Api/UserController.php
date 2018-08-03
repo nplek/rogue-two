@@ -23,6 +23,12 @@ class UserController extends Controller
         return UserResource::collection(User::active()->get());
     }
 
+    public function listManager()
+    {
+        return UserResource::collection(User::active()->get());
+    }
+
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -44,6 +50,11 @@ class UserController extends Controller
             $user->password = str_random(10);
         }
         $user->location_id = $request['location_id'];
+        $user->manager_id = $request['manager_id'];
+        $user->employee_id = $request['employee_id'];
+        $user->mobile = $request['mobile'];
+        $user->phone = $request['phone'];
+
         $user->active = $request['active'];
         $user->save();
 
@@ -51,14 +62,14 @@ class UserController extends Controller
         if (isset($roles)) {
             $user->attachRoles($roles);
         }
-        $positions = $request['positions'];
+        /*$positions = $request['positions'];
 
         if (isset($positions)) {
             $user->positions()->sync($positions);
         }        
         else {
             $user->positions()->detach();
-        }
+        }*/
 
         return new UserResource($user);
     }
@@ -72,32 +83,37 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name'=>'required|alpha_dash|max:120',
-            'email'=>'required|email|unique:users,email,'.$id,
+            'email'=>'required|email',
             'first_name' => 'required|max:100',
             'last_name' => 'required|max:100',
         ]);
 
         $user = User::findOrFail($id);
-        //$input = $request->only(['name', 'email']);
-        //$user->fill($input)->save();
         $user->name = $request['name'];
         $user->email = $request['email'];
         $user->first_name = $request['first_name'];
         $user->last_name = $request['last_name'];
         $user->location_id = $request['location_id'];
+        $user->manager_id = $request['manager_id'];
+        $user->employee_id = $request['employee_id'];
+        $user->mobile = $request['mobile'];
+        $user->phone = $request['phone'];
         $user->active = $request['active'];
+        if ($request['password']) {
+            $user->password = $request['password'];
+        }
         $user->save();
 
         $roles = $request['roles'];
         $user->syncRoles($roles);
-        $positions = $request['positions'];
+        /*$positions = $request['positions'];
 
         if (isset($positions)) {
             $user->positions()->sync($positions);
         }        
         else {
             $user->positions()->detach();
-        }
+        }*/
         return new UserResource($user);
     }
 

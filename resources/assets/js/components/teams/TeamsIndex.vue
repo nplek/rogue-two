@@ -132,7 +132,7 @@ import VuejsPaginate from 'vuejs-paginate'
             deleteEntry(id, index) {
                 if (confirm("Do you really want to delete it?")) {
                     var app = this;
-                    axios.delete('/api/teams/' + id,null,{
+                    axios.delete('/api/teams/' + id,{
                             headers: {
                                 'Accept': 'application/json',
                                 'Authorization': 'Bearer '+ app.token

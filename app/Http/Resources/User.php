@@ -38,6 +38,7 @@ class User extends JsonResource
             'location'  => new LocationResource($this->location),
             //'department' => DepartmentResource::collection($this->department),
             'positions' => PositionResource::collection($this->positions),
+            'manager_id' => $this->manager_id,
         ];
     }
 }

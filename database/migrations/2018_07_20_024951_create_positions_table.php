@@ -22,6 +22,7 @@ class CreatePositionsTable extends Migration
             $table->foreign('parent_id')
                 ->references('id')
                 ->on('positions');
+            $table->string('level',1)->default('S');   //S=Staff,M=Manager,D=Directer,C=CEO
             $table->string('active',1)->default('A');
             $table->softDeletes();
             $table->timestamps();

@@ -162,7 +162,6 @@ import VuejsPaginate from 'vuejs-paginate'
                     }
                 }).then(function (resp) {
                     app.users = resp.data.data;
-                    //app.pageCount = resp.data.last_page;
                     app.pageCount = resp.data.meta.last_page;
                 })
                 .catch(function (resp) {
@@ -173,7 +172,12 @@ import VuejsPaginate from 'vuejs-paginate'
             deleteEntry(id, index) {
                 if (confirm("Do you really want to delete it?")) {
                     var app = this;
-                    axios.delete('/api/users/' + id)
+                    axios.delete('/api/users/' + id,{
+                            headers: {
+                                'Accept': 'application/json',
+                                'Authorization': 'Bearer '+ app.token
+                            }
+                        })
                         .then(function (resp) {
                             //app.users.splice(index,1);
                             app.fetchPaginate(app.current_page);
@@ -186,7 +190,12 @@ import VuejsPaginate from 'vuejs-paginate'
             restoreEntry(id,index) {
                 if (confirm("Do you really want to restore it?")) {
                     var app = this;
-                    axios.post('/api/users/' + id + '/restore')
+                    axios.post('/api/users/' + id + '/restore',null,{
+                            headers: {
+                                'Accept': 'application/json',
+                                'Authorization': 'Bearer '+ app.token
+                            }
+                        })
                         .then(function (resp) {
                             app.fetchPaginate(app.current_page);
                         })

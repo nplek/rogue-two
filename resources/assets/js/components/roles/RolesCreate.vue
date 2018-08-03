@@ -91,16 +91,16 @@
                 for (var index in objs){
                     var permission = objs[index].name;
                     switch(permission) {
-                        case 'create-user':
+                        case 'create-role':
                             app.auth.can.create = true;
                             break;
-                        case 'update-user':
+                        case 'update-role':
                             app.auth.can.update = true;
                             break;
-                        case 'delete-user':
+                        case 'delete-role':
                             app.auth.can.delete = true;
                             break;
-                        case 'restore-user':
+                        case 'restore-role':
                             app.auth.can.restore = true;
                             break;
                         default:

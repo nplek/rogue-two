@@ -53,6 +53,7 @@ Route::group(['middleware' => 'auth:api'], function(){
             Route::resource('users', 'UserController',['except' => ['create','edit']]);
             Route::post('users/{id}/restore','UserController@restore')->name('users.restore');
             Route::post('users/list','UserController@list')->name('users.list');
+            Route::post('users/manager/list','UserController@listManager')->name('users.list.manager');
             Route::put('users/{id}/reset', 'UserController@reset_update')->name('users.reset');
             Route::put('users/{id}/active', 'UserController@active_user')->name('users.active');
             Route::put('users/{id}/inactive', 'UserController@inactive_user')->name('users.inactive');
