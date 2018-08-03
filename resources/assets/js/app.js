@@ -13,11 +13,12 @@ import VueRouter from 'vue-router';
 import VueSession from 'vue-session'
 window.Vue.use(VueRouter);
 window.Vue.use(VueSession);
+
 import HomeIndex from './components/homeIndex.vue';
 import DashboardsIndex from './components/dashboards/DashboardsIndex.vue';
 import UsersIndex from './components/users/UsersIndex.vue';
 import UsersCreate from './components/users/UsersCreate.vue';
-import UsersEdit from './components/users/UsersEdit.vue';
+
 import RolesIndex from './components/roles/RolesIndex.vue';
 import RolesCreate from './components/roles/RolesCreate.vue';
 import RolesEdit from './components/roles/RolesEdit.vue';
@@ -87,8 +88,6 @@ const routes = [
         }
     },
     {path: '/admin/users/create', component: UsersCreate, name: 'createUser'},
-    {path: '/admin/users/edit/:id', component: UsersEdit, name: 'editUser'},
-
     {path: '/admin/roles/create', component: RolesCreate, name: 'createRole'},
     {path: '/admin/roles/edit/:id', component: RolesEdit, name: 'editRole'},
     {path: '/admin/permissions/create', component: PermissionsCreate, name: 'createPermission'},

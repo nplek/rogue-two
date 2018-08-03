@@ -32,6 +32,7 @@ class ProjectController extends Controller
             'short_name' =>'required|min:2|max:8',
             'start_date' => 'required',
             'end_date' => 'required',
+            'active' => 'required'
             ]
         );
 

@@ -67,7 +67,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <button class="btn btn-success">Create</button>
+                            <button v-if="auth.can.create" class="btn btn-success">Create</button>
                         </div>
                     </div>
                 </form>
@@ -98,44 +98,66 @@ import DatePicker from 'vue2-datepicker'
                     budget: 0.0,
                     start_date: '',
                     end_date: '',
-                }
+                },
+                token:null,
+                auth: {
+                    name: '',
+                    isAdmin: false,
+                    can: {
+                        view: false,
+                        create: false,
+                        update: false,
+                        delete: false,
+                        restore: false,
+                    },
+                },
             }
         },
+        mounted() {
+            this.getAuthen();
+        },
         methods: {
-            formatDatetime: function(datetime) {
-                if (datetime === null) {
-                    return "[null]";
-                } else {
-                    return datetime.format("YYYY-MM-DD HH:mm:ss");
+            getAuthen(){
+                var app = this;
+                let token = document.head.querySelector('meta[name="token"]'); 
+                let user = document.head.querySelector('meta[name="user"]');
+                let isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+                let permissions = document.head.querySelector('meta[name="permissions"]');
+                app.token = token.content;
+                app.auth.name = user.content;
+                app.auth.isAdmin = isAdmin.content;
+                let content = permissions.content;
+                var objs = JSON.parse(content);
+                for (var index in objs){
+                    var permission = objs[index].name;
+                    switch(permission) {
+                        case 'create-project':
+                            app.auth.can.create = true;
+                            break;
+                        case 'update-project':
+                            app.auth.can.update = true;
+                            break;
+                        case 'delete-project':
+                            app.auth.can.delete = true;
+                            break;
+                        case 'restore-project':
+                            app.auth.can.restore = true;
+                            break;
+                        default:
+                            break;
+                    }
                 }
-            },
-            formatDate: function(date) {
-                if (date === null) {
-                    return "[null]";
-                } else {
-                    return date.format("YYYY-MM-DD");
-                }
-            },
-            formatTime: function(time) {
-                if (time === null) {
-                    return "[null]";
-                } else {
-                    return time.format("HH:mm:ss");
-                }
-            },
-            onStartDatetimeChanged: function(newStart) {
-                var endPicker = this.$.endPicker.control;
-                endPicker.minDate(newStart);
-            },
-            onEndDatetimeChanged: function(newEnd) {
-                var startPicker = this.$.startPicker.control;
-                startPicker.maxDate(newEnd);
             },
             saveForm() {
                 event.preventDefault();
                 var app = this;
                 var newProject = app.project;
-                axios.post('/api/projects', newProject)
+                axios.post('/api/projects', newProject,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.$router.push({path: '/'});
                     })

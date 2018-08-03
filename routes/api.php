@@ -66,7 +66,7 @@ Route::group(['middleware' => 'auth:api'], function(){
             Route::post('permissions/list','PermissionController@list')->name('permissions.list');
             Route::resource('teams', 'TeamController',['except' => ['create','edit']]);
             Route::post('teams/list','TeamController@list')->name('teams.list');
-            //Route::resource('logs', 'LogController',['except' => ['create','edit','show','store','update','destroy']]);
+            
             Route::get('logs/activitylogs', 'LogController@activityLogsIndex')->name('logs.activity.index');
             Route::get('logs/accesslogs', 'LogController@accessLogsIndex')->name('logs.access.index');
             Route::get('logs/securitylogs', 'LogController@securityLogsIndex')->name('logs.security.index');

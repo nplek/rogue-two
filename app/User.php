@@ -33,7 +33,11 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'employee_id',
-        'location_id'
+        'location_id',
+        'mobile',
+        'phone',
+        'photo',
+        'manager_id'
     ];
 
     use SoftDeletes;

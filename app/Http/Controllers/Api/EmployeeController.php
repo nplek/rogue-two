@@ -43,17 +43,17 @@ class EmployeeController extends Controller
         $user->employee_id = $request['employee_id'];
         $user->mobile = $request['mobile'];
         $user->phone = $request['phone'];
-        $user->location_id = $request['location'];
-        $departments = $request['departments'];
-        $positions = $request['positions'];
+        //$user->location_id = $request['location'];
+        //$departments = $request['departments'];
+        //$positions = $request['positions'];
         $user->save();
 
-        if (isset($departments)) {
+        /*if (isset($departments)) {
             $user->departments()->sync($departments);
         }        
         else {
             $user->departments()->detach();
-        }
+        }*/
 
         return new UserResource($user);
 

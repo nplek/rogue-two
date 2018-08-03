@@ -67,7 +67,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <button class="btn btn-success">Update</button>
+                            <button v-if="auth.can.update" class="btn btn-success">Update</button>
                         </div>
                     </div>
                 </form>
@@ -89,10 +89,16 @@ import DatePicker from 'vue2-datepicker'
             'date-picker': DatePicker ,
         },
         mounted() {
+            this.getAuthen();
             let app = this;
             let id = app.$route.params.id;
             app.projectId = id;
-            axios.get('/api/projects/' + id)
+            axios.get('/api/projects/' + id,{
+                    headers: {
+                        'Accept': 'application/json',
+		                'Authorization': 'Bearer '+ app.token
+                    }
+                })
                 .then(function (resp) {
                     app.project = resp.data.data;
                 })
@@ -111,15 +117,63 @@ import DatePicker from 'vue2-datepicker'
                     budget: '',
                     start_date: '',
                     end_date: ''
-                }
+                },
+                token:null,
+                auth: {
+                    name: '',
+                    isAdmin: false,
+                    can: {
+                        view: false,
+                        create: false,
+                        update: false,
+                        delete: false,
+                        restore: false,
+                    },
+                },
             }
         },
         methods: {
+            getAuthen(){
+                var app = this;
+                let token = document.head.querySelector('meta[name="token"]'); 
+                let user = document.head.querySelector('meta[name="user"]');
+                let isAdmin = document.head.querySelector('meta[name="isAdmin"]');
+                let permissions = document.head.querySelector('meta[name="permissions"]');
+                app.token = token.content;
+                app.auth.name = user.content;
+                app.auth.isAdmin = isAdmin.content;
+                let content = permissions.content;
+                var objs = JSON.parse(content);
+                for (var index in objs){
+                    var permission = objs[index].name;
+                    switch(permission) {
+                        case 'create-project':
+                            app.auth.can.create = true;
+                            break;
+                        case 'update-project':
+                            app.auth.can.update = true;
+                            break;
+                        case 'delete-project':
+                            app.auth.can.delete = true;
+                            break;
+                        case 'restore-project':
+                            app.auth.can.restore = true;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            },
             saveForm() {
                 event.preventDefault();
                 var app = this;
                 var newProject = app.project;
-                axios.patch('/api/projects/' + app.projectId, newProject)
+                axios.patch('/api/projects/' + app.projectId, newProject,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
                     .then(function (resp) {
                         app.$router.replace('/');
                     })
