@@ -15,7 +15,7 @@
                         <th>Description</th>
                         <th>User</th>
                         <th>Properties</th>
-                        <th width="200">&nbsp;</th>
+                        <th v-if="auth.can.delete" width="200">&nbsp;</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -26,10 +26,9 @@
                         <td>{{ log.description }}</td>
                         <td>{{ log.causer_id }}</td>
                         <td>{{ log.properties }}</td>
-                        <td>
+                        <td v-if="auth.can.delete">
                             <a href="#"
                                class="btn btn-sm btn-danger"
-                               v-if="auth.can.delete"
                                v-on:click="deleteEntry(log.id, index)">
                                 Delete
                             </a>

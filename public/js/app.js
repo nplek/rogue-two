@@ -63638,7 +63638,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -63771,7 +63770,25 @@ var render = function() {
         { staticClass: "panel-body" },
         [
           _c("table", { staticClass: "table table-bordered table-striped" }, [
-            _vm._m(0),
+            _c("thead", [
+              _c("tr", [
+                _c("th", { attrs: { width: "150" } }, [_vm._v("Created date")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Subject")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Description")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("User")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Properties")]),
+                _vm._v(" "),
+                _vm.auth.can.delete
+                  ? _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
+                  : _vm._e()
+              ])
+            ]),
             _vm._v(" "),
             _c(
               "tbody",
@@ -63789,9 +63806,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(log.properties))]),
                   _vm._v(" "),
-                  _c("td", [
-                    _vm.auth.can.delete
-                      ? _c(
+                  _vm.auth.can.delete
+                    ? _c("td", [
+                        _c(
                           "a",
                           {
                             staticClass: "btn btn-sm btn-danger",
@@ -63808,8 +63825,8 @@ var render = function() {
                             )
                           ]
                         )
-                      : _vm._e()
-                  ])
+                      ])
+                    : _vm._e()
                 ])
               })
             )
@@ -63838,30 +63855,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { width: "150" } }, [_vm._v("Created date")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Subject")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Description")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("User")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Properties")]),
-        _vm._v(" "),
-        _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -63926,7 +63920,6 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vuejs_paginate__);
-//
 //
 //
 //
@@ -64111,7 +64104,25 @@ var render = function() {
         { staticClass: "panel-body" },
         [
           _c("table", { staticClass: "table table-bordered table-striped" }, [
-            _vm._m(0),
+            _c("thead", [
+              _c("tr", [
+                _c("th", { attrs: { width: "150" } }, [_vm._v("Created date")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Subject")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Description")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("User")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Properties")]),
+                _vm._v(" "),
+                _vm.auth.can.delete
+                  ? _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
+                  : _vm._e()
+              ])
+            ]),
             _vm._v(" "),
             _c(
               "tbody",
@@ -64129,9 +64140,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(log.properties))]),
                   _vm._v(" "),
-                  _c("td", [
-                    _vm.auth.can.delete
-                      ? _c(
+                  _vm.auth.can.delete
+                    ? _c("td", [
+                        _c(
                           "a",
                           {
                             staticClass: "btn btn-sm btn-danger",
@@ -64148,8 +64159,8 @@ var render = function() {
                             )
                           ]
                         )
-                      : _vm._e()
-                  ])
+                      ])
+                    : _vm._e()
                 ])
               })
             )
@@ -64178,30 +64189,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { width: "150" } }, [_vm._v("Created date")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Subject")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Description")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("User")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Properties")]),
-        _vm._v(" "),
-        _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -64266,7 +64254,6 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_paginate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vuejs_paginate__);
-//
 //
 //
 //
@@ -64452,7 +64439,25 @@ var render = function() {
         { staticClass: "panel-body" },
         [
           _c("table", { staticClass: "table table-bordered table-striped" }, [
-            _vm._m(0),
+            _c("thead", [
+              _c("tr", [
+                _c("th", { attrs: { width: "150" } }, [_vm._v("Created date")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Subject")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Description")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("User")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Properties")]),
+                _vm._v(" "),
+                _vm.auth.can.delete
+                  ? _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
+                  : _vm._e()
+              ])
+            ]),
             _vm._v(" "),
             _c(
               "tbody",
@@ -64470,9 +64475,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(log.properties))]),
                   _vm._v(" "),
-                  _c("td", [
-                    _vm.auth.can.delete
-                      ? _c(
+                  _vm.auth.can.delete
+                    ? _c("td", [
+                        _c(
                           "a",
                           {
                             staticClass: "btn btn-sm btn-danger",
@@ -64489,8 +64494,8 @@ var render = function() {
                             )
                           ]
                         )
-                      : _vm._e()
-                  ])
+                      ])
+                    : _vm._e()
                 ])
               })
             )
@@ -64519,30 +64524,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { width: "150" } }, [_vm._v("Created date")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Subject")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Description")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("User")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Properties")]),
-        _vm._v(" "),
-        _c("th", { attrs: { width: "200" } }, [_vm._v(" ")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
