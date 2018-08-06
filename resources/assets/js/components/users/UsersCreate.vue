@@ -61,12 +61,28 @@
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">Position</label>
-                            <select v-model='user.position_id' class="form-control">
-                                <option disabled value="">Please select ...</option>
-                                <option v-for="position in positions" v-bind:key="position.id" v-bind:value="position.id">
-                                    {{ position.name }}
-                                </option>
-                            </select>
+                            <multiselect 
+                                v-model="user.positions" 
+                                :options="positions" 
+                                :multiple="true" 
+                                :close-on-select="false" 
+                                :clear-on-select="false" 
+                                :hide-selected="true" 
+                                :preserve-search="true" 
+                                :custom-label="nameWithShortName" 
+                                placeholder="Please select" 
+                                label="name" 
+                                track-by="id" 
+                                :preselect-first="true">
+                                <template 
+                                    slot="tag" 
+                                    slot-scope="props">
+                                    <span class="btn btn-danger btn-xs">
+                                        <span> {{ props.option.name }}</span>
+                                        <i class="fa fa-close" @click="props.remove(props.option)"></i> 
+                                    </span>
+                                </template>
+                            </multiselect>
                         </div>
                     </div>
                     <div class="row">
@@ -84,32 +100,55 @@
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">Location</label>
-                            <select v-model='user.location_id' class="form-control">
-                                <option disabled value="">Please select ...</option>
-                                <option v-for="location in locations" v-bind:key="location.id" v-bind:value="location.id">
-                                    {{ location.name }}
-                                </option>
-                            </select>
+                            <multiselect 
+                                v-model="user.location"
+                                @input="locationChange"
+                                :options="locations" 
+                                :custom-label="nameWithShortName" 
+                                placeholder="Please select" 
+                                label="name" 
+                                track-by="id">
+                            </multiselect>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">Manager</label>
-                            <select v-model='user.manager_id' class="form-control">
-                                <option disabled value="">Please select ...</option>
-                                <option v-for="manager in managers" v-bind:key="manager.id" v-bind:value="manager.id">
-                                    {{ manager.name }}
-                                </option>
-                            </select>
+                            <multiselect 
+                                v-model="user.manager"
+                                @input="managerChange"
+                                :options="managers" 
+                                :custom-label="nameWithFullName" 
+                                placeholder="Please select" 
+                                label="name" 
+                                track-by="id">
+                            </multiselect>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">Role</label>
-                            <div v-for="(role) in roles" v-bind:key="role.id"> 
-                                <input type="checkbox" v-model="user.roles" :value="role.id">
-                                {{ role.name }} 
-                            </div>
+                            <multiselect 
+                                v-model="user.roles" 
+                                :options="roles" 
+                                :multiple="true" 
+                                :close-on-select="false" 
+                                :clear-on-select="false" 
+                                :hide-selected="true" 
+                                :preserve-search="true" 
+                                placeholder="Please select" 
+                                label="name" 
+                                track-by="id" 
+                                :preselect-first="true">
+                                <template 
+                                    slot="tag" 
+                                    slot-scope="props">
+                                    <span class="btn btn-danger btn-xs">
+                                        <span> {{ props.option.name }}</span>
+                                        <i class="fa fa-close" @click="props.remove(props.option)"></i> 
+                                    </span>
+                                </template>
+                            </multiselect>
                         </div>
                     </div>
                     <div class="row">
@@ -128,17 +167,23 @@
         </div>
     </div>
 </template>
- 
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <script>
+import Multiselect from 'vue-multiselect'
     export default {
+        components: {
+            'multiselect': Multiselect
+        },
         data: function () {
             return {
+                options: ['Select option', 'options', 'selected', 'mulitple', 'label', 'searchable', 'clearOnSelect', 'hideSelected', 'maxHeight', 'allowEmpty', 'showLabels', 'onChange', 'touched'],
                 errors: [],
                 user: {
                     name: '',
                     email:'',
                     first_name:'',
                     last_name:'',
+                    positions:[],
                     position_id:null,
                     location_id:null,
                     manager_id:null,
@@ -170,6 +215,20 @@
             this.getManagerList();
         },
         methods: {
+            nameWithShortName({short_name,name}){
+                return `${short_name} — [${name}]`
+            },
+            nameWithFullName({employee_id,first_name,last_name}){
+                return `${employee_id} — [${first_name} ${last_name}]`
+            },
+            locationChange(value,id){
+                var app = this;
+                app.user.location_id = value.id;
+            },
+            managerChange(value,id){
+                var app = this;
+                app.user.manager_id = value.id;
+            },
             getAuthen(){
                 var app = this;
                 let token = document.head.querySelector('meta[name="token"]'); 

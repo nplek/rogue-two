@@ -6,6 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Role as RoleResource;
 use App\Http\Resources\Location as LocationResource;
 use App\Http\Resources\Position as PositionResource;
+use App\Http\Resources\UserList;
 class User extends JsonResource
 {
     /**
@@ -39,6 +40,7 @@ class User extends JsonResource
             //'departments' => DepartmentResource::collection($this->department),
             'positions' => PositionResource::collection($this->positions),
             'manager_id' => $this->manager_id,
+            'manager' => new UserList($this->manager),
         ];
     }
 }

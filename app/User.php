@@ -90,4 +90,15 @@ class User extends Authenticatable
         'user_id','position_id')->withTimestamps();
     }
 
+    public function manager()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function departments()
+    {
+        return $this->belongsToMany(Department::class,'user_has_departments',
+        'user_id','department_id')->withTimestamps();
+    }
+
 }

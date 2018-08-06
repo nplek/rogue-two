@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Company;
 use App\Http\Resources\CompanyCollection;
 use App\Http\Resources\Company as CompanyResource;
-
+use Auth;
 class CompanyController extends Controller
 {
     public function __construct() {
@@ -17,7 +17,11 @@ class CompanyController extends Controller
 
     public function index()
     {
-        return new CompanyCollection(Company::withTrashed()->paginate(50));
+        if (Auth::user()->can('restore-company') ){
+            return new CompanyCollection(Company::withTrashed()->paginate(50));
+        } else {
+            return new CompanyCollection(Company::paginate(50));
+        }
     }
 
     public function list()

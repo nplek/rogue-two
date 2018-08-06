@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\User as UserResource;
+use Auth;
 
 class UserController extends Controller
 {
@@ -15,7 +16,11 @@ class UserController extends Controller
 
     public function index()
     {
-        return new UserCollection(User::withTrashed()->paginate(50));
+        if (Auth::user()->can('restore-user') ){
+            return new UserCollection(User::withTrashed()->paginate(50));
+        } else {
+            return new UserCollection(User::paginate(50));
+        }
     }
 
     public function list()
@@ -62,14 +67,23 @@ class UserController extends Controller
         if (isset($roles)) {
             $user->attachRoles($roles);
         }
-        /*$positions = $request['positions'];
-
-        if (isset($positions)) {
-            $user->positions()->sync($positions);
+        $positions = $request['positions'];
+        $posId = [];
+        foreach($positions as $position){
+            $posId[] = $position['id'];
+        }
+        if (isset($posId)) {
+            $user->positions()->sync($posId);
+            activity('system')
+                ->performedOn($user)
+                ->causedBy(Auth::user())
+                ->withProperties([
+                    'name' => 'position',
+                    'new' => $posId, 
+                    'user_id' => $user->id,
+                ])
+                ->log('sync');
         }        
-        else {
-            $user->positions()->detach();
-        }*/
 
         return new UserResource($user);
     }
@@ -95,6 +109,7 @@ class UserController extends Controller
         $user->last_name = $request['last_name'];
         $user->location_id = $request['location_id'];
         $user->manager_id = $request['manager_id'];
+        
         $user->employee_id = $request['employee_id'];
         $user->mobile = $request['mobile'];
         $user->phone = $request['phone'];
@@ -106,14 +121,45 @@ class UserController extends Controller
 
         $roles = $request['roles'];
         $user->syncRoles($roles);
-        /*$positions = $request['positions'];
-
-        if (isset($positions)) {
-            $user->positions()->sync($positions);
-        }        
-        else {
-            $user->positions()->detach();
-        }*/
+        $positions = $request['positions'];
+        $posId = [];
+        $posOld = [];
+        $olds = $user->positions;
+        foreach($olds as $o){
+            $posOld[] = $o['id'];
+        }
+        foreach($positions as $position){
+            $posId[] = $position['id'];
+        }
+        $diff = collect($posId)->diff(collect($posOld));
+        if ($diff){
+            if (isset($posId)) {
+                $user->positions()->sync($posId);
+                activity('system')
+                    ->performedOn($user)
+                    ->causedBy(Auth::user())
+                    ->withProperties([
+                        'name' => 'position',
+                        'old' => $posOld,
+                        'new' => $posId, 
+                        'user_id' => $user->id,
+                    ])
+                    ->log('sync');
+            }        
+            else {
+                $user->positions()->detach();
+                activity('system')
+                    ->performedOn($user)
+                    ->causedBy(Auth::user())
+                    ->withProperties([
+                        'name' => 'position',
+                        'old' => $posOld,
+                        'new' => $posId,
+                        'user_id' => $user->id,
+                    ])
+                    ->log('detach');
+            }
+        }
         return new UserResource($user);
     }
 

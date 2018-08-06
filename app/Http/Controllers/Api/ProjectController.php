@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Project;
 use App\Http\Resources\ProjectCollection;
 use App\Http\Resources\Project as ProjectResource;
+use Auth;
 
 class ProjectController extends Controller
 {
@@ -15,7 +16,11 @@ class ProjectController extends Controller
 
     public function index()
     {
-        return new ProjectCollection(Project::withTrashed()->paginate(10));
+        if (Auth::user()->can('restore-project') ){
+            return new ProjectCollection(Project::withTrashed()->paginate(20));
+        } else {
+            return new ProjectCollection(Project::paginate(20));
+        }
     }
 
     public function list()

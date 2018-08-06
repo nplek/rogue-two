@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Position;
 use App\Http\Resources\PositionCollection;
 use App\Http\Resources\Position as PositionResource;
+use Auth;
 
 class PositionController extends Controller
 {
@@ -15,7 +16,11 @@ class PositionController extends Controller
 
     public function index()
     {
-        return new PositionCollection(Position::withTrashed()->paginate(50));
+        if (Auth::user()->can('restore-position') ){
+            return new PositionCollection(Position::withTrashed()->paginate(50));
+        } else {
+            return new PositionCollection(Position::paginate(50));
+        }
     }
 
     public function list()

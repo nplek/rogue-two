@@ -316,7 +316,66 @@ return [
             'submenu'   => [
                 [
                     'text'  => 'Items',
-                    'url'   => 'inventory/items'
+                    'url'   => 'inventory/items',
+                    'icon_color'  => 'yellow',
+                    'icon' => 'archive',
+                    'permission' => 'view-inventory',
+                ],
+                [
+                    'text'  => 'Goods Receipt PO',
+                    'url'   => 'inventory/goods_po',
+                    'icon_color'  => 'yellow',
+                    'icon' => 'check-square',
+                    'permission' => 'view-inventory',
+                ],
+                [
+                    'text'  => 'Goods Receipt',
+                    'url'   => 'inventory/goods_receipt',
+                    'icon_color'  => 'yellow',
+                    'icon' => 'check-square',
+                    'permission' => 'view-inventory',
+                ],
+                [
+                    'text'  => 'Goods Return',
+                    'url'   => 'inventory/goods_return',
+                    'icon_color'  => 'yellow',
+                    'icon' => 'undo',
+                    'permission' => 'view-inventory',
+                ],
+                [
+                    'text'  => 'Goods Issue',
+                    'url'   => 'inventory/goods_issue',
+                    'icon_color'  => 'yellow',
+                    'icon' => 'exchange',
+                    'permission' => 'view-inventory',
+                ],
+                [
+                    'text'  => 'Transfer Items',
+                    'url'   => 'inventory/transfer_item',
+                    'icon_color'  => 'yellow',
+                    'icon' => 'retweet',
+                    'permission' => 'view-inventory',
+                ],
+                [
+                    'text'  => 'Adjust Items',
+                    'url'   => 'inventory/adjust_item',
+                    'icon_color'  => 'yellow',
+                    'icon' => 'adjust',
+                    'permission' => 'view-inventory-adjust',
+                ],
+                [
+                    'text'  => 'Daily Report',
+                    'url'   => 'inventory/daily_report',
+                    'icon_color'  => 'yellow',
+                    'icon' => 'flag',
+                    'permission' => 'view-inventory-report',
+                ],
+                [
+                    'text'  => 'Summary Report',
+                    'url'   => 'inventory/summary_report',
+                    'icon_color'  => 'yellow',
+                    'icon' => 'flag-checkered',
+                    'permission' => 'view-inventory-report',
                 ]
             ]
         ],

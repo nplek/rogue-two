@@ -13,7 +13,6 @@ import VueRouter from 'vue-router';
 import VueSession from 'vue-session'
 window.Vue.use(VueRouter);
 window.Vue.use(VueSession);
-
 import HomeIndex from './components/homeIndex.vue';
 import DashboardsIndex from './components/dashboards/DashboardsIndex.vue';
 import UsersIndex from './components/users/UsersIndex.vue';

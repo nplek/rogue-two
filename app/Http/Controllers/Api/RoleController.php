@@ -8,6 +8,7 @@ use App\Role;
 use App\Permission;
 use App\Http\Resources\RoleCollection;
 use App\Http\Resources\Role as RoleResource;
+use App\Http\Resources\RoleList;
 
 class RoleController extends Controller
 {
@@ -20,7 +21,7 @@ class RoleController extends Controller
 
     public function list()
     {
-        return RoleResource::collection(Role::all());
+        return RoleList::collection(Role::all());
     }
 
     public function store(Request $request) {

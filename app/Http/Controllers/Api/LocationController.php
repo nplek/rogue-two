@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Location;
 use App\Http\Resources\LocationCollection;
 use App\Http\Resources\Location as LocationResource;
+use Auth;
 
 class LocationController extends Controller
 {
@@ -15,7 +16,11 @@ class LocationController extends Controller
 
     public function index()
     {
-        return new LocationCollection(Location::withTrashed()->paginate(50));
+        if (Auth::user()->can('restore-location') ){
+            return new LocationCollection(Location::withTrashed()->paginate(50));
+        } else {
+            return new LocationCollection(Location::paginate(50));
+        }
     }
 
     public function list()

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Department;
 use App\Http\Resources\DepartmentCollection;
 use App\Http\Resources\Department as DepartmentResource;
+use Auth;
 
 class DepartmentController extends Controller
 {
@@ -15,7 +16,11 @@ class DepartmentController extends Controller
 
     public function index()
     {
-        return new DepartmentCollection(Department::withTrashed()->paginate(50));
+        if (Auth::user()->can('restore-department') ){
+            return new DepartmentCollection(Department::withTrashed()->paginate(50));
+        } else {
+            return new DepartmentCollection(Department::paginate(50));
+        }
     }
 
     public function list()
