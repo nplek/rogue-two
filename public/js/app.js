@@ -51384,6 +51384,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -51394,11 +51405,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: '',
                 first_name: '',
                 last_name: '',
+                position_id: null,
                 location_id: null,
                 manager_id: null,
                 roles: []
             },
             roles: [],
+            positions: [],
             locations: [],
             managers: [],
             token: null,
@@ -51418,6 +51431,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         this.getAuthen();
         this.getRolesList();
+        this.getPositionsList();
         this.getLocationsList();
         this.getManagerList();
     },
@@ -51453,6 +51467,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         break;
                 }
             }
+        },
+        getPositionsList: function getPositionsList() {
+            var app = this;
+            axios.post('/api/positions/list', null, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + app.token
+                }
+            }).then(function (resp) {
+                app.positions = resp.data.data;
+            }).catch(function () {
+                alert("Could not load your positions.");
+            });
         },
         getLocationsList: function getLocationsList() {
             var app = this;
@@ -51806,6 +51833,68 @@ var render = function() {
                     }
                   }
                 })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Position")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.position_id,
+                        expression: "user.position_id"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "position_id",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { disabled: "", value: "" } }, [
+                      _vm._v("Please select ...")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.positions, function(position) {
+                      return _c(
+                        "option",
+                        { key: position.id, domProps: { value: position.id } },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(position.name) +
+                              "\n                            "
+                          )
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                )
               ])
             ]),
             _vm._v(" "),
@@ -52256,6 +52345,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -52279,6 +52379,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             alert("Could not load your user");
         });
         this.getRolesList();
+        this.getPositionsList();
         this.getLocationsList();
         this.getManagerList();
     },
@@ -52293,11 +52394,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: '',
                 first_name: '',
                 last_name: '',
+                position_id: null,
                 location_id: null,
                 manager_id: null,
                 roles: []
             },
             roles: [],
+            positions: [],
             locations: [],
             managers: [],
             token: null,
@@ -52345,6 +52448,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         break;
                 }
             }
+        },
+        getPositionsList: function getPositionsList() {
+            var app = this;
+            axios.post('/api/positions/list', null, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + app.token
+                }
+            }).then(function (resp) {
+                app.positions = resp.data.data;
+            }).catch(function () {
+                alert("Could not load your positions.");
+            });
         },
         getLocationsList: function getLocationsList() {
             var app = this;
@@ -52634,6 +52750,68 @@ var render = function() {
                     }
                   }
                 })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group" }, [
+                _c("label", { staticClass: "control-label" }, [
+                  _vm._v("Position")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.position_id,
+                        expression: "user.position_id"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "position_id",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { disabled: "", value: "" } }, [
+                      _vm._v("Please select ...")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.positions, function(position) {
+                      return _c(
+                        "option",
+                        { key: position.id, domProps: { value: position.id } },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(position.name) +
+                              "\n                            "
+                          )
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                )
               ])
             ]),
             _vm._v(" "),
@@ -62840,6 +63018,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -62952,6 +63132,8 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(employee.last_name))]),
                   _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(employee.position_id))]),
+                  _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(employee.mobile))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(employee.phone))]),
@@ -63045,6 +63227,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("First name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Last name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Position")]),
         _vm._v(" "),
         _c("th", [_vm._v("Mobile")]),
         _vm._v(" "),

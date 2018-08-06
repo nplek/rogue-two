@@ -9,6 +9,7 @@
                         <th>Employee code</th>
                         <th>First name</th>
                         <th>Last name</th>
+                        <th>Position</th>
                         <th>Mobile</th>
                         <th>Phone</th>
                         <th>Location</th>
@@ -20,6 +21,7 @@
                         <td>{{ employee.employee_id }}</td>
                         <td>{{ employee.first_name }}</td>
                         <td>{{ employee.last_name }}</td>
+                        <td>{{ employee.position_id }}</td>
                         <td>{{ employee.mobile }}</td>
                         <td>{{ employee.phone }}</td>
                         <td v-if="employee.location_id">{{ employee.location.name }}</td>

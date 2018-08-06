@@ -33,6 +33,7 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'employee_id',
+        'position_id',
         'location_id',
         'mobile',
         'phone',
@@ -49,7 +50,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','first_name','last_name','employee_id','location_id','active'
+        'name', 'email', 'password','first_name','last_name','employee_id','location_id','active','position_id','manager_id',
     ];
 
     /**
@@ -87,31 +88,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Position::class,'user_has_positions',
         'user_id','position_id')->withTimestamps();
-    }
-
-    /*public function getAllPermissionsAttribute()
-    {
-        return $this->getAllPermissions();
-    }*/
-    protected $appends = ['user-can'];
-    //protected $can = null;
-    
-    public function getUserCanAttribute()
-    {
-        $permissions = [];
-        /*foreach (Permission::all() as $permission) {
-            if (Auth::user()->can($permission->name)) {
-                $permissions[$permission->name] = true;
-            } else {
-                $permissions[$permission->name] = false;
-            }
-        }*/
-        $userpermiss = $this->allPermissions();
-        foreach($userpermiss as $permission){
-            $permissions[$permission->name] = true;
-        }
-
-        return $permissions;
     }
 
 }

@@ -36,7 +36,7 @@ class User extends JsonResource
             'deleted_at' => $this->deleted_at,
             'roles'  => RoleResource::collection($this->roles),
             'location'  => new LocationResource($this->location),
-            //'department' => DepartmentResource::collection($this->department),
+            //'departments' => DepartmentResource::collection($this->department),
             'positions' => PositionResource::collection($this->positions),
             'manager_id' => $this->manager_id,
         ];

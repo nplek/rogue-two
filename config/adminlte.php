@@ -293,14 +293,17 @@ return [
                     'text'  => 'draft',
                     'url'   => 'pr/draft',
                     'icon_color'  => 'purple',
+                    'permission' => 'view-pr',
                 ],
                 [
                     'text'  => 'inbox',
-                    'url'   => 'pr/inbox'
+                    'url'   => 'pr/inbox',
+                    'permission' => 'view-pr',
                 ],
                 [
                     'text'  => 'outbox',
-                    'url'   => 'pr/outbox'
+                    'url'   => 'pr/outbox',
+                    'permission' => 'view-pr',
                 ]
             ]
         ],

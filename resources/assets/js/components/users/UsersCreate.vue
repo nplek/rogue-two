@@ -60,6 +60,17 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
+                            <label class="control-label">Position</label>
+                            <select v-model='user.position_id' class="form-control">
+                                <option disabled value="">Please select ...</option>
+                                <option v-for="position in positions" v-bind:key="position.id" v-bind:value="position.id">
+                                    {{ position.name }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
                             <label class="control-label">Mobile</label>
                             <input type="text" v-model="user.mobile" class="form-control">
                         </div>
@@ -128,11 +139,13 @@
                     email:'',
                     first_name:'',
                     last_name:'',
+                    position_id:null,
                     location_id:null,
                     manager_id:null,
                     roles:[]
                 },
                 roles:[],
+                positions:[],
                 locations:[],
                 managers:[],
                 token:null,
@@ -152,6 +165,7 @@
         mounted() {
             this.getAuthen();
             this.getRolesList();
+            this.getPositionsList();
             this.getLocationsList();
             this.getManagerList();
         },
@@ -186,6 +200,21 @@
                             break;
                     }
                 }
+            },
+            getPositionsList(){
+                let app = this;
+                axios.post('/api/positions/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
+                    .then(function (resp) {
+                        app.positions = resp.data.data;
+                    })
+                    .catch(function () {
+                        alert("Could not load your positions.")
+                    });
             },
             getLocationsList(){
                 let app = this;

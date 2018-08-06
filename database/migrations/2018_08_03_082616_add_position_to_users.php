@@ -31,8 +31,8 @@ class AddPositionToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
 
-            $table->dropForeign(['location_id']);
-            $table->dropColumn(['location_id']);
+            $table->dropForeign(['position_id']);
+            $table->dropColumn(['position_id']);
         });
     }
 }

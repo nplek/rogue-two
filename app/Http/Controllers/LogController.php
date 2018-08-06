@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class LogController extends Controller
 {
+    public function __construct() {
+        $this->middleware('permission:view-activitylog',['only' => 'activityLogIndex']);
+        $this->middleware('permission:view-accesslog',['only' => 'accessLogIndex']);
+        $this->middleware('permission:view-securitylog',['only' => 'securityLogIndex']);
+    }
+
     public function activityLogIndex(Request $request)
     {
         $token = $request->session()->get('tokens');
@@ -20,7 +26,7 @@ class LogController extends Controller
 
     public function securityLogIndex(Request $request)
     {
-        $token = $request->session()->get('tokens');
-        return view('logs.securityLog',compact('token'));
+            $token = $request->session()->get('tokens');
+            return view('logs.securityLog',compact('token'));
     }
 }

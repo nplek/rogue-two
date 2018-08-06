@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class CompanyController extends Controller
 {
     public function __construct() {
-        //$this->middleware('role:super|admin',['only' => 'index']);
+        $this->middleware('permission:view-company',['only' => 'index']);
     }
 
     public function index(Request $request)
