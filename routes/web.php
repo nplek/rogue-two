@@ -14,12 +14,13 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/', function(){
+    //return redirect('/welcome');
+    return redirect('/login');
+})->name('index');
+
 Auth::routes();
-
-
-
 Route::group(['middleware' => ['role:super|admin|user']], function () {
-    Route::get('/', 'HomeController@index')->name('index');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/dashboards', 'DashboardController@index')->name('dashboard');
     Route::get('/users', 'UserController@index')->name('users.index');
