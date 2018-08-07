@@ -14,6 +14,7 @@ class Role extends LaratrustRole
     protected static $logAttributes = [
         'name', 
         'display_name',
+        'description',
     ];
 
     public function permissions()

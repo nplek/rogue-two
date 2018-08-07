@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\User as UserResource;
+use App\RoleUser;
+use App\Http\Resources\RoleUser as RoleUserResource;
+use App\Team;
+use App\Role;
 use Auth;
 
 class UserController extends Controller
@@ -33,6 +37,45 @@ class UserController extends Controller
         return UserResource::collection(User::active()->get());
     }
 
+    public function listUserRole($id)
+    {
+        return RoleUserResource::collection(RoleUser::where('user_id','=',$id)->get());
+    }
+    public function showUserRole($uid,$rid)
+    {
+        return new RoleUserResource(RoleUser::where('user_id','=',$uid)->where('role_id','=',$rid)->first());
+    }
+
+    public function storeUserRole(Request $request, $uid)
+    {
+        $this->validate($request, [
+            'role_id' => 'required',
+            'team_id'=>'required',
+        ]);
+
+        
+        $team_id = $request['team_id'];
+        $role_id = $request['role_id'];
+        $team = Team::where('id','=',$team_id)->first();
+        $role = Role::where('id','=',$role_id)->first();
+        $user = User::findOrFail($uid);
+
+        $user->attachRole($role,$team);
+        $roleUser = RoleUser::where('user_id','=',$uid)
+            ->where('role_id','=',$role_id)
+            ->where('team_id','=',$team_id)
+            ->first();
+        return new RoleUserResource($roleUser);
+    }
+    public function destroyUserRole(Request $request, $uid,$rid,$tid)
+    {
+        $user = User::findOrFail($uid);
+        $team = Team::where('id','=',$tid)->first();
+        $role = Role::where('id','=',$rid)->first();
+        $user->detachRole($role,$team);
+
+        return new UserResource($user);
+    }
 
     public function store(Request $request)
     {
@@ -63,10 +106,10 @@ class UserController extends Controller
         $user->active = $request['active'];
         $user->save();
 
-        $roles = $request['roles'];
+        /*$roles = $request['roles'];
         if (isset($roles)) {
             $user->attachRoles($roles);
-        }
+        }*/
         $positions = $request['positions'];
         $posId = [];
         foreach($positions as $position){
@@ -119,8 +162,8 @@ class UserController extends Controller
         }
         $user->save();
 
-        $roles = $request['roles'];
-        $user->syncRoles($roles);
+        /*$roles = $request['roles'];
+        $user->syncRoles($roles);*/
         $positions = $request['positions'];
         $posId = [];
         $posOld = [];

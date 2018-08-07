@@ -187,7 +187,7 @@ import Multiselect from 'vue-multiselect'
                     position_id:null,
                     location_id:null,
                     manager_id:null,
-                    roles:[]
+                    roles:[],
                 },
                 roles:[],
                 positions:[],

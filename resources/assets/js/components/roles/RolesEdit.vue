@@ -23,10 +23,27 @@
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">Permissions</label>
-                            <div v-for="(permission) in permissions" v-bind:key="permission.id"> 
-                                <input type="checkbox" v-model="role.permissions" :value="permission.id">
-                                {{ permission.name }} 
-                            </div>
+                            <multiselect 
+                                v-model="role.permissions" 
+                                :options="permissions" 
+                                :multiple="true" 
+                                :close-on-select="false" 
+                                :clear-on-select="false" 
+                                :hide-selected="true" 
+                                :preserve-search="true" 
+                                placeholder="Please select" 
+                                label="name" 
+                                track-by="id" 
+                                :preselect-first="true">
+                                <template 
+                                    slot="tag" 
+                                    slot-scope="props">
+                                    <span class="btn btn-danger btn-xs">
+                                        <span> {{ props.option.name }}</span>
+                                        <i class="fa fa-close" @click="props.remove(props.option)"></i> 
+                                    </span> 
+                                </template>
+                            </multiselect>
                         </div>
                     </div>
                     <div class="row">
@@ -45,9 +62,13 @@
         </div>
     </div>
 </template>
-
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <script>
+import Multiselect from 'vue-multiselect'
     export default {
+        components: {
+            'multiselect': Multiselect
+        },
         mounted() {
             this.getAuthen();
             let app = this;
@@ -61,17 +82,17 @@
                     })
                 .then(function (resp) {
                     app.role = resp.data.data;
-                    app.rolePermissions = [];
+                    /*app.rolePermissions = [];
                     for (var index in resp.data.data.permissions){
                         app.rolePermissions.push(resp.data.data.permissions[index]['id']);
                     }
-                    app.role.permissions = app.rolePermissions;
+                    app.role.permissions = app.rolePermissions;*/
                 })
                 .catch(function () {
                     alert("Could not load your role")
                 });
-
             this.getPermissionsList();
+            this.getTeamsList();
         },
         data: function () {
             return {
@@ -82,9 +103,12 @@
                     name: '',
                     display_name:'',
                     description: '',
-                    permissions:[]
+                    permissions:[],
+                    team:null,
+                    team_id:null,
                 },
                 permissions:[],
+                teams:[],
                 token:null,
                 auth: {
                     name: '',
@@ -100,6 +124,10 @@
             }
         },
         methods: {
+            teamChange(value,id){
+                var app = this;
+                app.role.team_id = value.id;
+            },
             getAuthen(){
                 var app = this;
                 let token = document.head.querySelector('meta[name="token"]'); 
@@ -141,6 +169,21 @@
                     })
                     .then(function (resp) {
                         app.permissions = resp.data.data;
+                    })
+                    .catch(function () {
+                        alert("Could not load your permissions")
+                    });
+            },
+            getTeamsList(){
+                let app = this;
+                axios.post('/api/teams/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
+                    .then(function (resp) {
+                        app.teams = resp.data.data;
                     })
                     .catch(function () {
                         alert("Could not load your permissions")

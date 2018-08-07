@@ -115,28 +115,15 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Role</label>
-                            <multiselect 
-                                v-model="user.roles" 
-                                :options="roles" 
-                                :multiple="true" 
-                                :close-on-select="false" 
-                                :clear-on-select="false" 
-                                :hide-selected="true" 
-                                :preserve-search="true" 
-                                placeholder="Please select" 
-                                label="name" 
-                                track-by="id" 
-                                :preselect-first="true">
-                                <template 
-                                    slot="tag" 
-                                    slot-scope="props">
-                                    <span class="btn btn-danger btn-xs">
-                                        <span> {{ props.option.name }}</span>
-                                        <i class="fa fa-close" @click="props.remove(props.option)"></i> 
-                                    </span>
-                                </template>
-                            </multiselect>
+                            <label class="control-label">Roles : </label>
+                            <span  v-for="(role) in user.roles" v-bind:key="role.id" class="badge bg-red" > {{ role.display_name }} </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <router-link :to="{name: 'showRoleTeam', params: {userId: userId}}" class="btn btn-sm btn-warning">
+                                Roles
+                            </router-link>
                         </div>
                     </div>
                     <div class="row">
@@ -175,25 +162,18 @@ import Multiselect from 'vue-multiselect'
                 })
                 .then(function (resp) {
                     app.user = resp.data.data;
-                    /*app.userRoles = [];
-                    for (var index in resp.data.data.roles){
-                        app.userRoles.push(resp.data.data.roles[index]['id']);
-                    }
-                    app.user.roles = app.userRoles;*/
-                    
                 })
                 .catch(function () {
                     alert("Could not load your user")
                 });
-            this.getRolesList();
             this.getPositionsList();
             this.getLocationsList();
             this.getManagerList();
+            this.getTeamsList();
         },
         data: function () {
             return {
                 errors: [],
-                userRoles:[],
                 userId: null,
                 user: {
                     name: '',
@@ -203,12 +183,11 @@ import Multiselect from 'vue-multiselect'
                     position_id:null,
                     location_id:null,
                     manager_id:null,
-                    roles:[]
                 },
-                roles:[],
                 positions:[],
                 locations:[],
                 managers:[],
+                teams:[],
                 token:null,
                 auth: {
                     name: '',
@@ -237,6 +216,10 @@ import Multiselect from 'vue-multiselect'
             managerChange(value,id){
                 var app = this;
                 app.user.manager_id = value.id;
+            },
+            teamChange(value,id){
+                var app = this;
+                app.user.team_id = value.id;
             },
             getAuthen(){
                 var app = this;
@@ -299,21 +282,6 @@ import Multiselect from 'vue-multiselect'
                         alert("Could not load your locations.")
                     });
             },
-            getRolesList(){
-                let app = this;
-                axios.post('/api/roles/list',null,{
-                        headers: {
-                            'Accept': 'application/json',
-                            'Authorization': 'Bearer '+ app.token
-                        }
-                    })
-                    .then(function (resp) {
-                        app.roles = resp.data.data;
-                    })
-                    .catch(function () {
-                        alert("Could not load your roles.")
-                    });
-            },
             getManagerList(){
                 let app = this;
                 axios.post('/api/users/manager/list',null,{
@@ -327,6 +295,21 @@ import Multiselect from 'vue-multiselect'
                     })
                     .catch(function () {
                         alert("Could not load your managers.")
+                    });
+            },
+            getTeamsList(){
+                let app = this;
+                axios.post('/api/teams/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
+                    .then(function (resp) {
+                        app.teams = resp.data.data;
+                    })
+                    .catch(function () {
+                        alert("Could not load your permissions")
                     });
             },
             saveForm() {

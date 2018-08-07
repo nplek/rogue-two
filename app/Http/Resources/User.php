@@ -3,9 +3,12 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Role as RoleResource;
+//use App\Http\Resources\Role as RoleResource;
+use App\Http\Resources\UserRole as UserRoleResource;
 use App\Http\Resources\Location as LocationResource;
 use App\Http\Resources\Position as PositionResource;
+//use App\Http\Resources\RoleUser as RoleUserResource;
+//use App\Http\Resources\Team as TeamResource;
 use App\Http\Resources\UserList;
 class User extends JsonResource
 {
@@ -35,12 +38,14 @@ class User extends JsonResource
             'phone' => $this->phone,
             'photo' => $this->photo,
             'deleted_at' => $this->deleted_at,
-            'roles'  => RoleResource::collection($this->roles),
+            'roles'  => UserRoleResource::collection($this->roles),
+            //'roles'  => RoleUserResource::collection($this->roles),
             'location'  => new LocationResource($this->location),
             //'departments' => DepartmentResource::collection($this->department),
             'positions' => PositionResource::collection($this->positions),
             'manager_id' => $this->manager_id,
             'manager' => new UserList($this->manager),
+            //'team' => new TeamResource($this->team),
         ];
     }
 }

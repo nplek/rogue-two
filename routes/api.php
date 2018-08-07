@@ -57,12 +57,17 @@ Route::group(['middleware' => 'auth:api'], function(){
             Route::put('users/{id}/reset', 'UserController@reset_update')->name('users.reset');
             Route::put('users/{id}/active', 'UserController@active_user')->name('users.active');
             Route::put('users/{id}/inactive', 'UserController@inactive_user')->name('users.inactive');
+            Route::get('users/roles/{id}','UserController@listUserRole')->name('users.roles.list');
+            Route::get('users/roles/{uid}/{rid}','UserController@showUserRole')->name('users.roles.show');
+            Route::post('users/roles/{uid}','UserController@storeUserRole')->name('users.roles.create');
+            Route::delete('users/roles/{uid}/{rid}/{tid}','UserController@destroyUserRole')->name('users.roles.delete');
 
             Route::resource('employees', 'EmployeeController',['except' => ['create','edit','store','destroy']]);
             Route::post('employees/list','EmployeeController@list')->name('employees.list');
 
             Route::resource('roles', 'RoleController',['except' => ['create','edit']]);
             Route::post('roles/list','RoleController@list')->name('roles.list');
+            
             Route::resource('permissions', 'PermissionController',['except' => ['create','edit']]);
             Route::post('permissions/list','PermissionController@list')->name('permissions.list');
             Route::resource('teams', 'TeamController',['except' => ['create','edit']]);
