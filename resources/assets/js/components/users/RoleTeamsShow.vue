@@ -30,7 +30,7 @@
                         <td>
                             <a v-if="auth.can.update === true" href="#"
                                class="btn btn-sm btn-danger"
-                               v-on:click="deleteEntry(userrole.user_id,userrole.role_id,userrole.team_id, index)">
+                               v-on:click="deleteEntry(userrole, index)" >
                                 Delete
                             </a>
                         </td>
@@ -67,9 +67,10 @@
                 },
             }
         },
-        mounted() {
+        beforeMount(){
             this.getAuthen();
-            //this.fetchPaginate();
+        },
+        mounted() {
             var app = this;
             let id = app.$route.params.id;
             app.userId = id;
@@ -122,9 +123,15 @@
                     alert("Could not load users");
                 });
             },
-            deleteEntry(uid,rid,tid,index) {
+            deleteEntry(userrole,index) {
                 if (confirm("Do you really want to delete it?")) {
                     var app = this;
+                    var uid = userrole.user.id;
+                    var rid = userrole.role.id;
+                    var tid = null;
+                    if (userrole.team != null){
+                        tid = userrole.team.id;
+                    }
                     axios.delete('/api/users/roles/' + uid + '/' + rid + '/' + tid,{
                             headers: {
                                 'Accept': 'application/json',

@@ -3,11 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Permission as PermissionResource;
-use App\Http\Resources\PermissionCollection;
-use App\Http\Resources\Team as TeamResource;
 
-class Role extends JsonResource
+class TeamList extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,8 +17,6 @@ class Role extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'display_name' => $this->display_name,
-            'permissions' => new PermissionCollection($this->permissions),
         ];
     }
 }

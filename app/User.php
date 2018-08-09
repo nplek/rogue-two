@@ -8,8 +8,9 @@ use Laratrust\Traits\LaratrustUserTrait;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
-use App\Location;
-use App\Position;
+//use App\Location;
+//use App\Position;
+use App\Employee;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,19 +27,8 @@ class User extends Authenticatable
     protected static $logAttributes = [
         'name', 
         'email',
-        'active', 
-        'last_login_at', 
-        'last_login_ip',
-        'last_logout_at',
-        'first_name',
-        'last_name',
-        'employee_id',
-        'position_id',
-        'location_id',
-        'mobile',
-        'phone',
-        'photo',
-        'manager_id'
+        'active',
+        'password',
     ];
 
     use SoftDeletes;
@@ -50,7 +40,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','first_name','last_name','employee_id','location_id','active','position_id','manager_id',
+        'name', 'email', 'password','active'
     ];
 
     /**
@@ -72,14 +62,13 @@ class User extends Authenticatable
         return $query->where('active', 'A');
     }
 
-    
-    protected $employee_detail = null;
+    /*protected $employee_detail = null;
 
     public function getEmployeeDetailAttribute(){
         return "{$this->employee_id} {$this->first_name} {$this->last_name}";
-    }
+    }*/
 
-    public function location()
+    /*public function location()
     {
         return $this->belongsTo(Location::class);
     }
@@ -99,6 +88,15 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Department::class,'user_has_departments',
         'user_id','department_id')->withTimestamps();
+    }*/
+
+    public function roleusers()
+    {
+        return $this->hasmany(RoleUser::class);
     }
 
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
 }

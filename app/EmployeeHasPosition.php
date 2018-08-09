@@ -5,17 +5,17 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class UserHasDepartment extends Model
+class EmployeeHasPosition extends Model
 {
     use LogsActivity;
     protected static $logName = 'system';
     protected static $logOnlyDirty = true;
     protected static $logAttributes = [
-        'department_id', 
-        'user_id',
+        'position_id', 
+        'employee_id',
     ];
 
     protected $fillable = [
-        'department_id', 'user_id'
+        'position_id', 'employee_id'
     ];
 }

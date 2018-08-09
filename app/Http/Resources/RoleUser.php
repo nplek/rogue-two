@@ -3,7 +3,9 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-
+use App\Http\Resources\TeamList as TeamResource;
+use App\Http\Resources\UserList as UserResource;
+use App\Http\Resources\RoleList as RoleResource;
 class RoleUser extends JsonResource
 {
     /**
@@ -15,12 +17,9 @@ class RoleUser extends JsonResource
     public function toArray($request)
     {
         return [
-            'user_id' => $this->user_id,
-            'user' => $this->user,
-            'role_id' => $this->role_id,
-            'role' => $this->role,
-            'team_id' => $this->team_id,
-            'team' => $this->team,
+            'user' => new UserResource($this->user),
+            'role' => new RoleResource($this->role),
+            'team' => new TeamResource($this->team),
         ];
     }
 }

@@ -4,12 +4,13 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 //use App\Http\Resources\Role as RoleResource;
-use App\Http\Resources\UserRole as UserRoleResource;
-use App\Http\Resources\Location as LocationResource;
-use App\Http\Resources\Position as PositionResource;
-//use App\Http\Resources\RoleUser as RoleUserResource;
+//use App\Http\Resources\UserRole as UserRoleResource;
+//use App\Http\Resources\Location as LocationResource;
+//use App\Http\Resources\Position as PositionResource;
+use App\Http\Resources\RoleUser as RoleUserResource;
+use App\Http\Resources\Employee as EmployeeResource;
 //use App\Http\Resources\Team as TeamResource;
-use App\Http\Resources\UserList;
+//use App\Http\Resources\UserList;
 class User extends JsonResource
 {
     /**
@@ -26,26 +27,26 @@ class User extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
-            'location_id' => $this->location_id,
+            'employee_id' => $this->employee_id,
+            'employee' => new EmployeeResource($this->employee),
             'active' => $this->active,
+            'userroles' => RoleUserResource::collection($this->roleusers),
+            'deleted_at' => $this->deleted_at,
             'last_login_at' => $this->last_login_at,
             'last_login_ip' => $this->last_login_ip,
             'last_logout_at' => $this->last_logout_at,
+            /*'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
+            'location_id' => $this->location_id,
             'employee_id' => $this->employee_id,
             'mobile' => $this->mobile,
             'phone' => $this->phone,
             'photo' => $this->photo,
-            'deleted_at' => $this->deleted_at,
-            'roles'  => UserRoleResource::collection($this->roles),
-            //'roles'  => RoleUserResource::collection($this->roles),
+            'userroles' => RoleUserResource::collection($this->roleusers),
             'location'  => new LocationResource($this->location),
-            //'departments' => DepartmentResource::collection($this->department),
             'positions' => PositionResource::collection($this->positions),
             'manager_id' => $this->manager_id,
-            'manager' => new UserList($this->manager),
-            //'team' => new TeamResource($this->team),
+            'manager' => new UserList($this->manager),*/
         ];
     }
 }

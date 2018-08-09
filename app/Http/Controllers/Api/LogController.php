@@ -18,7 +18,6 @@ class LogController extends Controller
     public function destroyLog($id)
     {
         $activity = Activity::findOrFail($id);
-        //$activity->disableLogging();
         $activity->delete();
         return new ActivityResource($activity);
     }

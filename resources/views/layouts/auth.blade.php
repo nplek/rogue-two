@@ -56,7 +56,9 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        @include('auth.partials.social_login')
+                        @if (config('adminlte.social_login', false))
+                            @include('auth.partials.social_login')
+                        @endif
                     </div>
                 </div>
             </form>

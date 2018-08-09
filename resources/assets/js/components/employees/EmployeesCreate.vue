@@ -5,9 +5,9 @@
         </div>
  
         <div class="panel panel-default">
-            <div class="panel-heading">Update Employee</div>
+            <div class="panel-heading">Create new Employee</div>
             <div class="panel-body">
-                <form v-on:submit="saveForm()">
+                <form v-on:submit="saveForm()">                    
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">Employee ID</label>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <button v-if="auth.can.update" class="btn btn-success">Update</button>
+                            <button v-if="auth.can.create" class="btn btn-success">Create</button>
                         </div>
                     </div>
                 </form>
@@ -132,41 +132,18 @@ import Multiselect from 'vue-multiselect'
         components: {
             'multiselect': Multiselect
         },
-        beforeMount(){
-            this.getAuthen();
-        },
-        mounted() {
-            this.getAuthen();
-            let app = this;
-            let id = app.$route.params.id;
-            app.employeeId = id;
-            axios.get('/api/employees/' + id,{
-                    headers: {
-                        'Accept': 'application/json',
-                        'Authorization': 'Bearer '+ app.token
-                    }
-                })
-                .then(function (resp) {
-                    app.employee = resp.data.data;
-                })
-                .catch(function () {
-                    alert("Could not load your employee")
-                });
-            this.getPositionsList();
-            this.getLocationsList();
-            this.getManagerList();
-        },
         data: function () {
             return {
                 errors: [],
-                employeeId: null,
                 employee: {
+                    employee_id:'',
                     first_name:'',
                     last_name:'',
+                    positions:[],
                     position_id:null,
                     location_id:null,
                     manager_id:null,
-                    manager:[],
+                    type:'',
                 },
                 positions:[],
                 locations:[],
@@ -184,6 +161,14 @@ import Multiselect from 'vue-multiselect'
                     },
                 },
             }
+        },
+        beforeMount(){
+            this.getAuthen();
+        },
+        mounted() {
+            this.getPositionsList();
+            this.getLocationsList();
+            this.getManagerList();
         },
         methods: {
             nameWithShortName({short_name,name}){
@@ -280,21 +265,21 @@ import Multiselect from 'vue-multiselect'
                 event.preventDefault();
                 var app = this;
                 var newemployee = app.employee;
-                axios.patch('/api/employees/' + app.employeeId, newemployee,{
+                axios.post('/api/employees', newemployee,{
                         headers: {
                             'Accept': 'application/json',
-                            'Authorization': 'Bearer '+ app.token
+                            'Authorization': 'Bearer ' + app.token
                         }
                     })
                     .then(function (resp) {
-                        app.$router.replace('/');
+                        app.$router.push({path: '/'});
                     })
                     .catch(function (resp) {
                         app.errors = [];
                         for (var err in resp.response.data.errors){
                             app.errors.push( resp.response.data.errors[err].toString() );
                         }
-                        alert("Could not update your employee");
+                        alert("Could not create your employee");
                     });
             }
         }

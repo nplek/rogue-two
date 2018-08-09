@@ -12,24 +12,25 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        $this->command->info('Create company');
-        Company::create([
+        $company = Company::create([
             'name' => 'KTech Construction pcl.',
             'short_name' => 'KCONS',
         ]);
-        Company::create([
+        $this->command->info('Create Company ' . $company->name);
+        $company = Company::create([
             'name' => 'KTech Building Contactor',
             'short_name' => 'KBUILD',
         ]);
-
-        Company::create([
+        $this->command->info('Create Company ' . $company->name);
+        $company = Company::create([
             'name' => 'KTech Infrastructure',
             'short_name' => 'KINFA',
         ]);
-        Company::create([
+        $this->command->info('Create Company ' . $company->name);
+        $company = Company::create([
             'name' => 'KTech Innovation',
             'short_name' => 'KINNO',
         ]);
-
+        $this->command->info('Create Company ' . $company->name);
     }
 }

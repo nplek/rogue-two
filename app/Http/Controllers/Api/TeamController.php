@@ -14,7 +14,7 @@ class TeamController extends Controller
     }
 
     public function index() {
-        return new TeamCollection(Team::paginate(20));
+        return new TeamCollection(Team::paginate(50));
     }
 
     public function list()

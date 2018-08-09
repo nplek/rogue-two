@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'collapse_sidebar' => false,
+    'collapse_sidebar' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +94,9 @@ return [
     'login_url' => 'login',
 
     //'register_url' => 'register',
-    'register_url' => '',
+    'register_url' => null,
+
+    'social_login' => false,
 
     /*
     |--------------------------------------------------------------------------

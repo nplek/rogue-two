@@ -27,7 +27,14 @@
                         <td>{{ user.email }}</td>
                         <td>{{ user.employee_id }} {{ user.first_name }} {{ user.last_name }}</td>
                         <td>
-                            <span  v-for="(role) in user.roles" v-bind:key="role.id" class="badge bg-green" > {{ role.display_name }} </span>
+                            <div v-for="(rolelist,index) in user.userroles" v-bind:key="index" >
+                                <span v-if="rolelist.team"  class="badge bg-green" > 
+                                    {{ rolelist.role.name }} - {{ rolelist.team.name }}
+                                </span>
+                                <span v-else class="badge bg-red">
+                                    {{ rolelist.role.name }}
+                                </span>
+                            </div>
                         </td>
                         <td>{{ user.last_login_at }}</td>
                         <td>{{ user.last_login_ip }}</td>

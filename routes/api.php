@@ -53,7 +53,7 @@ Route::group(['middleware' => 'auth:api'], function(){
             Route::resource('users', 'UserController',['except' => ['create','edit']]);
             Route::post('users/{id}/restore','UserController@restore')->name('users.restore');
             Route::post('users/list','UserController@list')->name('users.list');
-            Route::post('users/manager/list','UserController@listManager')->name('users.list.manager');
+            //Route::post('users/manager/list','UserController@listManager')->name('users.list.manager');
             Route::put('users/{id}/reset', 'UserController@reset_update')->name('users.reset');
             Route::put('users/{id}/active', 'UserController@active_user')->name('users.active');
             Route::put('users/{id}/inactive', 'UserController@inactive_user')->name('users.inactive');
@@ -62,7 +62,9 @@ Route::group(['middleware' => 'auth:api'], function(){
             Route::post('users/roles/{uid}','UserController@storeUserRole')->name('users.roles.create');
             Route::delete('users/roles/{uid}/{rid}/{tid}','UserController@destroyUserRole')->name('users.roles.delete');
 
-            Route::resource('employees', 'EmployeeController',['except' => ['create','edit','store','destroy']]);
+            Route::resource('employees', 'EmployeeController',['except' => ['create','edit']]);
+            Route::post('employees/manager/list','EmployeeController@listManager')->name('employees.manager.list');
+            Route::post('employees/staff/list','EmployeeController@listStaff')->name('employees.staff.list');
             Route::post('employees/list','EmployeeController@list')->name('employees.list');
 
             Route::resource('roles', 'RoleController',['except' => ['create','edit']]);

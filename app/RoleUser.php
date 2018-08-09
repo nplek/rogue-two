@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RoleUser extends Model
 {
     protected $table = 'role_user';
+    //protected $primaryKey = ['user_id', 'role_id','team_id'];
 
     public function user()
     {

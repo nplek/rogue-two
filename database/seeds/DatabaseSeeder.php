@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             LocationSeeder::class,
             PositionSeeder::class,
             ProjectSeeder::class,
+            EmployeeSeeder::class,
+            TeamSeeder::class,
             LaratrustSeeder::class,
         ]);
     }

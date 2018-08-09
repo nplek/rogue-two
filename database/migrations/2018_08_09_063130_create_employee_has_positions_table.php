@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserHasPositionsTable extends Migration
+class CreateEmployeeHasPositionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,21 @@ class CreateUserHasPositionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_has_positions', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('employee_has_positions', function (Blueprint $table) {
             $table->unsignedInteger('position_id');
+            $table->unsignedInteger('employee_id');
+
             $table->foreign('position_id')
                 ->references('id')
                 ->on('positions')
                 ->onDelete('cascade');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')
+
+            $table->foreign('employee_id')
                 ->references('id')
-                ->on('users')
+                ->on('employees')
                 ->onDelete('cascade');
+
+            $table->primary(['position_id', 'employee_id']);
             $table->timestamps();
         });
     }
@@ -36,6 +39,6 @@ class CreateUserHasPositionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_has_positions');
+        Schema::dropIfExists('employee_has_positions');
     }
 }

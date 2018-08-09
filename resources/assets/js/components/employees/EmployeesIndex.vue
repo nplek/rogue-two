@@ -1,5 +1,8 @@
 <template>
     <div class="row">
+        <div class="form-group">
+            <router-link v-if="auth.can.create" :to="{name: 'createEmployee'}" class="btn btn-success">New</router-link>
+        </div>
         <div class="panel panel-default">
             <div class="panel-heading">Employee list</div>
             <div class="panel-body">
@@ -21,7 +24,11 @@
                         <td>{{ employee.employee_id }}</td>
                         <td>{{ employee.first_name }}</td>
                         <td>{{ employee.last_name }}</td>
-                        <td>{{ employee.position_id }}</td>
+                        <td>
+                            <span v-for="(position,index) in employee.positions" v-bind:key="index" class="badge bg-orange">
+                                {{ position.name }}
+                            </span>
+                        </td>
                         <td>{{ employee.mobile }}</td>
                         <td>{{ employee.phone }}</td>
                         <td v-if="employee.location_id">{{ employee.location.name }}</td>
@@ -76,8 +83,10 @@ import VuejsPaginate from 'vuejs-paginate'
                 },
             }
         },
-        mounted() {
+        beforeMount(){
             this.getAuthen();
+        },
+        mounted() {
             this.fetchPaginate();
         },
         methods: {

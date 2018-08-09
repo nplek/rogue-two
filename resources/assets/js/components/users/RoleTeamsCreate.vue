@@ -59,11 +59,13 @@ import Multiselect from 'vue-multiselect'
         components: {
             'multiselect': Multiselect
         },
-        mounted() {
-            this.getAuthen();
+        beforeMount() {
             let app = this;
             let uid = app.$route.params.uid;
             app.userId = uid;
+        },
+        mounted() {
+            this.getAuthen();
             this.getRolesList();
             this.getTeamsList();
         },

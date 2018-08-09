@@ -34,7 +34,7 @@ Route::group(['middleware' => ['role:super|admin|user']], function () {
     Route::get('/companies', 'CompanyController@index')->name('companies.index');
     Route::get('/departments', 'DepartmentController@index')->name('departments.index');
     Route::get('/locations', 'LocationController@index')->name('locations.index');
-    Route::get('/employees', 'UserController@employee')->name('employees.index');
+    Route::get('/employees', 'EmployeeController@index')->name('employees.index');
     Route::get('/positions', 'PositionController@index')->name('positions.index');
     Route::get('/projects', 'ProjectController@index')->name('projects.index');
 

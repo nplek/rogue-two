@@ -45,6 +45,7 @@ import PositionsIndex from './components/positions/PositionsIndex.vue';
 import PositionsCreate from './components/positions/PositionsCreate.vue';
 import PositionsEdit from './components/positions/PositionsEdit.vue';
 import EmployeesIndex from './components/employees/EmployeesIndex.vue';
+import EmployeesCreate from './components/employees/EmployeesCreate.vue';
 import EmployeesEdit from './components/employees/EmployeesEdit.vue';
 import EmployeesShow from './components/employees/EmployeesShow.vue';
 import ActivityLogsIndex from './components/logs/ActivityLogsIndex.vue';
@@ -108,6 +109,7 @@ const routes = [
     {path: '/admin/projects/edit/:id', component: ProjectsEdit, name: 'editProject'},
     {path: '/admin/positions/create', component: PositionsCreate, name: 'createPosition'},
     {path: '/admin/positions/edit/:id', component: PositionsEdit, name: 'editPosition'},
+    {path: '/admin/employees/create', component: EmployeesCreate, name: 'createEmployee'},
     {path: '/admin/employees/edit/:id', component: EmployeesEdit, name: 'editEmployee'},
     {path: '/admin/employees/show/:id', component: EmployeesShow, name: 'showEmployee'},
 ]

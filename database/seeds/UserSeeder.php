@@ -17,11 +17,6 @@ class UserSeeder extends Seeder
             'email' => 'admin@me.com',
             'password' => '123456',
             'active' => "A",
-            'employee_id' => '5910082',
-            'first_name' => 'Administrator',
-            'last_name' => 'System',
-            'mobile' => '1234567890',
-            'phone' => '4321',
         ]);
     }
 }

@@ -34,121 +34,27 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <input type="radio" id="active" value="A" v-model="user.active">
-                            <label for="active">Active</label>
-                            <input type="radio" id="inactive" value="I" v-model="user.active">
-                            <label for="inactive">Inactive</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Employee ID</label>
-                            <input type="text" v-model="user.employee_id" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">First Name</label>
-                            <input type="text" v-model="user.first_name" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Last Name</label>
-                            <input type="text" v-model="user.last_name" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Position</label>
+                            <label class="control-label">Employee</label>
                             <multiselect 
-                                v-model="user.positions" 
-                                :options="positions" 
-                                :multiple="true" 
-                                :close-on-select="false" 
-                                :clear-on-select="false" 
-                                :hide-selected="true" 
-                                :preserve-search="true" 
-                                :custom-label="nameWithShortName" 
-                                placeholder="Please select" 
-                                label="name" 
-                                track-by="id" 
-                                :preselect-first="true">
-                                <template 
-                                    slot="tag" 
-                                    slot-scope="props">
-                                    <span class="btn btn-danger btn-xs">
-                                        <span> {{ props.option.name }}</span>
-                                        <i class="fa fa-close" @click="props.remove(props.option)"></i> 
-                                    </span>
-                                </template>
-                            </multiselect>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Mobile</label>
-                            <input type="text" v-model="user.mobile" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Phone</label>
-                            <input type="text" v-model="user.phone" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Location</label>
-                            <multiselect 
-                                v-model="user.location"
-                                @input="locationChange"
-                                :options="locations" 
-                                :custom-label="nameWithShortName" 
-                                placeholder="Please select" 
-                                label="name" 
-                                track-by="id">
-                            </multiselect>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Manager</label>
-                            <multiselect 
-                                v-model="user.manager"
-                                @input="managerChange"
-                                :options="managers" 
+                                v-model="user.employee"
+                                @input="employeeChange"
+                                :options="employees" 
                                 :custom-label="nameWithFullName" 
                                 placeholder="Please select" 
                                 label="name" 
                                 track-by="id">
                             </multiselect>
                         </div>
+                        <div class="col-xs-12 form-group">
+                            <router-link v-if="auth.can.create" :to="{name: 'createEmployee'}" class="btn btn-info">New Employee</router-link>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Role</label>
-                            <multiselect 
-                                v-model="user.roles" 
-                                :options="roles" 
-                                :multiple="true" 
-                                :close-on-select="false" 
-                                :clear-on-select="false" 
-                                :hide-selected="true" 
-                                :preserve-search="true" 
-                                placeholder="Please select" 
-                                label="name" 
-                                track-by="id" 
-                                :preselect-first="true">
-                                <template 
-                                    slot="tag" 
-                                    slot-scope="props">
-                                    <span class="btn btn-danger btn-xs">
-                                        <span> {{ props.option.name }}</span>
-                                        <i class="fa fa-close" @click="props.remove(props.option)"></i> 
-                                    </span>
-                                </template>
-                            </multiselect>
+                            <input type="radio" id="active" value="A" v-model="user.active">
+                            <label for="active">Active</label>
+                            <input type="radio" id="inactive" value="I" v-model="user.active">
+                            <label for="inactive">Inactive</label>
                         </div>
                     </div>
                     <div class="row">
@@ -183,16 +89,11 @@ import Multiselect from 'vue-multiselect'
                     email:'',
                     first_name:'',
                     last_name:'',
-                    positions:[],
-                    position_id:null,
-                    location_id:null,
-                    manager_id:null,
                     roles:[],
+                    employee_id:'',
                 },
                 roles:[],
-                positions:[],
-                locations:[],
-                managers:[],
+                employees:[],
                 token:null,
                 auth: {
                     name: '',
@@ -207,27 +108,34 @@ import Multiselect from 'vue-multiselect'
                 },
             }
         },
-        mounted() {
+        beforeMount(){
             this.getAuthen();
-            this.getRolesList();
-            this.getPositionsList();
-            this.getLocationsList();
-            this.getManagerList();
+        },
+        mounted() {
+            this.getEmployeesList();
         },
         methods: {
-            nameWithShortName({short_name,name}){
-                return `${short_name} — [${name}]`
-            },
             nameWithFullName({employee_id,first_name,last_name}){
                 return `${employee_id} — [${first_name} ${last_name}]`
             },
-            locationChange(value,id){
+            employeeChange(value,id){
                 var app = this;
-                app.user.location_id = value.id;
+                app.user.employee_id = value.id;
             },
-            managerChange(value,id){
-                var app = this;
-                app.user.manager_id = value.id;
+            getEmployeesList(){
+                let app = this;
+                axios.post('/api/employees/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
+                    .then(function (resp) {
+                        app.employees = resp.data.data;
+                    })
+                    .catch(function () {
+                        alert("Could not load your employees.")
+                    });
             },
             getAuthen(){
                 var app = this;
@@ -259,66 +167,6 @@ import Multiselect from 'vue-multiselect'
                             break;
                     }
                 }
-            },
-            getPositionsList(){
-                let app = this;
-                axios.post('/api/positions/list',null,{
-                        headers: {
-                            'Accept': 'application/json',
-                            'Authorization': 'Bearer '+ app.token
-                        }
-                    })
-                    .then(function (resp) {
-                        app.positions = resp.data.data;
-                    })
-                    .catch(function () {
-                        alert("Could not load your positions.")
-                    });
-            },
-            getLocationsList(){
-                let app = this;
-                axios.post('/api/locations/list',null,{
-                        headers: {
-                            'Accept': 'application/json',
-                            'Authorization': 'Bearer '+ app.token
-                        }
-                    })
-                    .then(function (resp) {
-                        app.locations = resp.data.data;
-                    })
-                    .catch(function () {
-                        alert("Could not load your locations.")
-                    });
-            },
-            getRolesList(){
-                let app = this;
-                axios.post('/api/roles/list',null,{
-                        headers: {
-                            'Accept': 'application/json',
-                            'Authorization': 'Bearer '+ app.token
-                        }
-                    })
-                    .then(function (resp) {
-                        app.roles = resp.data.data;
-                    })
-                    .catch(function () {
-                        alert("Could not load your roles.")
-                    });
-            },
-            getManagerList(){
-                let app = this;
-                axios.post('/api/users/manager/list',null,{
-                        headers: {
-                            'Accept': 'application/json',
-                            'Authorization': 'Bearer '+ app.token
-                        }
-                    })
-                    .then(function (resp) {
-                        app.managers = resp.data.data;
-                    })
-                    .catch(function () {
-                        alert("Could not load your managers.")
-                    });
             },
             saveForm() {
                 event.preventDefault();

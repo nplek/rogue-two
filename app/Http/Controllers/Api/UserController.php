@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\User as UserResource;
-use App\RoleUser;
 use App\Http\Resources\RoleUser as RoleUserResource;
+use App\User;
+use App\RoleUser;
 use App\Team;
 use App\Role;
 use Auth;
@@ -52,7 +52,6 @@ class UserController extends Controller
             'role_id' => 'required',
             'team_id'=>'required',
         ]);
-
         
         $team_id = $request['team_id'];
         $role_id = $request['role_id'];
@@ -83,51 +82,21 @@ class UserController extends Controller
             'name'=>'required|alpha_dash|max:120',
             'email'=>'required|email|unique:users',
             'password'=>'min:6|confirmed',
-            'first_name' => 'required|max:100',
-            'last_name' => 'required|max:100',
+            'employee_id' => 'required',
+            'active' => 'required',
         ]);
 
         $user = new User();
         $user->name = $request['name'];
         $user->email = $request['email'];
-        $user->first_name = $request['first_name'];
-        $user->last_name = $request['last_name'];
         if ($request['password']) {
             $user->password = $request['password'];
         } else {
             $user->password = str_random(10);
         }
-        $user->location_id = $request['location_id'];
-        $user->manager_id = $request['manager_id'];
         $user->employee_id = $request['employee_id'];
-        $user->mobile = $request['mobile'];
-        $user->phone = $request['phone'];
-
         $user->active = $request['active'];
         $user->save();
-
-        /*$roles = $request['roles'];
-        if (isset($roles)) {
-            $user->attachRoles($roles);
-        }*/
-        $positions = $request['positions'];
-        $posId = [];
-        foreach($positions as $position){
-            $posId[] = $position['id'];
-        }
-        if (isset($posId)) {
-            $user->positions()->sync($posId);
-            activity('system')
-                ->performedOn($user)
-                ->causedBy(Auth::user())
-                ->withProperties([
-                    'name' => 'position',
-                    'new' => $posId, 
-                    'user_id' => $user->id,
-                ])
-                ->log('sync');
-        }        
-
         return new UserResource($user);
     }
 
@@ -141,99 +110,18 @@ class UserController extends Controller
         $this->validate($request, [
             'name'=>'required|alpha_dash|max:120',
             'email'=>'required|email',
-            'first_name' => 'required|max:100',
-            'last_name' => 'required|max:100',
         ]);
 
         $user = User::findOrFail($id);
         $user->name = $request['name'];
         $user->email = $request['email'];
-        $user->first_name = $request['first_name'];
-        $user->last_name = $request['last_name'];
-        $user->location_id = $request['location_id'];
-        $user->manager_id = $request['manager_id'];
-        
         $user->employee_id = $request['employee_id'];
-        $user->mobile = $request['mobile'];
-        $user->phone = $request['phone'];
         $user->active = $request['active'];
         if ($request['password']) {
             $user->password = $request['password'];
         }
         $user->save();
-
-        /*$roles = $request['roles'];
-        $user->syncRoles($roles);*/
-        $positions = $request['positions'];
-        $posId = [];
-        $posOld = [];
-        $olds = $user->positions;
-        foreach($olds as $o){
-            $posOld[] = $o['id'];
-        }
-        foreach($positions as $position){
-            $posId[] = $position['id'];
-        }
-        $diff = collect($posId)->diff(collect($posOld));
-        if ($diff){
-            if (isset($posId)) {
-                $user->positions()->sync($posId);
-                activity('system')
-                    ->performedOn($user)
-                    ->causedBy(Auth::user())
-                    ->withProperties([
-                        'name' => 'position',
-                        'old' => $posOld,
-                        'new' => $posId, 
-                        'user_id' => $user->id,
-                    ])
-                    ->log('sync');
-            }        
-            else {
-                $user->positions()->detach();
-                activity('system')
-                    ->performedOn($user)
-                    ->causedBy(Auth::user())
-                    ->withProperties([
-                        'name' => 'position',
-                        'old' => $posOld,
-                        'new' => $posId,
-                        'user_id' => $user->id,
-                    ])
-                    ->log('detach');
-            }
-        }
         return new UserResource($user);
-    }
-
-    public function updateProfile(Request $request, $id)
-    {
-        $this->validate($request, [
-            'first_name'=>'required|max:100',
-            'last_name'=>'required|max:100',
-            'employee_id'=>'required|max:10',
-            'mobile'=>'max:30',
-            'phone'=>'max:30'
-        ]);
-        $user = User::findOrFail($id);
-        $user->first_name = $request['first_name'];
-        $user->last_name = $request['last_name'];
-        $user->employee_id = $request['employee_id'];
-        $user->mobile = $request['mobile'];
-        $user->phone = $request['phone'];
-        $user->location_id = $request['location'];
-        $departments = $request['departments'];
-        $user->save();
-
-        if (isset($departments)) {
-            $user->departments()->sync($departments);
-        }        
-        else {
-            $user->departments()->detach();
-        }
-
-        return new UserResource($user);
-
     }
 
     public function destroy($id)

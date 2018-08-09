@@ -19,7 +19,6 @@ class Team extends JsonResource
             'name' => $this->name,
             'display_name' => $this->display_name,
             'description' => $this->description,
-            //'permissions' => new PermissionCollection($this->permissions),
         ];
     }
 }

@@ -16,7 +16,7 @@ class RoleController extends Controller
     }
 
     public function index() {
-        return new RoleCollection(Role::paginate(20));
+        return new RoleCollection(Role::paginate(50));
     }
 
     public function list()

@@ -12,25 +12,30 @@ class LocationSeeder extends Seeder
      */
     public function run()
     {
-        Location::create([
+        $location = Location::create([
             'name' => 'Head Office',
             'short_name' => 'HQ'
         ]);
-        Location::create([
+        $this->command->info('Create Location ' . $location->name);
+        $location = Location::create([
             'name' => 'Head Office/IT',
             'short_name' => 'IT'
         ]);
-        Location::create([
+        $this->command->info('Create Location ' . $location->name);
+        $location = Location::create([
             'name' => 'Head Office/Safty',
             'short_name' => 'SAFTY'
         ]);
-        Location::create([
+        $this->command->info('Create Location ' . $location->name);
+        $location = Location::create([
             'name' => 'Depot',
             'short_name' => 'DEPOT'
         ]);
-        Location::create([
-            'name' => 'Site/AAA',
-            'short_name' => 'AAA'
+        $this->command->info('Create Location ' . $location->name);
+        $location = Location::create([
+            'name' => 'Site/Amber',
+            'short_name' => 'AMBER'
         ]);
+        $this->command->info('Create Location ' . $location->name);
     }
 }

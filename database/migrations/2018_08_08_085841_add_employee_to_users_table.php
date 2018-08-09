@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddLocationToUsers extends Migration
+class AddEmployeeToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,10 @@ class AddLocationToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedInteger('location_id')->after('phone')->nullable();
-
-            $table->foreign('location_id')
+            $table->unsignedInteger('employee_id')->after('active')->nullable();
+            $table->foreign('employee_id')
                 ->references('id')
-                ->on('locations');
+                ->on('employees');
         });
     }
 
@@ -30,9 +29,8 @@ class AddLocationToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-
-            $table->dropForeign(['location_id']);
-            $table->dropColumn(['location_id']);
+            $table->dropForeign(['employee_id']);
+            $table->dropColumn(['employee_id']);
         });
     }
 }

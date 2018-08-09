@@ -17,9 +17,9 @@ class ProjectController extends Controller
     public function index()
     {
         if (Auth::user()->can('restore-project') ){
-            return new ProjectCollection(Project::withTrashed()->paginate(20));
+            return new ProjectCollection(Project::withTrashed()->paginate(50));
         } else {
-            return new ProjectCollection(Project::paginate(20));
+            return new ProjectCollection(Project::paginate(50));
         }
     }
 
