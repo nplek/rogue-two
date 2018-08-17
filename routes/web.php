@@ -37,6 +37,11 @@ Route::group(['middleware' => ['role:super|admin|user']], function () {
     Route::get('/employees', 'EmployeeController@index')->name('employees.index');
     Route::get('/positions', 'PositionController@index')->name('positions.index');
     Route::get('/projects', 'ProjectController@index')->name('projects.index');
+    Route::get('/items', 'ItemController@index')->name('items.index');
+    Route::get('/itemunits', 'ItemUnitController@index')->name('itemunits.index');
+    Route::get('/itemgroups', 'ItemGroupController@index')->name('itemgroups.index');
+
+    Route::get('/inventories', 'InventoryController@index')->name('inventories.index');
 
 });
 Route::get('/errors/400', 'ErrorController@page400')->name('errors.400');

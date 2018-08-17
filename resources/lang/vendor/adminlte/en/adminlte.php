@@ -40,5 +40,8 @@ return [
     'purchase_request'            => 'Purchase Request',
     'inventory'                   => 'Inventory',
     'purchase_order'              => 'Purchase Order',
+    'item'                        => 'Item',
+    'itemunit'                    => 'Item unit',
+    'itemgroup'                   => 'Item Group',
     
 ];

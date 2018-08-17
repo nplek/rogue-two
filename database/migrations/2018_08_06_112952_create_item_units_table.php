@@ -16,6 +16,7 @@ class CreateItemUnitsTable extends Migration
         Schema::create('item_units', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',10);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

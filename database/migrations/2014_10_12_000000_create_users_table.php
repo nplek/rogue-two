@@ -21,8 +21,9 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->string('active',1)->default('I'); //A=Active, I=Inactive, L=Lock
             $table->timestamp('last_login_at')->nullable();
-            $table->string('last_login_ip',40)->nullable();
+            $table->string('last_login_ip',60)->nullable();
             $table->timestamp('last_logout_at')->nullable();
+            $table->string('passport',2000)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

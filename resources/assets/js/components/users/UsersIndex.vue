@@ -66,6 +66,11 @@
                                v-on:click="deleteEntry(user.id, index)">
                                 Delete
                             </a>
+                            <a v-if="auth.can.update === true" href="#"
+                               class="btn btn-sm btn-success"
+                               v-on:click="passportEntry(user.id, index)">
+                                Passport
+                            </a>
                             </div>
                             <div v-else>
                             <a href="#"
@@ -210,6 +215,9 @@ import VuejsPaginate from 'vuejs-paginate'
                             alert("Could not restore user");
                         });
                 }
+            },
+            passportEntry(id,index){
+
             }
         }
     }

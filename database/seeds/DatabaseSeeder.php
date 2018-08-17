@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             ProjectSeeder::class,
             EmployeeSeeder::class,
             TeamSeeder::class,
+            DocNumberSeeder::class,
+            ItemSeeder::class,
             LaratrustSeeder::class,
         ]);
     }

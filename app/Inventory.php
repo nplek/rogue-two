@@ -14,5 +14,5 @@ class Inventory extends Model
     use LogsActivity;
     protected static $logName = 'system';
     protected static $logOnlyDirty = true;
-    protected static $logAttributes = ['name'];
+    protected static $logAttributes = ['itemcode','dscription','project','project_id'];
 }

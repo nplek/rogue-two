@@ -251,37 +251,52 @@ return [
                     'icon'  => 'bullseye',
                     'permission' => 'view-position',
                 ],
+                
+            ]
+        ],
+        [
+            'text'        => 'Setting',
+            'icon'        => 'wrench',
+            'icon_color'  => 'blue',
+            'permission'  => 'view-organization',
+             'submenu'    => [
                 [
                     'text'  => 'Projects',
                     'url'   => 'projects',
-                    'icon_color'  => 'orange',
+                    'icon_color'  => 'blue',
                     'permission' => 'view-project',
                 ],
                 [
                     'text'  => 'Cost center',
                     'url'   => '#',
-                    'icon_color'  => 'orange',
+                    'icon_color'  => 'blue',
                     'permission' => 'view-costcenter',
                 ],
                 [
                     'text'  => 'Account code',
                     'url'   => '#',
-                    'icon_color'  => 'orange',
+                    'icon_color'  => 'blue',
                     'permission' => 'view-accountcode',
                 ],
                 [
+                    'text'  => 'Item unit',
+                    'url'   => 'itemunits',
+                    'icon_color'  => 'blue',
+                    'permission' => 'view-item',
+                ],
+                [
                     'text'  => 'Item groups',
-                    'url'   => '#',
-                    'icon_color'  => 'orange',
+                    'url'   => 'itemgroups',
+                    'icon_color'  => 'blue',
                     'permission' => 'view-itemgroup',
                 ],
                 [
                     'text'  => 'Item code',
-                    'url'   => '#',
-                    'icon_color'  => 'orange',
+                    'url'   => 'items',
+                    'icon_color'  => 'blue',
                     'permission' => 'view-item',
-                ]
-            ]
+                ],
+             ]
         ],
         'APP',
         [
@@ -317,7 +332,7 @@ return [
             'permission' => 'view-inventory',
             'submenu'   => [
                 [
-                    'text'  => 'Items',
+                    'text'  => 'Inventory Items',
                     'url'   => 'inventory/items',
                     'icon_color'  => 'yellow',
                     'icon' => 'archive',

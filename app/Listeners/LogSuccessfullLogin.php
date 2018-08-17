@@ -32,6 +32,11 @@ class LogSuccessfullLogin
         $user->last_login_at = date('Y-m-d H:i:s');
         $user->last_login_ip = $this->request->ip();
         $user->disableLogging();
+        $token = $user->passport;
+        if ($token == null){
+            $token = $user->createToken('rogue-api')->accessToken;
+            $user->passport = $token;
+        }
         $user->save();
         /*$scope = 'user-web';
         if ($user->hasRole('super')){
@@ -40,7 +45,7 @@ class LogSuccessfullLogin
             $scope = 'admin-web';
         }*/
         //$token = $user->createToken('rogue-api',[$scope])->accessToken;
-        $token = $user->createToken('rogue-api')->accessToken;
+        //$token = $user->createToken('rogue-api')->accessToken;
         $this->request->session()->put('tokens',$token);
 
         activity('auth')

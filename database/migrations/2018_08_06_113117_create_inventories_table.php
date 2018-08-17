@@ -18,8 +18,12 @@ class CreateInventoriesTable extends Migration
             $table->string('itemcode',20);
             $table->string('dscription',100);
             $table->string('project',20);
-            $table->string('unit',16);
-            $table->double('remain_qty',19,6);
+            $table->unsignedInteger('project_id')->nullable();
+            $table->foreign('project_id')
+                ->references('id')
+                ->on('projects');
+            $table->string('unit_name',16);
+            $table->double('remain_qty',19,6);  //
             $table->double('total_qty',19,6);
             $table->double('last_qty',19,6);
             $table->double('total_price',19,6);

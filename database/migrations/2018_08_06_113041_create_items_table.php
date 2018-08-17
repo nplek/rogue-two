@@ -24,6 +24,14 @@ class CreateItemsTable extends Migration
                 ->on('item_groups');
             $table->double('price',8,2)->default(0);
             $table->double('average_price',8,2)->default(0);
+            $table->string('unit_name1',10);
+            $table->double('unit_qty1',19,6)->default(1);
+            $table->string('unit_name2',10)->nullable();
+            $table->double('unit_qty2',19,6)->default(1);
+            $table->string('unit_name3',10)->nullable();
+            $table->double('unit_qty3',19,6)->default(1);
+            $table->string('unit_name4',10)->nullable();
+            $table->double('unit_qty4',19,6)->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

@@ -6,7 +6,10 @@
  */
 
 require('./bootstrap');
-
+import "ag-grid/dist/styles/ag-grid.css";
+import "ag-grid/dist/styles/ag-theme-balham.css";
+import "ag-grid/dist/styles/ag-theme-material.css";
+import "vue-multiselect/dist/vue-multiselect.min.css";
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
@@ -16,6 +19,7 @@ window.Vue.use(VueSession);
 import HomeIndex from './components/homeIndex.vue';
 import DashboardsIndex from './components/dashboards/DashboardsIndex.vue';
 import UsersIndex from './components/users/UsersIndex.vue';
+//import UsersIndex from './components/users/UsersIndex2.vue';
 import UsersCreate from './components/users/UsersCreate.vue';
 import UsersEdit from './components/users/UsersEdit.vue';
 import RoleTeamsShow from './components/users/RoleTeamsShow.vue';
@@ -52,21 +56,16 @@ import ActivityLogsIndex from './components/logs/ActivityLogsIndex.vue';
 import AccessLogsIndex from './components/logs/AccessLogsIndex.vue';
 import SecurityLogsIndex from './components/logs/SecurityLogsIndex.vue';
 import LoginPage from './components/auth/LoginPage.vue';
+import ItemsIndex from './components/items/ItemsIndex.vue';
+import ItemsCreate from './components/items/ItemsCreate.vue';
+import ItemsEdit from './components/items/ItemsEdit.vue';
+import ItemUnitsIndex from './components/items/ItemUnitsIndex.vue';
+import ItemUnitsCreate from './components/items/ItemUnitsCreate.vue';
+import ItemUnitsEdit from './components/items/ItemUnitsEdit.vue';
+import ItemGroupsIndex from './components/items/ItemGroupsIndex.vue';
+import ItemGroupsCreate from './components/items/ItemGroupsCreate.vue';
+import ItemGroupsEdit from './components/items/ItemGroupsEdit.vue';
 
-Vue.component(
-    'passport-clients',
-    require('./components/passport/Clients.vue')
-);
-
-Vue.component(
-    'passport-authorized-clients',
-    require('./components/passport/AuthorizedClients.vue')
-);
-
-Vue.component(
-    'passport-personal-access-tokens',
-    require('./components/passport/PersonalAccessTokens.vue')
-);
 const routes = [
     {
         path: '/',
@@ -87,6 +86,9 @@ const routes = [
             projectsIndex: ProjectsIndex,
             positionsIndex: PositionsIndex,
             employeesIndex: EmployeesIndex,
+            itemsIndex: ItemsIndex,
+            itemUnitsIndex: ItemUnitsIndex,
+            itemGroupsIndex: ItemGroupsIndex,
         }
     },
     {path: '/admin/users/create', component: UsersCreate, name: 'createUser'},
@@ -112,6 +114,12 @@ const routes = [
     {path: '/admin/employees/create', component: EmployeesCreate, name: 'createEmployee'},
     {path: '/admin/employees/edit/:id', component: EmployeesEdit, name: 'editEmployee'},
     {path: '/admin/employees/show/:id', component: EmployeesShow, name: 'showEmployee'},
+    {path: '/admin/items/create', component: ItemsCreate, name: 'createItem'},
+    {path: '/admin/items/edit/:id', component: ItemsEdit, name: 'editItem'},
+    {path: '/admin/itemunits/create', component: ItemUnitsCreate, name: 'createItemUnit'},
+    {path: '/admin/itemunits/edit/:id', component: ItemUnitsEdit, name: 'editItemUnit'},
+    {path: '/admin/itemgroups/create', component: ItemGroupsCreate, name: 'createItemGroup'},
+    {path: '/admin/itemgroups/edit/:id', component: ItemGroupsEdit, name: 'editItemGroup'},
 ]
 
 const router = new VueRouter({ routes })

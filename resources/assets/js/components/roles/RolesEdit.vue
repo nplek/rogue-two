@@ -62,7 +62,7 @@
         </div>
     </div>
 </template>
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+
 <script>
 import Multiselect from 'vue-multiselect'
     export default {

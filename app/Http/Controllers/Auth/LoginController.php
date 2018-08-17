@@ -60,6 +60,12 @@ class LoginController extends Controller
             // Make sure the user is active
             if ($user->active == 'A' && $this->attemptLogin($request)) {
                 // Send the normal successful login response
+                /*$token = $user->passport;
+                if ($token == null){
+                    $token = $user->createToken('rogue-api')->accessToken;
+                    $user->passport = $token;
+                    $user->save();
+                }*/
                 return $this->sendLoginResponse($request);
             } else {
                 // Increment the failed login attempts and redirect back to the
