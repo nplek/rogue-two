@@ -6,9 +6,15 @@ composer install
 
 cp .env.example .env
 
-php artisan key:generate
+###configure .env
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=<DB>
+DB_USERNAME=<USER>
+DB_PASSWORD=<PASSWORD>
+###configure .env
 
-#configure db
+php artisan key:generate
 
 php artisan migrate
 or
