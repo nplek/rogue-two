@@ -16,23 +16,40 @@ class CreateGoodsReceiptsTable extends Migration
         Schema::create('goods_receipts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('docnum',16);
-            $table->string('doctype',1);    //P=Goods receiptPO,G=Goods receipt,I=Goods Issue,R=Goods Return
+            $table->string('doctype',1)
+            ->comment('P=Goods receiptPO,G=Goods receipt,I=Goods Issue,R=Goods Return,T=Transfer,A=Adjust');    //P=Goods receiptPO,G=Goods receipt,I=Goods Issue,R=Goods Return,T=Transfer,A=Adjust
             $table->string('docstatus',1);
             $table->string('cardcode',15);
             $table->string('cardname',100);
             $table->date('docdate');
             $table->date('shipdate');
-            $table->string('ref1',20);      //reference po
-            $table->string('ref2',20);      //reference
-            $table->string('project',20);   //project code
-            $table->string('whscode',8);   //warehouse code
+            $table->string('ref1',20)
+                ->comment('PO Number');      //reference po
+            $table->string('ref2',20)->nullable()
+                ->comment('GR Number');      //reference
+            $table->string('ref3',100)->nullable()
+                ->comment('Other reference');      //reference other
+            $table->string('project_code',20)->nullable();   //project code
+            $table->unsignedInteger('project_id')->nullable();
+            $table->foreign('project_id')
+                ->references('id')
+                ->on('projects');
+            $table->string('whs_code',20);   //warehouse code
+            $table->unsignedInteger('warehouse_id')->nullable();
+            $table->foreign('warehouse_id')
+                ->references('id')
+                ->on('warehouses');
             $table->double('total_price',19,6);
-            $table->string('quotation',30);
+            $table->string('quotation',30)->nullable();
             $table->string('printed',1);
-            $table->unsignedInteger('userid');          //user transaction
-            $table->string('username',50);
-            $table->string('gtoemp_id',20); //employee id (Goods issue)
-            $table->string('gtoemp_name',50);   //employee name(Goods issue)
+            $table->unsignedInteger('userid')
+            ->comment('user id');          //user transaction
+            $table->string('username',50)
+            ->comment('user name');
+            $table->string('gtoemp_id',20)
+            ->comment('employee id'); //employee id (Goods issue)
+            $table->string('gtoemp_name',50)
+            ->comment('employee name');   //employee name(Goods issue)
             $table->softDeletes();
             $table->timestamps();
         });

@@ -78,6 +78,7 @@ class LaratrustSeeder extends Seeder
                         'password' => '123456',
                         'remember_token' => str_random(10),
                     ]);
+                    
                     $permissions = [];
 
                     foreach (explode(',', $value) as $p => $perm) {
@@ -98,6 +99,9 @@ class LaratrustSeeder extends Seeder
                 $user->permissions()->sync($permissions);
             }
         }
+        $user = App\User::find(2);
+        $user->employee_id = 3;
+        $user->save();
     }
 
     /**

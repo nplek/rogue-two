@@ -16,6 +16,7 @@ class EmployeeSeeder extends Seeder
             'first_name' => 'Ayuporn',
             'last_name' => 'K',
             'mobile' => '0XX-YYY-ZZZZ',
+            'department_id' => 1,
             'type' => 'M',
             'active' => 'A',
         ]);
@@ -26,6 +27,7 @@ class EmployeeSeeder extends Seeder
             'last_name' => 'Ph',
             'mobile' => '0XX-YYY-ZZZZ',
             'manager_id' => 1,
+            'department_id' => 1,
             'type' => 'M',
             'active' => 'A',
         ]);
@@ -36,6 +38,7 @@ class EmployeeSeeder extends Seeder
             'last_name' => 'T',
             'mobile' => '0XX-YYY-ZZZZ',
             'manager_id' => 2,
+            'department_id' => 2,
             'type' => 'M',
             'active' => 'A',
         ]);
@@ -46,6 +49,7 @@ class EmployeeSeeder extends Seeder
             'last_name' => 'Y',
             'mobile' => '0XX-YYY-ZZZZ',
             'manager_id' => 3,
+            'department_id' => 2,
             'type' => 'S',
             'active' => 'A',
         ]);

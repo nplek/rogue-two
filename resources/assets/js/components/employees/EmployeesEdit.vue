@@ -63,6 +63,20 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
+                            <label class="control-label">Department</label>
+                            <multiselect 
+                                v-model="employee.department"
+                                @input="departmentChange"
+                                :options="departments" 
+                                :custom-label="nameWithShortName" 
+                                placeholder="Please select" 
+                                label="name" 
+                                track-by="id">
+                            </multiselect>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
                             <label class="control-label">Mobile</label>
                             <input type="text" v-model="employee.mobile" class="form-control">
                         </div>
@@ -154,6 +168,7 @@ import Multiselect from 'vue-multiselect'
                 });
             this.getPositionsList();
             this.getLocationsList();
+            this.getDepartmentsList();
             this.getManagerList();
         },
         data: function () {
@@ -166,11 +181,13 @@ import Multiselect from 'vue-multiselect'
                     position_id:null,
                     location_id:null,
                     manager_id:null,
+                    department_id:null,
                     manager:[],
                 },
                 positions:[],
                 locations:[],
                 managers:[],
+                departments:[],
                 token:null,
                 auth: {
                     name: '',
@@ -195,6 +212,10 @@ import Multiselect from 'vue-multiselect'
             locationChange(value,id){
                 var app = this;
                 app.employee.location_id = value.id;
+            },
+            departmentChange(value,id){
+                var app = this;
+                app.employee.department_id = value.id;
             },
             managerChange(value,id){
                 var app = this;
@@ -259,6 +280,21 @@ import Multiselect from 'vue-multiselect'
                     })
                     .catch(function () {
                         alert("Could not load your locations.")
+                    });
+            },
+            getDepartmentsList(){
+                let app = this;
+                axios.post('/api/departments/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
+                    .then(function (resp) {
+                        app.departments = resp.data.data;
+                    })
+                    .catch(function () {
+                        alert("Could not load your departments.")
                     });
             },
             getManagerList(){

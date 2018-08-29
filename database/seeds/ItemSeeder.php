@@ -15,30 +15,36 @@ class ItemSeeder extends Seeder
             'item_code' => 'ITM-0001',
             'name' => 'Item 0001',
             'description' => 'Desc 0001',
-            'unit_name1' => 'pcs',
+            'main_unit' => 'pcs',
+            'unit_id' => 1,
+            /*'unit_name1' => 'pcs',
             'unit_qty1' => '1',
             'unit_name2' => 'dozens',
-            'unit_qty2' => '12',
+            'unit_qty2' => '12',*/
         ]);
         $this->command->info('Create Item ' . $item->item_code);
         $item = Item::create([
             'item_code' => 'STL-0002',
             'name' => 'Steel 0002',
             'description' => 'Desc 0002',
-            'unit_name1' => 'kg',
+            'main_unit' => 'kilogram',
+            'unit_id' => 5,
+            /*'unit_name1' => 'kg',
             'unit_qty1' => '1',
             'unit_name2' => 'ton',
-            'unit_qty2' => '1000',
+            'unit_qty2' => '1000',*/
         ]);
         $this->command->info('Create Item ' . $item->item_code);
         $item = Item::create([
             'item_code' => 'REB-0003',
             'name' => 'Rebel 003',
             'description' => 'Rebel',
-            'unit_name1' => 'kg',
+            'main_unit' => 'gram',
+            'unit_id' => 4,
+            /*'unit_name1' => 'kg',
             'unit_qty1' => '1',
             'unit_name2' => 'pcs',
-            'unit_qty2' => '100',
+            'unit_qty2' => '100',*/
         ]);
         $this->command->info('Create Item ' . $item->item_code);
 
@@ -47,10 +53,12 @@ class ItemSeeder extends Seeder
                 'item_code' => $it,
                 'name' => 'I' . $it,
                 'description' => $it,
-                'unit_name1' => 'pcs',
+                'main_unit' => 'pcs',
+                'unit_id' => 1,
+                /*'unit_name1' => 'pcs',
                 'unit_qty1' => '1',
                 'unit_name2' => 'dozen',
-                'unit_qty2' => '12',
+                'unit_qty2' => '12',*/
             ]);
             $this->command->info('Create Item ' . $item->item_code);
         }
@@ -59,10 +67,12 @@ class ItemSeeder extends Seeder
                 'item_code' => $it,
                 'name' => 'I' . $it,
                 'description' => $it,
-                'unit_name1' => 'pack',
+                'main_unit' => 'pcs',
+                'unit_id' => 1,
+                /*'unit_name1' => 'pack',
                 'unit_qty1' => '1',
                 'unit_name2' => 'pcs',
-                'unit_qty2' => '100',
+                'unit_qty2' => '100',*/
             ]);
             $this->command->info('Create Item ' . $item->item_code);
         }
@@ -71,10 +81,12 @@ class ItemSeeder extends Seeder
                 'item_code' => $it,
                 'name' => 'I' . $it,
                 'description' => $it,
-                'unit_name1' => 'kg',
+                'main_unit' => 'pcs',
+                'unit_id' => 1,
+                /*'unit_name1' => 'kg',
                 'unit_qty1' => '1',
                 'unit_name2' => 'ton',
-                'unit_qty2' => '1000', //1 ton = 1000 kg
+                'unit_qty2' => '1000', //1 ton = 1000 kg*/
             ]);
             $this->command->info('Create Item ' . $item->item_code);
         }
@@ -83,10 +95,12 @@ class ItemSeeder extends Seeder
                 'item_code' => $it,
                 'name' => 'A' . $it,
                 'description' => $it,
-                'unit_name1' => 'pack',
+                'main_unit' => 'pcs',
+                'unit_id' => 1,
+                /*'unit_name1' => 'pack',
                 'unit_qty1' => '1',
                 'unit_name2' => 'pcs',
-                'unit_qty2' => '200',
+                'unit_qty2' => '200',*/
             ]);
             $this->command->info('Create Item ' . $item->item_code);
         }
@@ -95,12 +109,55 @@ class ItemSeeder extends Seeder
                 'item_code' => $it,
                 'name' => 'B' . $it,
                 'description' => $it,
-                'unit_name1' => 'kg',
+                'main_unit' => 'kilogram',
+                'unit_id' => 5,
+                /*'unit_name1' => 'kg',
                 'unit_qty1' => '1',
                 'unit_name2' => 'ton',
-                'unit_qty2' => '1000', //1 ton = 1000 kg
+                'unit_qty2' => '1000', //1 ton = 1000 kg*/
             ]);
             $this->command->info('Create Item ' . $item->item_code);
         }
+        $uom = App\UOM::create([
+            'item_id' => 1,
+            'unit_id' => 1,
+            'main_qty' => 1,
+        ]);
+        $uom = App\UOM::create([
+            'item_id' => 1,
+            'unit_id' => 2,
+            'main_qty' => 10,
+        ]);
+        $uom = App\UOM::create([
+            'item_id' => 1,
+            'unit_id' => 3,
+            'main_qty' => 100,
+        ]);
+        $uom = App\UOM::create([
+            'item_id' => 2,
+            'unit_id' => 5,
+            'main_qty' => 1,
+        ]);
+        $uom = App\UOM::create([
+            'item_id' => 2,
+            'unit_id' => 6,
+            'main_qty' => 1000,
+        ]);
+
+        $uom = App\UOM::create([
+            'item_id' => 3,
+            'unit_id' => 4,
+            'main_qty' => 1,
+        ]);
+        $uom = App\UOM::create([
+            'item_id' => 3,
+            'unit_id' => 5,
+            'main_qty' => 1000,
+        ]);
+        $uom = App\UOM::create([
+            'item_id' => 3,
+            'unit_id' => 6,
+            'main_qty' => 1000000,
+        ]);
     }
 }

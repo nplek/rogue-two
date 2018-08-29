@@ -20,14 +20,30 @@ class CreateGoodsReceiptItemsTable extends Migration
                 ->references('id')
                 ->on('goods_receipts');
             $table->string('docnum',16);
+            $table->string('doctype',1)
+            ->comment('P=Goods receiptPO,G=Goods receipt,I=Goods Issue,R=Goods Return,T=Transfer,A=Adjust');
             $table->string('itemcode',20);
+            $table->unsignedInteger('item_id')->nullable();
+            $table->foreign('item_id')
+                ->references('id')
+                ->on('items');
             $table->string('dscription',100);
-            $table->string('project',20);
+            $table->string('project_code',20)->nullable();   //project code
+            $table->unsignedInteger('project_id')->nullable();
+            $table->foreign('project_id')
+                ->references('id')
+                ->on('projects');
+            $table->string('whs_code',20);   //warehouse code
+            $table->unsignedInteger('warehouse_id')->nullable();
+            $table->foreign('warehouse_id')
+                ->references('id')
+                ->on('warehouses');
             $table->string('unit',16);
-            $table->double('open_qty',19,6);
+            $table->string('status',1)->default('N')
+            ->comment('I=Update to inventory, N=Not update to inventory(error)');     //I=update to inventory, N=Not update to inventory(error)
             $table->double('qty',19,6);
-            $table->double('remain_qty',19,6);  //for FIFO
-            $table->double('price',19,6);
+            $table->double('factor_qty',19,6);
+            $table->double('unit_price',19,6);
             $table->double('total_price',19,6);
             $table->date('shipdate');
             $table->date('docdate');

@@ -16,20 +16,34 @@ class CreateInventoriesTable extends Migration
         Schema::create('inventories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('itemcode',20);
-            $table->string('dscription',100);
-            $table->string('project',20);
-            $table->unsignedInteger('project_id')->nullable();
-            $table->foreign('project_id')
+            $table->string('name',100)->nullable();
+            $table->string('dscription',100)->nullable();
+            $table->unsignedInteger('item_id')->nullable();
+            $table->foreign('item_id')
                 ->references('id')
-                ->on('projects');
+                ->on('items');
+            //$table->string('project_code',20)->nullable();
+            //$table->unsignedInteger('project_id')->nullable();
+            /*$table->foreign('project_id')
+                ->references('id')
+                ->on('projects');*/
+            $table->string('whs_code',20);
+            $table->unsignedInteger('warehouse_id')->nullable();
+            $table->foreign('warehouse_id')
+                ->references('id')
+                ->on('warehouses');
             $table->string('unit_name',16);
+            $table->unsignedInteger('unit_id')->nullable();
+            $table->foreign('unit_id')
+                ->references('id')
+                ->on('units');
             $table->double('remain_qty',19,6);  //
             $table->double('total_qty',19,6);
             $table->double('last_qty',19,6);
             $table->double('total_price',19,6);
             $table->double('last_price',19,6);
-            $table->double('fifo_price',19,6);
-            $table->double('average_price',19,6);
+            //$table->double('fifo_price',19,6);
+            //$table->double('average_price',19,6);
             $table->softDeletes();
             $table->timestamps();
         });

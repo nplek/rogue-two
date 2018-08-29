@@ -59,6 +59,7 @@ class EmployeeController extends Controller
         $employee->location_id = $request['location_id'];
         $employee->manager_id = $request['manager_id'];
         $employee->employee_id = $request['employee_id'];
+        $employee->department_id = $request['department_id'];
         $employee->mobile = $request['mobile'];
         $employee->phone = $request['phone'];
 

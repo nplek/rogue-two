@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Item;
+use App\UOM;
+use App\Unit;
 use App\Http\Resources\ItemCollection;
 use App\Http\Resources\Item as ItemResource;
+use App\Http\Resources\UOMResource;
 use Auth;
 
 class ItemController extends Controller
@@ -25,7 +28,7 @@ class ItemController extends Controller
 
     public function list()
     {
-        return ItemResource::collection(Item::active()->get());
+        return ItemResource::collection(Item::get());
     }
 
     public function store(Request $request)
@@ -33,19 +36,16 @@ class ItemController extends Controller
         $this->validate($request, [
             'item_code'=>'required|max:20|min:3|unique:items',
             'name'=>'required|min:3|max:50',
+            'main_unit'=>'required',
+            'unit_id'=>'required',
         ]);
 
         $item = new Item();
         $item->item_code = $request['item_code'];
         $item->name = $request['name'];
         $item->description = $request['description'];
-        //$item->item_group_id = $request['item_group_id'];
-        $item->unit_name1 = $request['unit_name1'];
-        $item->unit_qty1 = $request['unit_qty1'];
-        $item->unit_name2 = $request['unit_name2'];
-        $item->unit_qty2 = $request['unit_qty2'];
-        $item->unit_name3 = $request['unit_name3'];
-        $item->unit_qty3 = $request['unit_qty3'];
+        $item->main_unit = $request['main_unit'];
+        $item->unit_id = $request['unit_id'];
         $item->save();
 
         return new ItemResource($item);
@@ -60,20 +60,15 @@ class ItemController extends Controller
     {
         $this->validate($request, [
             'name'=>'required|min:3|max:50',
+            'main_unit'=>'required',
+            'unit_id'=>'required',
         ]);
         $item = Item::findOrFail($id);
-        //$item->name = $request['item_code'];
         $item->name = $request['name'];
         $item->description = $request['description'];
-        //$item->item_group_id = $request['item_group_id'];
-        $item->unit_name1 = $request['unit_name1'];
-        $item->unit_qty1 = $request['unit_qty1'];
-        $item->unit_name2 = $request['unit_name2'];
-        $item->unit_qty2 = $request['unit_qty2'];
-        $item->unit_name3 = $request['unit_name3'];
-        $item->unit_qty3 = $request['unit_qty3'];
+        $item->main_unit = $request['main_unit'];
+        $item->unit_id = $request['unit_id'];
         $item->save();
-
         return new ItemResource($item);
     }
 
@@ -91,4 +86,43 @@ class ItemController extends Controller
 
         return new ItemResource($item);
     }
+
+    public function listUOM($id){
+        return UOMResource::collection(UOM::where('item_id','=',$id)->get());
+    }
+
+    public function showUOM($id, $uid){
+        return new UOMResource(UOM::where('item_id','=',$id)->where('unit_id','=',$uid)->first());
+    }
+
+    public function storeUOM(Request $request, $id){
+        $this->validate($request, [
+            'unit_id' => 'required',
+            'main_qty' => 'required',
+        ]);
+        
+        $unit_id = $request['unit_id'];
+        $unit = Unit::findOrFail($unit_id);
+        $item = Item::findOrFail($id);
+        $uom = new UOM();
+        $uom->unit_id = $unit_id;
+        $uom->item_id = $id;
+        $uom->main_qty = $request['main_qty'];
+        $uom->save();
+        
+        return new UOMResource($uom);
+    }
+
+    public function destroyUOM(Request $request, $id,$uid){
+        $item = Item::findOrFail($id);
+        $unit = Unit::findOrFail($uid);
+        $uom = UOM::where('item_id','=', $item->id)->where('unit_id','=',$unit->id)->first();
+        //dd($uom);
+        //$uom->delete();
+        $item->units()->detach($unit);
+
+        return new UOMResource($uom);
+    }
+
+
 }

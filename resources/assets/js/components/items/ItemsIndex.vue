@@ -13,10 +13,8 @@
                         <th>Item code</th>
                         <th>Name</th>
                         <th>Description</th>
-                        <th>Unit1</th>
-                        <th>Qty1</th>
-                        <th>Unit2</th>
-                        <th>Qty2</th>
+                        <th>Main unit</th>
+                        <th>Units</th>
                         <th width="200">&nbsp;</th>
                     </tr>
                     </thead>
@@ -25,10 +23,14 @@
                         <td>{{ item.item_code }}</td>
                         <td>{{ item.name }}</td>
                         <td>{{ item.description }}</td>
-                        <td>{{ item.unit_name1 }}</td>
-                        <td>{{ item.unit_qty1 }}</td>
-                        <td>{{ item.unit_name2 }}</td>
-                        <td>{{ item.unit_qty2 }}</td>
+                        <td>{{ item.mainunit.name }}</td>
+                        <td>
+                            <div v-for="(unit,index) in item.units" v-bind:key="index" >
+                                <span v-if="unit.name"  class="badge bg-orange" > 
+                                    {{ unit.name }}
+                                </span>
+                            </div>
+                        </td>
                         <td>
                             <div v-if="item.deleted_at === null">
                             <router-link :to="{name: 'editItem', params: {id: item.id}}" class="btn btn-sm btn-info">

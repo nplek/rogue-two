@@ -26,4 +26,9 @@ class Project extends Model
     public function getFullNameAttribute(){
         return "{$this->project_code} {$this->name}";
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', 'A');
+    }
 }

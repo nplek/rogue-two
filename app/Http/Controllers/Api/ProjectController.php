@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Project;
 use App\Http\Resources\ProjectCollection;
 use App\Http\Resources\Project as ProjectResource;
+use App\Http\Resources\ProjectList;
 use Auth;
 
 class ProjectController extends Controller
@@ -25,7 +26,7 @@ class ProjectController extends Controller
 
     public function list()
     {
-        return ProjectResource::collection(Project::active()->get());
+        return ProjectList::collection(Project::active()->get());
     }
 
     public function store(Request $request)

@@ -20,7 +20,10 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             TeamSeeder::class,
             DocNumberSeeder::class,
+            ItemUnitSeeder::class,
             ItemSeeder::class,
+            WarehouseSeeder::class,
+            BusinessPartnerSeeder::class,
             LaratrustSeeder::class,
         ]);
     }

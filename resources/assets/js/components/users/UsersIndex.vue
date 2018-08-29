@@ -25,7 +25,8 @@
                     <tr v-for="(user, index) in users" v-bind:key="user.id">
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
-                        <td>{{ user.employee_id }} {{ user.first_name }} {{ user.last_name }}</td>
+                        <td v-if="user.employee != null">{{ user.employee.employee_id }} {{ user.employee.first_name }} {{ user.employee.last_name }}</td>
+                        <td v-else>-</td>
                         <td>
                             <div v-for="(rolelist,index) in user.userroles" v-bind:key="index" >
                                 <span v-if="rolelist.team"  class="badge bg-green" > 
@@ -217,7 +218,22 @@ import VuejsPaginate from 'vuejs-paginate'
                 }
             },
             passportEntry(id,index){
-
+                //users/passport
+                if (confirm("Do you really want to reset it?")) {
+                    var app = this;
+                    axios.post('/api/users/passport/' + id ,null,{
+                            headers: {
+                                'Accept': 'application/json',
+                                'Authorization': 'Bearer '+ app.token
+                            }
+                        })
+                        .then(function (resp) {
+                            alert("Reset passport success.");
+                        })
+                        .catch(function (resp) {
+                            alert("Could not reset passport");
+                        });
+                }
             }
         }
     }

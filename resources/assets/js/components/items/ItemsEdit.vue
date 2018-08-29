@@ -26,40 +26,33 @@
                             <input type="text" v-model="item.description" class="form-control">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Unit name1</label>
-                            <input type="text" v-model="item.unit_name1" class="form-control">
-                        </div>
+                    <div class="form-group">
+                        <label for="">Unit</label>
+                        <multiselect
+                            v-model="item.mainunit"
+                            @input="itemunitChange"
+                            :options="itemunits"
+                            :custom-label="unitWithFullName" 
+                            placeholder="Please select" 
+                            label="name" 
+                            track-by="id">
+                        </multiselect>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Unit qty1</label>
-                            <input type="number" v-model="item.unit_qty1" class="form-control">
+                            <router-link :to="{name: 'showItemUOM', params: {id: itemId}}" class="btn btn-warning">
+                                UOM
+                            </router-link>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Unit name2</label>
-                            <input type="text" v-model="item.unit_name2" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Unit qty2</label>
-                            <input type="number" v-model="item.unit_qty2" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Unit name3</label>
-                            <input type="text" v-model="item.unit_name3" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Unit qty3</label>
-                            <input type="number" v-model="item.unit_qty3" class="form-control">
+                        <div class="col-xs-12 form-group" >
+                            <label class="control-label">UOM : </label>
+                            <div v-for="(unit,index) in item.units" v-bind:key="index" >
+                                <span v-if="unit.name !=null"  class="badge bg-orange" > 
+                                    {{ unit.name }}
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -80,11 +73,14 @@
 </template>
 
 <script>
+import Multiselect from 'vue-multiselect'
     export default {
         components: {
+            'multiselect': Multiselect,
         },
         mounted() {
             this.getAuthen();
+            this.getItemUnitsList();
             let app = this;
             let id = app.$route.params.id;
             app.itemId = id;
@@ -109,13 +105,10 @@
                     item_code: '',
                     name: '',
                     description: '',
-                    unit_name1:'',
-                    unit_qty1: 0.0,
-                    unit_name2:'',
-                    unit_qty2: 0.0,
-                    unit_name3:'',
-                    unit_qty3: 0.0,
+                    main_unit:'',
+                    unit_id:'',
                 },
+                itemunits:[],
                 token:null,
                 auth: {
                     name: '',
@@ -131,6 +124,28 @@
             }
         },
         methods: {
+            unitWithFullName({name,tname}){
+                return `${name} — ${tname}`
+            },
+            itemunitChange(value,id){
+                this.item.unit_id = value.id;
+                this.item.main_unit = value.name;
+            },
+            getItemUnitsList(){
+                let app = this;
+                axios.post('/api/itemunits/list',null,{
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer '+ app.token
+                        }
+                    })
+                    .then(function (resp) {
+                        app.itemunits = resp.data.data;
+                    })
+                    .catch(function () {
+                        alert("Could not load your itemunits.")
+                    });
+            },
             getAuthen(){
                 var app = this;
                 let token = document.head.querySelector('meta[name="token"]'); 

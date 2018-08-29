@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'collapse_sidebar' => true,
+    'collapse_sidebar' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -267,6 +267,12 @@ return [
                     'permission' => 'view-project',
                 ],
                 [
+                    'text' => 'Warehouse',
+                    'url'  => 'warehouse',
+                    'icon_color' => 'blue',
+                    'permission' => 'view-warehouse',
+                ],
+                [
                     'text'  => 'Cost center',
                     'url'   => '#',
                     'icon_color'  => 'blue',
@@ -333,70 +339,70 @@ return [
             'submenu'   => [
                 [
                     'text'  => 'Inventory Items',
-                    'url'   => 'inventory/items',
+                    'url'   => 'inventories',
                     'icon_color'  => 'yellow',
                     'icon' => 'archive',
                     'permission' => 'view-inventory',
                 ],
                 [
                     'text'  => 'Goods Receipt PO',
-                    'url'   => 'inventory/goods_po',
+                    'url'   => 'inventories#/admin/goods_po/create',
                     'icon_color'  => 'yellow',
                     'icon' => 'check-square',
                     'permission' => 'view-inventory',
                 ],
                 [
                     'text'  => 'Goods Receipt',
-                    'url'   => 'inventory/goods_receipt',
+                    'url'   => 'inventories#/admin/goods_receipt/create',
                     'icon_color'  => 'yellow',
                     'icon' => 'check-square',
                     'permission' => 'view-inventory',
                 ],
                 [
                     'text'  => 'Goods Return',
-                    'url'   => 'inventory/goods_return',
+                    'url'   => 'inventories/goods_return',
                     'icon_color'  => 'yellow',
                     'icon' => 'undo',
                     'permission' => 'view-inventory',
                 ],
                 [
                     'text'  => 'Goods Issue',
-                    'url'   => 'inventory/goods_issue',
+                    'url'   => 'inventories/goods_issue',
                     'icon_color'  => 'yellow',
                     'icon' => 'exchange',
                     'permission' => 'view-inventory',
                 ],
                 [
                     'text'  => 'Transfer Items',
-                    'url'   => 'inventory/transfer_item',
+                    'url'   => 'inventories/transfer_item',
                     'icon_color'  => 'yellow',
                     'icon' => 'retweet',
                     'permission' => 'view-inventory',
                 ],
                 [
                     'text'  => 'Adjust Items',
-                    'url'   => 'inventory/adjust_item',
+                    'url'   => 'inventories/adjust_item',
                     'icon_color'  => 'yellow',
                     'icon' => 'adjust',
                     'permission' => 'view-inventory-adjust',
                 ],
                 [
                     'text'  => 'Daily Report',
-                    'url'   => 'inventory/daily_report',
+                    'url'   => 'inventories/daily_report',
                     'icon_color'  => 'yellow',
                     'icon' => 'flag',
                     'permission' => 'view-inventory-report',
                 ],
                 [
                     'text'  => 'Summary Report',
-                    'url'   => 'inventory/summary_report',
+                    'url'   => 'inventories/summary_report',
                     'icon_color'  => 'yellow',
                     'icon' => 'flag-checkered',
                     'permission' => 'view-inventory-report',
-                ]
-            ]
+                ],
+                
+            ],
         ],
-        'SETTING',
         [
             'text'       => 'Change Password',
             'icon_color' => 'red',

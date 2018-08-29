@@ -20,7 +20,13 @@ class DepartmentSeeder extends Seeder
         $this->command->info('Create Department ' . $department->name);
         $department = Department::create([
             'name' => 'IT Department',
-            'short_name' => 'IT',
+            'short_name' => 'ITD',
+            'company_id' => 1,
+        ]);
+        $this->command->info('Create Department ' . $department->name);
+        $department = Department::create([
+            'name' => 'Purchase Department',
+            'short_name' => 'PRD',
             'company_id' => 1,
         ]);
         $this->command->info('Create Department ' . $department->name);

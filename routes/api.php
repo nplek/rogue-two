@@ -43,9 +43,11 @@ Route::group(['middleware' => 'auth:api'], function(){
             Route::resource('departments', 'DepartmentController',['except' => ['create','edit']]);
             Route::post('departments/{id}/restore','DepartmentController@restore')->name('departments.restore');
             Route::post('departments/list','DepartmentController@list')->name('departments.list');
+
             Route::resource('locations', 'LocationController',['except' => ['create','edit']]);
             Route::post('locations/{id}/restore','LocationController@restore')->name('locations.restore');
             Route::post('locations/list','LocationController@list')->name('locations.list');
+
             Route::resource('projects', 'ProjectController',['except' => ['create','edit']]);
             Route::post('projects/{id}/restore','ProjectController@restore')->name('projects.restore');
             Route::post('projects/list','ProjectController@list')->name('projects.list');
@@ -60,6 +62,8 @@ Route::group(['middleware' => 'auth:api'], function(){
             Route::get('users/roles/{uid}/{rid}','UserController@showUserRole')->name('users.roles.show');
             Route::post('users/roles/{uid}','UserController@storeUserRole')->name('users.roles.create');
             Route::delete('users/roles/{uid}/{rid}/{tid}','UserController@destroyUserRole')->name('users.roles.delete');
+            Route::post('users/passport/{uid}','UserController@reset_passport')->name('users.passport.reset');
+            
 
             Route::resource('employees', 'EmployeeController',['except' => ['create','edit']]);
             Route::post('employees/manager/list','EmployeeController@listManager')->name('employees.manager.list');
@@ -71,6 +75,7 @@ Route::group(['middleware' => 'auth:api'], function(){
             
             Route::resource('permissions', 'PermissionController',['except' => ['create','edit']]);
             Route::post('permissions/list','PermissionController@list')->name('permissions.list');
+            
             Route::resource('teams', 'TeamController',['except' => ['create','edit']]);
             Route::post('teams/list','TeamController@list')->name('teams.list');
             
@@ -87,6 +92,11 @@ Route::group(['middleware' => 'auth:api'], function(){
             Route::post('items/{id}/restore','ItemController@restore')->name('items.restore');
             Route::post('items/list','ItemController@list')->name('items.list');
 
+            Route::get('items/uom/{id}','ItemController@listUOM')->name('items.uom.list');
+            Route::get('items/uom/{id}/{uid}','ItemController@showUOM')->name('items.uom.show');
+            Route::post('items/uom/{id}','ItemController@storeUOM')->name('items.uom.create');
+            Route::delete('items/uom/{id}/{uid}','ItemController@destroyUOM')->name('items.uom.delete');
+
             Route::resource('itemunits', 'ItemUnitController',['except' => ['create','edit']]);
             Route::post('itemunits/{id}/restore','ItemController@restore')->name('itemunits.restore');
             Route::post('itemunits/list','ItemUnitController@list')->name('itemunits.list');
@@ -94,6 +104,24 @@ Route::group(['middleware' => 'auth:api'], function(){
             Route::resource('itemgroups', 'ItemGroupController',['except' => ['create','edit']]);
             Route::post('itemgroups/{id}/restore','ItemGroupController@restore')->name('itemgroups.restore');
             Route::post('itemgroups/list','ItemGroupController@list')->name('itemgroups.list');
+
+            Route::resource('inventories', 'InventoryController',['except' => ['create','edit']]);
+            Route::post('inventories/{id}/restore','InventoryController@restore')->name('inventories.restore');
+            Route::post('inventories/list','InventoryController@list')->name('inventories.list');
+
+            Route::resource('goodsreceipts', 'GoodsReceiptController',['except' => ['create','edit']]);
+            Route::post('goodsreceipts/{id}/restore','GoodsReceiptController@restore')->name('goodsreceipts.restore');
+            Route::post('goodsreceipts/list','GoodsReceiptController@list')->name('goodsreceipts.list');
+            Route::get('goodsreceipts/{item_id}/items/{whs_id}','GoodsReceiptController@findItemByWhs')->name('goodsreceipts.list.itemwhs');
+            Route::post('goodsreceipts/docnum','GoodsReceiptController@dummyDoc')->name('goodsreceipts.docnum');
+
+            Route::resource('whs', 'WarehouseController',['except' => ['create','edit']]);
+            Route::post('whs/{id}/restore','WarehouseController@restore')->name('whs.restore');
+            Route::post('whs/list','WarehouseController@list')->name('whs.list');
+
+            Route::resource('bps', 'BusinessPartnerController',['except' => ['create','edit']]);
+            Route::post('bps/{id}/restore','BusinessPartnerController@restore')->name('bps.restore');
+            Route::post('bps/list','BusinessPartnerController@list')->name('bps.list');
         });
     });
 });

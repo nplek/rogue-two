@@ -168,4 +168,14 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
+    public function reset_passport($id)
+    {
+        $user = User::findOrFail($id);
+        $token = $user->createToken('rogue-api')->accessToken;
+        $user->passport = $token;
+        $user->save();
+
+        return new UserResource($user);
+    }
+
 }
