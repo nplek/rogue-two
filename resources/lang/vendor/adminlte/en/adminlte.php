@@ -43,5 +43,4 @@ return [
     'item'                        => 'Item',
     'itemunit'                    => 'Item unit',
     'itemgroup'                   => 'Item Group',
-    
 ];

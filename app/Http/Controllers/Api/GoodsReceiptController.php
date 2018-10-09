@@ -31,7 +31,6 @@ class GoodsReceiptController extends Controller
 
     public function findItemByWhs($item_id,$whs_id)
     {
-        //return GoodsReceiptResource::collection(GoodsReceipt::where('item_id','=',$item_id)->where('warehouse_id','=',$whs_id)->paginate(50));
         return new GoodsReceiptItemCollection(GoodsReceiptItem::where('item_id','=',$item_id)->where('warehouse_id','=',$whs_id)->paginate(50));
     }
 
@@ -43,7 +42,8 @@ class GoodsReceiptController extends Controller
     
 
     public function dummyDoc(){
-        $dummy = \GenDocNumber::dummyDocnumber('GR-NUM', 'IT');
+        $department = auth()->user()->employee->department->short_name;
+        $dummy = \GenDocNumber::dummyDocnumber(env('DOC_GRP', 'GRP-NUM'), $department);
         $success['docnum'] =  $dummy;
         return response()->json(['data' => $success], 200); 
     }
@@ -72,11 +72,9 @@ class GoodsReceiptController extends Controller
             $goodsreceipt->cardname = $request['card_name'];
             $goodsreceipt->docdate = date("Y-m-d", strtotime($request['docdate']));
             $goodsreceipt->shipdate = date("Y-m-d", strtotime($request['shipdate']));
+            $goodsreceipt->remark = $request['remark'];
             $goodsreceipt->ref1 = $request['ref1'];
             $goodsreceipt->ref2 = $request['ref2'];
-            //$goodsreceipt->ref3 = '';
-            //$goodsreceipt->project_id = $request['project_id'];
-            //$goodsreceipt->project_code = $request['project_code'];
             $goodsreceipt->warehouse_id = $request['whs_id'];
             $goodsreceipt->whs_code = $request['whs_code'];
 
@@ -88,8 +86,7 @@ class GoodsReceiptController extends Controller
             $goodsreceipt->gtoemp_id = $e->employee_id;
             $goodsreceipt->gtoemp_name = $e->first_name . ' ' . $e->last_name;
 
-            $goodsreceipt->docnum = \GenDocNumber::genDocnumber('GR-NUM', $department);
-            //$goodsreceipt->docnum = \GenDocNumber::dummyDocnumber('GR-NUM', 'IT');
+            $goodsreceipt->docnum = \GenDocNumber::genDocnumber(env('DOC_GRP', 'GRP-NUM'), $department);
             $goodsreceipt->save();
 
             $trans = $request['transactions'];

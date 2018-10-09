@@ -1,1 +1,1 @@
-@extends('layouts.auth')
+@extends('adminlte::login')

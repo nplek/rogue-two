@@ -14,7 +14,7 @@
                         <th>Type</th>
                         <th>Itemcode</th>
                         <th>Name</th>
-                        <th>Shipdate</th>
+                        <th>Issue date</th>
                         <th><span class="pull-right">Qty</span></th>
                         <th>Unit</th>
                         <th><span class="pull-right">Factor Qty</span></th>
@@ -26,32 +26,42 @@
                         <td>{{ item.docnum }}</td>
                         <template v-if="item.doctype === 'G'">
                             <td>
-                                <i class="fa fa-sign-in text-success" alt="Goods receipt"></i>
+                                <i class="fa fa-sign-in text-success" alt="Goods receipt"></i>Receipt
                             </td>
                         </template>
                         <template v-else-if="item.doctype === 'P'">
                             <td>
-                            <i class="fa fa-sign-out text-warning" alt="Goods receipt PO"></i>
+                            <i class="fa fa-sign-out text-warning" alt="Goods receipt PO"></i>Receipt(P)
                             </td>
                         </template>
                         <template v-else-if="item.doctype === 'I'">
                             <td>
-                            <i class="fa fa-sign-out text-warning" alt="Goods Issue"></i>
+                            <i class="fa fa-sign-out text-danger" alt="Goods Issue"></i>Issue
                             </td>
                         </template>
                         <template v-else-if="item.doctype === 'R'">
                             <td>
-                            <i class="fa fa-sign-out text-warning" alt="Goods Return"></i>
+                            <i class="fa fa-sign-out text-warning" alt="Goods Return"></i>Goods return
                             </td>
                         </template>
-                        <template v-else-if="item.doctype === 'r'">
+                        <template v-else-if="item.doctype === 'S'">
                             <td>
-                            <i class="fa fa-sign-out text-warning" alt="Return Item"></i>
+                            <i class="fa fa-sign-out text-warning" alt="Return Item"></i>Return item
                             </td>
                         </template>
                         <template v-else-if="item.doctype === 'T'">
                             <td>
-                            <i class="fa fa-sign-out text-warning" alt="Transfer"></i>
+                            <i class="fa fa-sign-out text-warning" alt="Transfer"></i>Transfer
+                            </td>
+                        </template>
+                        <template v-else-if="item.doctype === 't'">
+                            <td>
+                            <i class="fa fa-sign-out text-warning" alt="Transfer"></i>Transfer(Waiting)
+                            </td>
+                        </template>
+                        <template v-else-if="item.doctype === 'A'">
+                            <td>
+                            <i class="fa fa-sign-out text-warning" alt="Adjust"></i>Adjust
                             </td>
                         </template>
                         <template v-else>
@@ -68,8 +78,8 @@
                         <td>{{ item.unit }}</td>
                         <td><span class="pull-right">{{ item.factor_qty | toQty}}</span></td>
                         <td>
-                            <div>
-                                <router-link :to="{name: 'showGoodsReceipt', params: {id: item.doc_id}}" class="btn btn-sm btn-info">
+                            <div >
+                                <router-link v-if="auth.can.show" :to="{name: 'showGoodsReceipt', params: {id: item.doc_id}}" class="btn btn-sm btn-info">
                                     Show
                                 </router-link>
                             </div>

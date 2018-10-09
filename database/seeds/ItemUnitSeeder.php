@@ -62,5 +62,10 @@ class ItemUnitSeeder extends Seeder
             'tname' => 'เมตร',
         ]);
         $this->command->info('Create ' . $unit->name);
+        $unit = Unit::create([
+            'name' => 'sq.meter',
+            'tname' => 'ตร.ม.',
+        ]);
+        $this->command->info('Create ' . $unit->name);
     }
 }

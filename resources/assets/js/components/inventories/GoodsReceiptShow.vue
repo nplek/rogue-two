@@ -36,6 +36,7 @@
                 <b>Ref2: </b> {{ goodsreceipt.ref2 }}<br>
                 <b>Ref3: </b> {{ goodsreceipt.ref3 }}<br>
                 <b>Shipment date: </b> {{ goodsreceipt.shipdate }}<br>
+                <b>Remark: </b> {{ goodsreceipt.remark }}<br>
                 </div>
             </div>
             <div class="row">

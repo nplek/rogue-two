@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Warehouse as WarehouseResource;
+use App\Http\Resources\ItemUnit as ItemUnitResource;
 
 class Inventory extends JsonResource
 {
@@ -24,7 +25,10 @@ class Inventory extends JsonResource
             'warehouse' => new WarehouseResource($this->warehouse),
             'remain_qty' => $this->remain_qty,
             'unit_name' => $this->unit_name,
+            'unit_id' => $this->unit_id,
             'deleted_at' => $this->deleted_at,
+            'units' => ItemUnitResource::collection($this->units),
+            'average_price' => ($this->total_price / $this->total_qty),
         ];
     }
 }

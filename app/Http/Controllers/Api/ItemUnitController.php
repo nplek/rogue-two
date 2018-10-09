@@ -31,14 +31,20 @@ class ItemUnitController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'=>'required|min:3|max:10|unique:item_units',
+            'name'=>'required|min:3|max:10|unique:units',
         ]);
 
+
+        /*$unit = Unit::create([
+            'name' => $request['name'],
+            'tname' => $request['name'],
+        ]);*/
         $item = new Unit();
         $item->name = $request['name'];
         $item->save();
 
-        return new ItemUnitResource($item);
+        //return new ItemUnitResource($item);
+        return response()->json(['message' => 'store unit success.']);
     }
 
     public function show($id)

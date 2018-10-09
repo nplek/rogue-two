@@ -7,6 +7,17 @@
             <form v-on:submit="saveForm()" >
                 <div class="box-body">
                     <div class="row">
+                        <div class="col-xs-4 form-group" :class="{ 'has-error': $v.goodsreceipt.ref1.$error }">
+                            <label class="control-label">PO Number</label>
+                            <input type="text" v-model.trim="$v.goodsreceipt.ref1.$model" class="form-control">
+                            <div class="help-block" v-if="!$v.goodsreceipt.ref1.required">Field is required</div>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                            <label class="control-label">Ref</label>
+                            <input type="text" v-model="goodsreceipt.ref2" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-xs-4 form-group" >
                             <label class="control-label">Doc#</label>
                             <input type="text" v-model="goodsreceipt.docnum" class="form-control" disabled>
@@ -14,7 +25,7 @@
 
                         <div class="col-xs-4 form-group" :class="{ 'has-error': $v.goodsreceipt.docdate.$error }">
                             <label class="control-label">Doc date</label>
-                            <date-picker v-model.trim="$v.goodsreceipt.docdate.$model" :config="{format: 'DD/MM/YYYY'}"></date-picker>
+                            <date-picker v-model.trim="$v.goodsreceipt.docdate.$model" :config="{format: 'DD/MM/YYYY'}" disabled></date-picker>
                             <div class="help-block" v-if="!$v.goodsreceipt.docdate.required">Field is required</div>
                         </div>
                     </div>
@@ -39,17 +50,6 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-4 form-group" :class="{ 'has-error': $v.goodsreceipt.ref1.$error }">
-                            <label class="control-label">Ref1(PO Number)</label>
-                            <input type="text" v-model.trim="$v.goodsreceipt.ref1.$model" class="form-control">
-                            <div class="help-block" v-if="!$v.goodsreceipt.ref1.required">Field is required</div>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                            <label class="control-label">Ref2</label>
-                            <input type="text" v-model="goodsreceipt.ref2" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-xs-4 form-group" :class="{ 'has-error': $v.goodsreceipt.warehouse.$error }">
                             <label class="control-label">Warehouse code</label>
                             <multiselect 
@@ -62,6 +62,13 @@
                                 track-by="whs_code">
                             </multiselect>
                             <div class="help-block" v-if="!$v.goodsreceipt.warehouse.required">Field is required</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8 form-group" :class="{ 'has-error': $v.goodsreceipt.remark.$error }">
+                            <label class="control-label">Remark</label>
+                            <input type="text" v-model.trim="$v.goodsreceipt.remark.$model" class="form-control">
+                            <div class="help-block" v-if="!$v.goodsreceipt.remark.maxLength">Field must have at most {{ $v.goodsreceipt.remark.$params.maxLength.max }} letters.</div>
                         </div>
                     </div>
                     <hr />
@@ -102,7 +109,7 @@
                                             <input type="text" id="txn_name_modal" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label for="">Price (B)</label>
+                                            <label for="">Unit Price</label>
                                             <input type="number" id="txn_price_modal" class="form-control">
                                         </div>
                                         <div class="form-group">
@@ -213,6 +220,7 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators';
                     docnum:'',
                     docdate:new Date(),
                     shipdate:new Date(),
+                    card_id:'',
                     cardcode:'',
                     card_code:'',
                     card_name:'',
@@ -222,6 +230,7 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators';
                     whs_code:'',
                     total_price: 0,
                     total_qty: 0,
+                    remark:'',
                     ref1:'',
                     ref2:'',
                     transactions:[],
@@ -266,6 +275,9 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators';
                 ref1: {
                     required,
                     maxLength: maxLength(20)
+                },
+                remark: {
+                    maxLength: maxLength(200)
                 },
                 warehouse:{
                     required
@@ -373,7 +385,7 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators';
                         app.goodsreceipt.docnum = resp.data.data.docnum;
                     })
                     .catch(function () {
-                        alert("Could not load your itemunits.")
+                        alert("Could not load your docnum.")
                     });
             },
             getItemUnitsList(){

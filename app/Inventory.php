@@ -24,4 +24,10 @@ class Inventory extends Model
         return $this->hasOne(Warehouse::class,'id','warehouse_id');
     }
 
+    public function units()
+    {
+        return $this->belongsToMany(Unit::class,'item_has_units',
+        'item_id','unit_id');
+    }
+
 }

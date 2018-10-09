@@ -31,6 +31,11 @@ class InventoryController extends Controller
         return InventoryList::collection(Inventory::get());
     }
 
+    public function findItemByWhs($whs_id)
+    {
+        return new InventoryCollection(Inventory::where('warehouse_id','=',$whs_id)->where('remain_qty','>',0)->get());
+    }
+
     public function show($id)
     {
         return new InventoryResource(Inventory::findOrFail($id));

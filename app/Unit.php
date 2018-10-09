@@ -8,6 +8,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Unit extends Model
 {
+    protected $table = 'units';
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 

@@ -14,6 +14,8 @@ class MenuFilter implements FilterInterface
             return false;
         }
 
+        //$item['text'] = __('menu.'.$item['text']);
+        $item['text'] = __($item['text']);
         return $item;
     }
 }

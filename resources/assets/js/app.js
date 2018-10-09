@@ -10,7 +10,6 @@ import "ag-grid/dist/styles/ag-grid.css";
 import "ag-grid/dist/styles/ag-theme-balham.css";
 import "ag-grid/dist/styles/ag-theme-material.css";
 import "vue-multiselect/dist/vue-multiselect.min.css";
-import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
@@ -77,6 +76,13 @@ import GoodsReceiptIndex from './components/inventories/GoodsReceiptIndex.vue';
 import GoodsReceiptShow from './components/inventories/GoodsReceiptShow.vue';
 import GoodsReceiptPOCreate from './components/inventories/GoodsReceiptPOCreate.vue';
 
+import GoodsIssueCreate from './components/inventories/GoodsIssueCreate.vue';
+import GoodsReturnCreate from './components/inventories/GoodsReturnCreate.vue';
+import ReturnItemCreate from './components/inventories/ReturnItemCreate.vue';
+import TransferItemCreate from './components/inventories/TransferItemCreate.vue';
+import AdjustItemCreate from './components/inventories/AdjustItemCreate.vue';
+import ReceiptItemIndex from './components/inventories/ReceiptItemIndex.vue';
+
 const routes = [
     {
         path: '/',
@@ -141,6 +147,15 @@ const routes = [
     {path: '/admin/goods_receipt/index/:item_id/:whs_id', component: GoodsReceiptIndex, name: 'indexGoodsReceipt'},
     {path: '/admin/goods_receipt/:id', component: GoodsReceiptShow, name: 'showGoodsReceipt'},
     {path: '/admin/goods_po/create', component: GoodsReceiptPOCreate, name: 'createGoodsReceiptPO'},
+
+    {path: '/admin/goods_issue/create', component: GoodsIssueCreate, name: 'createGoodsIssue'},
+    {path: '/admin/goods_return/create', component: GoodsReturnCreate, name: 'createGoodsReturn'},
+    {path: '/admin/item_return/create', component: ReturnItemCreate, name: 'createReturnItem'},
+    {path: '/admin/transfer_item/create', component: TransferItemCreate, name: 'createTransferItem'},
+    {path: '/admin/adjust_item/create', component: AdjustItemCreate, name: 'createAdjustItem'},
+
+    {path: '/admin/receipt_item', component: ReceiptItemIndex, name: 'indexReceiptItem'},
+    
 ]
 
 const router = new VueRouter({ routes })

@@ -37,11 +37,12 @@ class CreateInventoriesTable extends Migration
             $table->foreign('unit_id')
                 ->references('id')
                 ->on('units');
-            $table->double('remain_qty',19,6);  //
-            $table->double('total_qty',19,6);
-            $table->double('last_qty',19,6);
-            $table->double('total_price',19,6);
-            $table->double('last_price',19,6);
+            $table->double('remain_qty',19,6)->default(0);
+            $table->double('total_qty',19,6)->default(0);
+            $table->double('last_qty',19,6)->default(0);
+            $table->double('average_price',19,6)->default(0);
+            $table->double('total_price',19,6)->default(0);
+            $table->double('last_price',19,6)->default(0);
             //$table->double('fifo_price',19,6);
             //$table->double('average_price',19,6);
             $table->softDeletes();

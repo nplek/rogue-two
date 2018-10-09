@@ -113,7 +113,7 @@ return [
     'menu' => [
         'MAIN NAVIGATION',
         [
-            'text' => 'Dashboard',
+            'text' => 'menu.Dashboard',
             'icon' => 'tachometer',
             'label_color' => 'danger',
             'icon_color'  => 'red',
@@ -152,7 +152,7 @@ return [
         ],
         '[SYSTEM ADMIN]',
         [
-            'text'        => 'Authentications',
+            'text'        => 'menu.Authentications',
             'url'         => '#',
             'icon'        => 'key',
             'label_color' => 'success',
@@ -160,49 +160,49 @@ return [
             'permission' => 'view-admin',
             'submenu'   => [
                 [
-                    'text'  => 'Users',
+                    'text'  => 'menu.Users',
                     'url'   => 'users',
                     'icon'  => 'user',
                     'icon_color'  => 'green',
                     'permission' => 'view-user',
                 ],
                 [
-                    'text'  => 'Roles',
+                    'text'  => 'menu.Roles',
                     'url'   => 'roles',
                     'icon'  => 'user-circle-o',
                     'icon_color'  => 'green',
                     'permission' => 'view-role',
                 ],
                 [
-                    'text'  => 'Permissions',
+                    'text'  => 'menu.Permissions',
                     'url'   => 'permissions',
                     'icon'  => 'handshake-o',
                     'icon_color'  => 'green',
                     'permission' => 'view-permission',
                 ],
-                [
-                    'text'  => 'Teams',
+                /*[
+                    'text'  => 'menu.Teams',
                     'url'   => 'teams',
                     'icon'  => 'users',
                     'icon_color'  => 'green',
                     'permission' => 'view-team',
-                ],
+                ],*/
                 [
-                    'text'  => 'Activity Logs',
+                    'text'  => 'menu.Activity Logs',
                     'url'   => 'activitylogs',
                     'icon_color'  => 'green',
                     'icon'  => 'font',
                     'permission' => 'view-activitylog',
                 ],
                 [
-                    'text'  => 'Access Logs',
+                    'text'  => 'menu.Access Logs',
                     'url'   => 'accesslogs',
                     'icon_color'  => 'green',
                     'icon' => 'universal-access',
                     'permission' => 'view-accesslog',
                 ],
                 [
-                    'text'  => 'Security Logs',
+                    'text'  => 'menu.Security Logs',
                     'url'   => 'securitylogs',
                     'icon_color'  => 'green',
                     'icon' => 'lock',
@@ -211,41 +211,41 @@ return [
             ]
         ],
         [
-            'text' => 'Organizations',
+            'text' => 'menu.Organizations',
             'icon'        => 'sitemap',
             'icon_color'  => 'orange',
             'permission' => 'view-organization',
             'submenu'     => [
                 [
-                    'text'  => 'Companies',
+                    'text'  => 'menu.Companies',
                     'url'   => 'companies',
                     'icon_color'  => 'orange',
                     'icon' => 'university ',
                     'permission' => 'view-company',
                 ],
                 [
-                    'text'  => 'Departments',
+                    'text'  => 'menu.Departments',
                     'url'   => 'departments',
                     'icon'  => 'tags',
                     'icon_color'  => 'orange',
                     'permission' => 'view-department',
                 ],
                 [
-                    'text'  => 'Locations',
+                    'text'  => 'menu.Locations',
                     'url'   => 'locations',
                     'icon_color'  => 'orange',
                     'icon' => 'map-marker',
                     'permission' => 'view-location',
                 ],
                 [
-                    'text'  => 'Employees',
+                    'text'  => 'menu.Employees',
                     'url'   => 'employees',
                     'icon_color'  => 'orange',
                     'icon' => 'male',
                     'permission' => 'view-employee',
                 ],
                 [
-                    'text'  => 'Positions',
+                    'text'  => 'menu.Positions',
                     'url'   => 'positions',
                     'icon_color' => 'orange',
                     'icon'  => 'bullseye',
@@ -255,7 +255,7 @@ return [
             ]
         ],
         [
-            'text'        => 'Setting',
+            'text'        => 'menu.Settings',
             'icon'        => 'wrench',
             'icon_color'  => 'blue',
             'permission'  => 'view-organization',
@@ -267,10 +267,10 @@ return [
                     'permission' => 'view-project',
                 ],
                 [
-                    'text' => 'Warehouse',
+                    'text' => 'menu.Warehouse',
                     'url'  => 'warehouse',
                     'icon_color' => 'blue',
-                    'permission' => 'view-warehouse',
+                    'permission' => 'view-project',
                 ],
                 [
                     'text'  => 'Cost center',
@@ -285,19 +285,19 @@ return [
                     'permission' => 'view-accountcode',
                 ],
                 [
-                    'text'  => 'Item unit',
+                    'text'  => 'menu.Item unit',
                     'url'   => 'itemunits',
                     'icon_color'  => 'blue',
                     'permission' => 'view-item',
                 ],
-                [
-                    'text'  => 'Item groups',
+                /*[
+                    'text'  => 'menu.Item groups',
                     'url'   => 'itemgroups',
                     'icon_color'  => 'blue',
                     'permission' => 'view-itemgroup',
-                ],
+                ],*/
                 [
-                    'text'  => 'Item code',
+                    'text'  => 'menu.Item code',
                     'url'   => 'items',
                     'icon_color'  => 'blue',
                     'permission' => 'view-item',
@@ -306,20 +306,20 @@ return [
         ],
         'APP',
         [
-            'text' => 'Purchase Request',
+            'text' => 'menu.Purchase Request',
             'url'  => '#',
             'icon' => 'shopping-cart',
             'icon_color'  => 'purple',
             'permission' => 'view-pr',
             'submenu'   => [
                 [
-                    'text'  => 'draft',
+                    'text'  => 'menu.Draft',
                     'url'   => 'pr/draft',
                     'icon_color'  => 'purple',
                     'permission' => 'view-pr',
                 ],
                 [
-                    'text'  => 'inbox',
+                    'text'  => 'menu.Inbox',
                     'url'   => 'pr/inbox',
                     'permission' => 'view-pr',
                 ],
@@ -331,74 +331,88 @@ return [
             ]
         ],
         [
-            'text' => 'Inventory',
+            'text' => 'menu.Inventory',
             'url'  => '#',
             'icon_color'  => 'yellow',
             'icon' => 'calculator',
             'permission' => 'view-inventory',
             'submenu'   => [
                 [
-                    'text'  => 'Inventory Items',
+                    'text'  => 'menu.Inventory items',
                     'url'   => 'inventories',
                     'icon_color'  => 'yellow',
                     'icon' => 'archive',
                     'permission' => 'view-inventory',
                 ],
-                [
-                    'text'  => 'Goods Receipt PO',
+                /*[
+                    'text'  => 'menu.Goods Receipt PO',
                     'url'   => 'inventories#/admin/goods_po/create',
                     'icon_color'  => 'yellow',
                     'icon' => 'check-square',
                     'permission' => 'view-inventory',
-                ],
+                ],*/
                 [
-                    'text'  => 'Goods Receipt',
+                    'text'  => 'menu.Goods Receipt',
                     'url'   => 'inventories#/admin/goods_receipt/create',
                     'icon_color'  => 'yellow',
                     'icon' => 'check-square',
                     'permission' => 'view-inventory',
                 ],
                 [
-                    'text'  => 'Goods Return',
-                    'url'   => 'inventories/goods_return',
+                    'text'  => 'menu.Goods Return',
+                    'url'   => 'inventories#/admin/goods_return/create',
                     'icon_color'  => 'yellow',
                     'icon' => 'undo',
                     'permission' => 'view-inventory',
                 ],
                 [
-                    'text'  => 'Goods Issue',
-                    'url'   => 'inventories/goods_issue',
+                    'text'  => 'menu.Goods Issue',
+                    'url'   => 'inventories#/admin/goods_issue/create',
                     'icon_color'  => 'yellow',
                     'icon' => 'exchange',
                     'permission' => 'view-inventory',
                 ],
                 [
-                    'text'  => 'Transfer Items',
-                    'url'   => 'inventories/transfer_item',
+                    'text'  => 'menu.Return items',
+                    'url'   => 'inventories#/admin/item_return/create',
                     'icon_color'  => 'yellow',
                     'icon' => 'retweet',
                     'permission' => 'view-inventory',
                 ],
                 [
-                    'text'  => 'Adjust Items',
-                    'url'   => 'inventories/adjust_item',
+                    'text'  => 'menu.Transfer items',
+                    'url'   => 'inventories#/admin/transfer_item/create',
+                    'icon_color'  => 'yellow',
+                    'icon' => 'retweet',
+                    'permission' => 'view-inventory',
+                ],
+                [
+                    'text'  => 'menu.Receipt transfer',
+                    'url'   => 'inventories#/admin/receipt_item',
+                    'icon_color'  => 'yellow',
+                    'icon' => 'retweet',
+                    'permission' => 'view-inventory',
+                ],
+                [
+                    'text'  => 'menu.Adjust items',
+                    'url'   => 'inventories#/admin/adjust_item/create',
                     'icon_color'  => 'yellow',
                     'icon' => 'adjust',
-                    'permission' => 'view-inventory-adjust',
+                    'permission' => 'view-inventory',
                 ],
                 [
                     'text'  => 'Daily Report',
                     'url'   => 'inventories/daily_report',
                     'icon_color'  => 'yellow',
                     'icon' => 'flag',
-                    'permission' => 'view-inventory-report',
+                    'permission' => 'view-inventory',
                 ],
                 [
                     'text'  => 'Summary Report',
                     'url'   => 'inventories/summary_report',
                     'icon_color'  => 'yellow',
                     'icon' => 'flag-checkered',
-                    'permission' => 'view-inventory-report',
+                    'permission' => 'view-inventory',
                 ],
                 
             ],

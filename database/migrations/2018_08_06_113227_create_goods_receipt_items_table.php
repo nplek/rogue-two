@@ -19,7 +19,9 @@ class CreateGoodsReceiptItemsTable extends Migration
             $table->foreign('doc_id')
                 ->references('id')
                 ->on('goods_receipts');
-            $table->string('docnum',16);
+            $table->string('docnum',25);
+            $table->string('acctcode',20)->nullable();
+            $table->unsignedInteger('docentry')->nullable()->comment('Doc Entry Reference SAP B1');
             $table->string('doctype',1)
             ->comment('P=Goods receiptPO,G=Goods receipt,I=Goods Issue,R=Goods Return,T=Transfer,A=Adjust');
             $table->string('itemcode',20);

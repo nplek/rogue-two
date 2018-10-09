@@ -15,18 +15,22 @@ class CreateGoodsReceiptsTable extends Migration
     {
         Schema::create('goods_receipts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('docnum',16);
+            $table->string('docnum',25);
+            $table->unsignedInteger('docentry')->nullable();
             $table->string('doctype',1)
-            ->comment('P=Goods receiptPO,G=Goods receipt,I=Goods Issue,R=Goods Return,T=Transfer,A=Adjust');    //P=Goods receiptPO,G=Goods receipt,I=Goods Issue,R=Goods Return,T=Transfer,A=Adjust
+            ->comment('P=Goods receiptPO,G=Goods receipt,I=Goods Issue,R=Goods Return,S=Return items,T=Transfer,A=Adjust');    //P=Goods receiptPO,G=Goods receipt,I=Goods Issue,R=Goods Return,T=Transfer,A=Adjust
             $table->string('docstatus',1);
-            $table->string('cardcode',15);
-            $table->string('cardname',100);
+            $table->string('cardcode',15)->nullable();
+            $table->string('cardname',100)->nullable();
+            $table->string('address',200)->nullable();
             $table->date('docdate');
             $table->date('shipdate');
-            $table->string('ref1',20)
+            $table->string('remark',200)->nullable()
+                ->comment('Remark');      //reference other
+            $table->string('ref1',20)->nullable()
                 ->comment('PO Number');      //reference po
             $table->string('ref2',20)->nullable()
-                ->comment('GR Number');      //reference
+                ->comment('GR Number');      //reference เลขที่ใบส่งของ
             $table->string('ref3',100)->nullable()
                 ->comment('Other reference');      //reference other
             $table->string('project_code',20)->nullable();   //project code
@@ -50,6 +54,7 @@ class CreateGoodsReceiptsTable extends Migration
             ->comment('employee id'); //employee id (Goods issue)
             $table->string('gtoemp_name',50)
             ->comment('employee name');   //employee name(Goods issue)
+            $table->string('pr_no',30)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

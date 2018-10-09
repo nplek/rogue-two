@@ -77,7 +77,16 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
         ],
-
+        'kbuild' => [
+            'driver' => 'sqlsrv',
+            'host' => env('KBUILD_DB_HOST', 'localhost'),
+            'port' => env('KBUILD_DB_PORT', '1433'),
+            'database' => env('KBUILD_DB_DATABASE', 'forge'),
+            'username' => env('KBUILD_DB_USERNAME', 'forge'),
+            'password' => env('KBUILD_DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+        ],
     ],
 
     /*

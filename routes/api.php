@@ -108,12 +108,17 @@ Route::group(['middleware' => 'auth:api'], function(){
             Route::resource('inventories', 'InventoryController',['except' => ['create','edit']]);
             Route::post('inventories/{id}/restore','InventoryController@restore')->name('inventories.restore');
             Route::post('inventories/list','InventoryController@list')->name('inventories.list');
+            Route::get('inventories/items/{whs_id}','InventoryController@findItemByWhs')->name('inventories.list.itemwhs');
 
             Route::resource('goodsreceipts', 'GoodsReceiptController',['except' => ['create','edit']]);
-            Route::post('goodsreceipts/{id}/restore','GoodsReceiptController@restore')->name('goodsreceipts.restore');
             Route::post('goodsreceipts/list','GoodsReceiptController@list')->name('goodsreceipts.list');
             Route::get('goodsreceipts/{item_id}/items/{whs_id}','GoodsReceiptController@findItemByWhs')->name('goodsreceipts.list.itemwhs');
             Route::post('goodsreceipts/docnum','GoodsReceiptController@dummyDoc')->name('goodsreceipts.docnum');
+
+            Route::resource('goodspos', 'GoodsReceiptPOController',['except' => ['create','edit']]);
+            Route::post('goodspos/list','GoodsReceiptPOController@list')->name('goodspos.list');
+            Route::get('goodspos/po/docnum/{docnum}','GoodsReceiptPOController@findPOByDocnum')->name('goodspos.list.docnum');
+            Route::post('goodspos/docnum','GoodsReceiptPOController@dummyDoc')->name('goodspos.docnum');
 
             Route::resource('whs', 'WarehouseController',['except' => ['create','edit']]);
             Route::post('whs/{id}/restore','WarehouseController@restore')->name('whs.restore');
@@ -122,6 +127,36 @@ Route::group(['middleware' => 'auth:api'], function(){
             Route::resource('bps', 'BusinessPartnerController',['except' => ['create','edit']]);
             Route::post('bps/{id}/restore','BusinessPartnerController@restore')->name('bps.restore');
             Route::post('bps/list','BusinessPartnerController@list')->name('bps.list');
+
+            Route::resource('goodsissues', 'GoodsIssueController',['except' => ['create','edit']]);
+            Route::post('goodsissues/{id}/restore','GoodsIssueController@restore')->name('goodsissues.restore');
+            Route::post('goodsissues/list','GoodsIssueController@list')->name('goodsissues.list');
+            Route::get('goodsissues/{item_id}/items/{whs_id}','GoodsIssueController@findItemByWhs')->name('goodsissues.list.itemwhs');
+            Route::post('goodsissues/docnum','GoodsIssueController@dummyDoc')->name('goodsissues.docnum');
+
+            Route::resource('goodsreturns', 'GoodsReturnController',['except' => ['create','edit']]);
+            Route::post('goodsreturns/list','GoodsReturnController@list')->name('goodsreturns.list');
+            Route::get('goodsreturns/{item_id}/items/{whs_id}','GoodsReturnController@findItemByWhs')->name('goodsreturns.list.itemwhs');
+            Route::post('goodsreturns/docnum','GoodsReturnController@dummyDoc')->name('goodsreturns.docnum');
+
+            Route::resource('returnitems', 'ReturnItemController',['except' => ['create','edit']]);
+            Route::post('returnitems/list','ReturnItemController@list')->name('returnitems.list');
+            Route::get('returnitems/{item_id}/items/{whs_id}','ReturnItemController@findItemByWhs')->name('returnitems.list.itemwhs');
+            Route::post('returnitems/docnum','ReturnItemController@dummyDoc')->name('returnitems.docnum');
+
+            Route::resource('tranitems', 'TransferItemController',['except' => ['create','edit']]);
+            Route::post('tranitems/list','TransferItemController@list')->name('tranitems.list');
+            Route::get('tranitems/{item_id}/items/{whs_id}','TransferItemController@findItemByWhs')->name('tranitems.list.itemwhs');
+            Route::post('tranitems/docnum','TransferItemController@dummyDoc')->name('tranitems.docnum');
+
+            Route::resource('adjustitems', 'AdjustItemController',['except' => ['create','edit']]);
+            Route::post('adjustitems/list','AdjustItemController@list')->name('adjustitems.list');
+            Route::get('adjustitems/{item_id}/items/{whs_id}','AdjustItemController@findItemByWhs')->name('adjustitems.list.itemwhs');
+            Route::post('adjustitems/docnum','AdjustItemController@dummyDoc')->name('adjustitems.docnum');
+
+
+            Route::get('purchaseorders/docnum/{docnum}','PurchaseController@findDocnum')->name('purchaseorders.docnum');
+            Route::get('purchaseorders/docnum/list/{docnum}','PurchaseController@findDocnumList')->name('purchaseorders.list.docnum');
         });
     });
 });
